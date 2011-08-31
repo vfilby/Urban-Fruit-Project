@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @fruit_cache.Name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @fruit_cache.Description %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @fruit_cache.Rating %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @fruit_cache.Latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @fruit_cache.Longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_fruit_cache_path(@fruit_cache) %> |
+<%= link_to 'Back', fruit_caches_path %>
