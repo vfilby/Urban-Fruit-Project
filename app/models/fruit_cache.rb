@@ -24,4 +24,7 @@ class FruitCache < ActiveRecord::Base
       }
     end
   end
+  
+  after_save :update_tank_indexes
+  after_destroy :delete_tank_indexes
 end

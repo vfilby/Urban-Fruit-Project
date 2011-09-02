@@ -20,7 +20,7 @@ class SearchController < ApplicationController
         :var0 => location[0].latitude,
         :var1 => location[0].longitude,
         :function => 1,
-        :filter_functions => {1 => [['*', 10]]}
+        :filter_functions => {1 => [[-10,0]]}
       )
     end
     

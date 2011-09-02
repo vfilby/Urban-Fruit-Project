@@ -45,7 +45,6 @@ map.icons << Cartographer::Gicon.new
 
 
 @fruit_caches.each do |fruit_cache|
-  debugger
   marker = Cartographer::Gmarker.new(
     :name => "marker_"+fruit_cache.id.to_s,
     :marker_type => 'Building',
