@@ -26,10 +26,16 @@ gem 'sqlite3'
 gem 'json'
 gem 'geocoder'
 gem 'haml'
+gem 'indextank'
+gem 'tanker', :path => '/Users/vfilby/Projects/tanker' #:git => 'git://github.com/vfilby/tanker.git'
+gem 'will_paginate'
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :development, :test do
+   gem 'webrat'
+   gem 'ruby-debug'
+   gem 'awesome_print'
+end

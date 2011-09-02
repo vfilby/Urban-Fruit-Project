@@ -1,29 +1,29 @@
 class SearchController < ApplicationController
+  respond_to :html, :xml, :json
+    
   def index
+    @query = ''
+    @fruit_caches = []
     
-    city = request.location.city
-    country = request.location.country_code
     
-    logger.debug( "City: " + city )
-    logger.debug( "Country: " + country )
-    logger.debug( Geocoder.search( '24.150.170.42'))
-    
-    @map = Cartographer::Gmap.new( 'map' )
-      @map.zoom = :bound
-      @map.icons << Cartographer::Gicon.new
-      marker1 = Cartographer::Gmarker.new(:name=> "taj_mahal", :marker_type => "Building",
-                  :position => [27.173006,78.042086],
-                  :info_window_url => "/url_for_info_content")
-      marker2 = Cartographer::Gmarker.new(:name=> "raj_bhawan", :marker_type => "Building",
-                  :position => [28.614309,77.201353],
-                  :info_window_url => "/url_for_info_content")
+    if( !params[:q].nil? ) then
+      @query = params[:q]
+      logger.debug(params[:q])
+      location = Geocoder.search(params[:q])
 
-      @map.markers << marker1
-      @map.markers << marker2
       
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
+      logger.debug location[0].latitude
+      logger.debug location[0].longitude
+      
+      @fruit_caches = FruitCache.search_tank( 
+        '__type:FruitCache',
+        :var0 => location[0].latitude,
+        :var1 => location[0].longitude,
+        :function => 1,
+        :filter_functions => {1 => [['*', 10]]}
+      )
     end
+    
+    respond_with(@fruit_caches)
   end
 end

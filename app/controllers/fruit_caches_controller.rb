@@ -4,23 +4,6 @@ class FruitCachesController < ApplicationController
   def index
     @fruit_caches = FruitCache.all
     
-    @map = Cartographer::Gmap.new( 'map' )
-    @map.zoom = :bound
-    @map.icons << Cartographer::Gicon.new
-    
-    
-    for @fruit_cache in @fruit_caches
-      logger.debug( @fruit_cache )
-      marker = Cartographer::Gmarker.new(
-        :name => "taj_mahal",
-        :marker_type => 'Building',
-        :position => [@fruit_cache.Latitude,@fruit_cache.Longitude],
-        :info_window_url => "/url_for_info_content"
-      )
-      logger.debug( marker )
-      @map.markers << marker     
-    end
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @fruit_caches }

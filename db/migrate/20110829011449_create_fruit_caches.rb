@@ -1,11 +1,11 @@
 class CreateFruitCaches < ActiveRecord::Migration
   def self.up
     create_table :fruit_caches do |t|
-      t.string :Name
-      t.string :Description
-      t.integer :Rating
-      t.float :Latitude
-      t.float :Longitude
+      t.string :name
+      t.string :description
+      t.integer :rating
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

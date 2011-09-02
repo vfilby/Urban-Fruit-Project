@@ -1,3 +1,9 @@
+PATH
+  remote: /Users/vfilby/Projects/tanker
+  specs:
+    tanker (1.1.4)
+      json (>= 1.5.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -28,20 +34,36 @@ GEM
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
     activesupport (3.0.9)
+    addressable (2.2.6)
     arel (2.0.10)
+    awesome_print (0.4.0)
     builder (2.1.2)
+    columnize (0.3.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    faraday (0.7.4)
+      addressable (~> 2.2.6)
+      multipart-post (~> 1.1.0)
+      rack (>= 1.1.0, < 2)
+    faraday-stack (0.1.3)
+      faraday (~> 0.6)
     geocoder (1.0.2)
     haml (3.1.2)
     i18n (0.5.0)
+    indextank (1.0.12)
+      faraday-stack
+      yajl-ruby (>= 0.7.7)
     json (1.5.3)
+    linecache (0.46)
+      rbx-require-relative (> 0.0.4)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    multipart-post (1.1.3)
+    nokogiri (1.5.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.14)
@@ -63,19 +85,37 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.4)
     rake (0.9.2)
+    rbx-require-relative (0.0.5)
     rdoc (3.6.1)
+    ruby-debug (0.10.4)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
+      linecache (>= 0.3)
     sqlite3 (1.3.3)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
+    webrat (0.7.3)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
+    will_paginate (2.3.15)
+    yajl-ruby (0.8.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   geocoder
   haml
+  indextank
   json
   rails (= 3.0.9)
+  ruby-debug
   sqlite3
+  tanker!
+  webrat
+  will_paginate

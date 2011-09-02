@@ -1,6 +1,61 @@
 <h1>Search Page</h1>
 
-# for Rails 3+ you need to make use of 'raw'
-  <%= raw Cartographer::Header.new.to_s %>
-  <%= raw @map.to_html %>
-  <div style="width:600px;height:400px;" id="map" > [Map] </div>
+<%= form_tag( "/search", :method => "get") do %>
+  <%= label_tag( :q, "Where are you?" ) %>
+  <%= text_field_tag :q, @query %>
+  <%= submit_tag( "Search" )%>
+<% end %>
+
+<h1>Search results</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Rating</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fruit_caches.each do |fruit_cache| %>
+  <tr>
+    <td><%= fruit_cache.name %></td>
+    <td><%= fruit_cache.description %></td>
+    <td><%= fruit_cache.rating %></td>
+    <td><%= fruit_cache.latitude %></td>
+    <td><%= fruit_cache.longitude %></td>
+    <td><%= link_to 'Show', fruit_cache %></td>
+    <td><%= link_to 'Edit', edit_fruit_cache_path(fruit_cache) %></td>
+    <td><%= link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<% 
+
+map = Cartographer::Gmap.new( 'map' )
+map.zoom = :bound
+map.icons << Cartographer::Gicon.new
+
+
+@fruit_caches.each do |fruit_cache|
+  debugger
+  marker = Cartographer::Gmarker.new(
+    :name => "marker_"+fruit_cache.id.to_s,
+    :marker_type => 'Building',
+    :position => [fruit_cache.latitude,fruit_cache.longitude],
+    :info_window_url => fruit_cache_path(fruit_cache.id) )
+  map.markers << marker     
+end
+
+%>
+
+<%= raw Cartographer::Header.new.to_s %>
+<%= raw map.to_html %>
+<div style="width:600px;height:400px;" id="map" > [Map] </div>

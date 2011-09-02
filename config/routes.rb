@@ -1,7 +1,7 @@
 Urbanfruitproject::Application.routes.draw do
   resources :fruit_caches, :path => 'caches'
 
-  match 'search' => 'search#index'
+  match 'search(/:q)' => 'search#index'
   
   root :to => 'home#index'
   

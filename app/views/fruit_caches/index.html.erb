@@ -14,11 +14,11 @@
 
 <% @fruit_caches.each do |fruit_cache| %>
   <tr>
-    <td><%= fruit_cache.Name %></td>
-    <td><%= fruit_cache.Description %></td>
-    <td><%= fruit_cache.Rating %></td>
-    <td><%= fruit_cache.Latitude %></td>
-    <td><%= fruit_cache.Longitude %></td>
+    <td><%= fruit_cache.name %></td>
+    <td><%= fruit_cache.description %></td>
+    <td><%= fruit_cache.rating %></td>
+    <td><%= fruit_cache.latitude %></td>
+    <td><%= fruit_cache.longitude %></td>
     <td><%= link_to 'Show', fruit_cache %></td>
     <td><%= link_to 'Edit', edit_fruit_cache_path(fruit_cache) %></td>
     <td><%= link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -30,6 +30,25 @@
 
 <%= link_to 'New Fruit cache', new_fruit_cache_path %>
 
+<% 
+
+map = Cartographer::Gmap.new( 'map' )
+map.zoom = :bound
+map.icons << Cartographer::Gicon.new
+
+
+@fruit_caches.each do |fruit_cache|
+  logger.debug( fruit_cache )
+  marker = Cartographer::Gmarker.new(
+    :name => "marker_"+fruit_cache.id.to_s,
+    :marker_type => 'Building',
+    :position => [fruit_cache.latitude,fruit_cache.longitude],
+    :info_window_url => fruit_cache_path(fruit_cache.id) )
+  map.markers << marker     
+end
+
+%>
+
 <%= raw Cartographer::Header.new.to_s %>
-<%= raw @map.to_html %>
+<%= raw map.to_html %>
 <div style="width:600px;height:400px;" id="map" > [Map] </div>
