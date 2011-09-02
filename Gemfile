@@ -27,7 +27,7 @@ gem 'json'
 gem 'geocoder'
 gem 'haml'
 gem 'indextank'
-gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #:git => 'git://github.com/vfilby/tanker.git'
+gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
 gem 'will_paginate'
 
 
@@ -36,6 +36,6 @@ gem 'will_paginate'
 # and rake tasks are available in development mode:
 group :development, :test do
    gem 'webrat'
-   gem 'ruby-debug
+   gem 'ruby-debug'
    gem 'awesome_print'
 end
