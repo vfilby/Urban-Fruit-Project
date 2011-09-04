@@ -99,8 +99,7 @@
     handleRemote: function(element) {
       var method, url, data,
         crossDomain = element.data('cross-domain') || null,
-        dataType = element.data('type') || ($.ajaxSettings && $.ajaxSettings.dataType),
-        options;
+        dataType = element.data('type') || ($.ajaxSettings && $.ajaxSettings.dataType);
 
       if (rails.fire(element, 'ajax:before')) {
 
@@ -144,8 +143,8 @@
             element.trigger('ajax:error', [xhr, status, error]);
           }
         };
-        // Only pass url to `ajax` options if not blank
-        if (url) { options.url = url; }
+        // Do not pass url to `ajax` options if blank
+        if (url) { $.extend(options, { url: url }); }
 
         rails.ajax(options);
       }

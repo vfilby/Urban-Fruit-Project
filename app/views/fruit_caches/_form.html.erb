@@ -23,6 +23,32 @@
     <%= f.label :rating %><br />
     <%= f.text_field :rating %>
   </div>
+  <% 
+  # Default to the cache lat/long, if none assume it's a new cache and
+  # default to the users ip geolocation
+  latitude = @fruit_cache.latitude || request.location.latitude || 0.0
+  longitude = @fruit_cache.longitude || request.location.longitude || 0.0
+  
+  map = Cartographer::Gmap.new( 'geocode_map' )
+  map.zoom = 16
+  map.center = [latitude, longitude]
+  map.icons << Cartographer::Gicon.new
+
+  #TODO: When unknown center marker on the users ip-geolocation
+  marker = Cartographer::Gmarker.new(
+    :name => 'geolocation_marker',
+    :marker_type => 'Building',
+    :position => [latitude, longitude],
+    :draggable => true,
+    :drag_end => 'HandleGeocodeEvent( mouseEvent )'
+  )
+  map.markers << marker
+  %>
+  
+  <%= raw Cartographer::Header.new.to_s %>
+  <%= raw map.to_html %>
+  <div style="width:600px;height:400px;" id="geocode_map" > [Map] </div>
+  
   <div class="field">
     <%= f.label :latitude %><br />
     <%= f.text_field :latitude %>
@@ -34,4 +60,11 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <script type="text/javascript">
+  function HandleGeocodeEvent( mouseEvent ) {
+    $( '#fruit_cache_latitude' ).val( mouseEvent.latLng.lat() );
+    $( '#fruit_cache_longitude' ).val( mouseEvent.latLng.lng() );
+    
+  }
+  </script>
 <% end %>

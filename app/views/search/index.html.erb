@@ -49,7 +49,8 @@ map.icons << Cartographer::Gicon.new
     :name => "marker_"+fruit_cache.id.to_s,
     :marker_type => 'Building',
     :position => [fruit_cache.latitude,fruit_cache.longitude],
-    :info_window_url => fruit_cache_path(fruit_cache.id) )
+    :info_window_url => fruit_cache_path(fruit_cache.id)
+  )
   map.markers << marker     
 end
 
