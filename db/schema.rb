@@ -10,16 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110829011449) do
+ActiveRecord::Schema.define(:version => 20110904144815) do
 
   create_table "fruit_caches", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "rating"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.string    "name"
+    t.string    "description"
+    t.integer   "rating"
+    t.float     "latitude"
+    t.float     "longitude"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "log_entries", :force => true do |t|
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "fruit_cache_id"
   end
 
 end

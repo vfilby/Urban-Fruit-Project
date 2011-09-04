@@ -1,5 +1,7 @@
 class FruitCache < ActiveRecord::Base
   include Tanker
+  
+  has_many :log_entries
     
   tankit 'cache_index' do
     indexes :name

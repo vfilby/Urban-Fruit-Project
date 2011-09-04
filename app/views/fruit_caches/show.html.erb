@@ -25,6 +25,16 @@
   <%= @fruit_cache.longitude %>
 </p>
 
+<h2>logs</h2>
+  <% @fruit_cache.log_entries.each do |log| %>
+    <div class="log_entry">
+      <div class="text">
+        <%= log.text %>
+      </div>
+    </div>
+      
+  <% end %>
 
+<%= link_to 'Add log entry', new_fruit_cache_log_entry_path( @fruit_cache )%>
 <%= link_to 'Edit', edit_fruit_cache_path(@fruit_cache) %> |
 <%= link_to 'Back', fruit_caches_path %>

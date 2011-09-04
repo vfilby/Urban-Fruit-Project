@@ -1,0 +1,23 @@
+<h1>Listing log_entries</h1>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @log_entries.each do |log_entry| %>
+  <tr>
+    <td><%= log_entry.text %></td>
+    <td><%= link_to 'Show', log_entry %></td>
+    <td><%= link_to 'Edit', edit_log_entry_path(log_entry) %></td>
+    <td><%= link_to 'Destroy', log_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Log entry', new_fruit_caceh_log_entry_path( @fruit_cache ) %>
