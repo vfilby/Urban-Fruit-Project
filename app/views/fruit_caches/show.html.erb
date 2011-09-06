@@ -25,6 +25,19 @@
   <%= @fruit_cache.longitude %>
 </p>
 
+<h3 id="photos_count"><%= pluralize(@fruit_cache.images.size, "Photo")%></h3>
+<div id="images"> <%= render :partial => @fruit_cache.images %>
+</div>
+<%= render :partial => "show" %>
+<h3>Upload a Photo</h3> 
+<%= form_for Image.new(:fruit_cache_id => @fruit_cache.id), :html => {:multipart => true} do |f| %> 
+	<%= f.hidden_field :fruit_cache_id, "value" => @fruit_cache.id %>
+<p><%= f.file_field :photo %> </p>
+<p><%= f.submit "Upload" %></p> 
+
+<% end %>
+
+
 <h2>logs</h2>
   <% @fruit_cache.log_entries.each do |log| %>
     <div class="log_entry">

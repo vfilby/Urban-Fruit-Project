@@ -30,7 +30,9 @@ gem 'haml'
 gem 'indextank'
 gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
 gem 'will_paginate'
-
+gem 'paperclip'
+gem 'aws-s3', :require => 'aws/s3'
+gem 'mime-types', :require => 'mime/types'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

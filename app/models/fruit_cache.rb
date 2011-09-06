@@ -2,8 +2,15 @@ class FruitCache < ActiveRecord::Base
   include Tanker
   
   has_many :log_entries
+  has_many :images, :dependent => :destroy
+  accepts_nested_attributes_for :images, :allow_destroy => true#, :reject_if => lambda { |t| t('trip_image').nil? }
     
-  tankit 'cache_index' do
+  after_save :update_tank_indexes
+  after_destroy :delete_tank_indexes
+  
+  
+  
+  tankit Rails.configuration.indextank_index do
     indexes :name
     indexes :description
     variables do 
@@ -12,21 +19,7 @@ class FruitCache < ActiveRecord::Base
           1 => longitude
       }
     end
-      
-    functions do
-      {
-        # This function is good for sorting your results. It will
-        # rank relevant, close results higher and irrelevant, distant results lower
-        1 => "relevance / miles(d[0], d[1], q[0], q[1])",
-
-        # This function is useful for limiting the results that your query returns.
-        # It just calculates the distance of each document in miles, which you can use
-        # in your query. Notice that we're using 0 and 1 consistently as 'lat' and 'lng'
-        2 => "miles(d[0], d[1], q[0], q[1])"
-      }
-    end
   end
   
-  after_save :update_tank_indexes
-  after_destroy :delete_tank_indexes
+
 end

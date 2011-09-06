@@ -1,4 +1,4 @@
-<%= form_for(@fruit_cache) do |f| %>
+<%= form_for @fruit_cache, :html => {:multipart => true} do |f| %>
   <% if @fruit_cache.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fruit_cache.errors.count, "error") %> prohibited this fruit_cache from being saved:</h2>
@@ -57,6 +57,21 @@
     <%= f.label :longitude %><br />
     <%= f.text_field :longitude %>
   </div>
+  
+  <%= f.fields_for :images do |builder| %>
+    <% if builder.object.new_record? %>
+    <p>
+      <%= builder.label :caption, 'Image caption' %>
+      <%= builder.text_field :caption %>
+    </p>
+  
+    <p>
+      <%= builder.label :photo, "File" %>
+      <%= builder.file_field :photo %>
+    </p>
+    <% end %>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

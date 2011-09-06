@@ -1,0 +1,4 @@
+<div class="upload"> 
+	<%= image_tag image.photo.url(:small) %>
+	<%= link_to 'Remove image', image_path(image, :redirect_to => fruit_cache_path(@fruit_cache)), :method => :delete %>
+</div>

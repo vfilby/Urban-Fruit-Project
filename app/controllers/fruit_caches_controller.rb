@@ -14,7 +14,6 @@ class FruitCachesController < ApplicationController
   # GET /fruit_caches/1.xml
   def show
     @fruit_cache = FruitCache.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fruit_cache }
@@ -25,7 +24,8 @@ class FruitCachesController < ApplicationController
   # GET /fruit_caches/new.xml
   def new
     @fruit_cache = FruitCache.new
-
+    @fruit_cache.images.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @fruit_cache }
@@ -39,11 +39,9 @@ class FruitCachesController < ApplicationController
 
   # POST /fruit_caches
   # POST /fruit_caches.xml
-  def create
+  def create    
     @fruit_cache = FruitCache.new(params[:fruit_cache])
 
-    logger.debug "FruitCache:"
-    logger.debug @fruit_cache
     respond_to do |format|
       if @fruit_cache.save
         format.html { redirect_to(@fruit_cache, :notice => 'Fruit cache was successfully created.') }

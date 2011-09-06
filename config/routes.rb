@@ -1,9 +1,11 @@
 Urbanfruitproject::Application.routes.draw do
 
 
+  resources :images
   resources :fruit_caches, :path => 'caches' do
     resources :log_entries, :path => 'logs'
   end
+  
 
   match 'search(/:q)' => 'search#index'
   
