@@ -58,20 +58,6 @@
     <%= f.text_field :longitude %>
   </div>
   
-  <%= f.fields_for :images do |builder| %>
-    <% if builder.object.new_record? %>
-    <p>
-      <%= builder.label :caption, 'Image caption' %>
-      <%= builder.text_field :caption %>
-    </p>
-  
-    <p>
-      <%= builder.label :photo, "File" %>
-      <%= builder.file_field :photo %>
-    </p>
-    <% end %>
-  <% end %>
-  
   <div class="actions">
     <%= f.submit %>
   </div>
