@@ -1,10 +1,19 @@
 Urbanfruitproject::Application.routes.draw do
 
-
+  get "log_in" => "authorizations#index", :as => "log_in"
+  get "sign_up" => "authorizations#index", :as => "sign_up"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  
+  match "/auth/:provider/callback" => "authorizations#create"
+  
+  resources :users
+  resources :authorizations
+  resources :sessions
   resources :images
   resources :fruit_caches, :path => 'caches' do
     resources :log_entries, :path => 'logs'
   end
+  
   
 
   match 'search(/:q)' => 'search#index'

@@ -3,3 +3,4 @@ db/*.sqlite3
 log/*.log
 .powrc
 tmp/
+.DS_Store

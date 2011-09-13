@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904150702) do
+ActiveRecord::Schema.define(:version => 20110907043527) do
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fruit_caches", :force => true do |t|
     t.string    "name"
@@ -23,21 +31,30 @@ ActiveRecord::Schema.define(:version => 20110904150702) do
   end
 
   create_table "images", :force => true do |t|
-    t.string   "caption"
-    t.integer  "fruit_cache_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string    "caption"
+    t.integer   "fruit_cache_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.timestamp "photo_updated_at"
   end
 
   create_table "log_entries", :force => true do |t|
-    t.string   "text"
+    t.string    "text"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "fruit_cache_id"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "fruit_cache_id"
+    t.string   "name"
   end
 
 end
