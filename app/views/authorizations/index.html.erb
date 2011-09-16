@@ -14,6 +14,7 @@
      <div class="clear"></div>
     </div>
    <% end %>
+   <p><%= link_to "remove current user", current_user, :confirm => 'are you sure?', :method => :delete %></p>
    <p><strong>Add another service to sign in with:</strong></p>  
   <% else %>
   <p><strong>Sign in through one of these services:</strong></p>  

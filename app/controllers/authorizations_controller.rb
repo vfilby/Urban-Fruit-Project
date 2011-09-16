@@ -10,7 +10,6 @@ class AuthorizationsController < ApplicationController
   end
 
   def create
-    debugger
     auth = request.env['omniauth.auth']
     authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
     if authorization
@@ -19,23 +18,32 @@ class AuthorizationsController < ApplicationController
       redirect_to root_url
 
     elsif current_user
-      current_user.authorizations.create(:provider => auth['provider'], :uid => auth['uid'])
+      current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'])
       flash[:notice] = "Authorization added to your account"
       redirect_to authorizations_url
     else
       user = User.new
-      user.authorizations.build(:provider => auth['provider'], :uid => auth['uid'])
-      user.save!
-      flash[:notice] = "Signed in, new user created"
-      session[:user_id] = user
-      redirect_to root_url
+      user.build_authorization( auth )
+      if user.save
+        flash[:notice] = "Signed in successfully."
+        session[:user_id] = user
+        redirect_to root_url
+      else
+        flash[:notice] = "We need a bit more information"
+        session[:omniauth] = auth.except('extra')
+        redirect_to new_user_path
+      end
     end
   end
 
   def destroy
-    @authorization = current_user.authorizations.find(params[:id])
-    @authorization.destroy
-    flash[:notice] = "Successfully destroyed authorization"
+    if current_user.authorizations.length == 1 
+      flash[:error] = "You must have at least one authorization."
+    elsif
+      @authorization = current_user.authorizations.find(params[:id])
+      @authorization.destroy
+      flash[:notice] = "Successfully destroyed authorization"
+    end
     redirect_to authorizations_url
   end
 

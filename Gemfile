@@ -34,6 +34,7 @@ gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'mime-types', :require => 'mime/types'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'sorcery'
 gem 'omniauth', '>= 0.2.6'
 
 # Bundle gems for the local environment. Make sure to
