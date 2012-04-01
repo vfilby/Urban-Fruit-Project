@@ -20,8 +20,12 @@
     <td><%= fruit_cache.latitude %></td>
     <td><%= fruit_cache.longitude %></td>
     <td><%= link_to 'Show', fruit_cache %></td>
-    <td><%= link_to 'Edit', edit_fruit_cache_path(fruit_cache) %></td>
-    <td><%= link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if can? :edit, fruit_cache %>
+      <td><%= link_to 'Edit', edit_fruit_cache_path(fruit_cache) %></td>
+    <% end %>
+    <% if can? :delete, fruit_cache %>
+      <td><%= link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

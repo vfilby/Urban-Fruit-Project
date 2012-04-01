@@ -33,15 +33,17 @@ class FruitCachesController < ApplicationController
   end
 
   # GET /fruit_caches/1/edit
-  def edit
+  def edit  
     @fruit_cache = FruitCache.find(params[:id])
+    authorize! :edit, @fruit_cache
   end
 
   # POST /fruit_caches
   # POST /fruit_caches.xml
   def create    
     @fruit_cache = FruitCache.new(params[:fruit_cache])
-
+    @fruit_cache.user = current_user
+    
     respond_to do |format|
       if @fruit_cache.save
         format.html { redirect_to(@fruit_cache, :notice => 'Fruit cache was successfully created.') }
@@ -57,6 +59,7 @@ class FruitCachesController < ApplicationController
   # PUT /fruit_caches/1.xml
   def update
     @fruit_cache = FruitCache.find(params[:id])
+    authorize! :update, @fruit_cache
 
     respond_to do |format|
       if @fruit_cache.update_attributes(params[:fruit_cache])
@@ -73,6 +76,8 @@ class FruitCachesController < ApplicationController
   # DELETE /fruit_caches/1.xml
   def destroy
     @fruit_cache = FruitCache.find(params[:id])
+    authorize! :delete, @fruit_cache
+    
     @fruit_cache.destroy
 
     respond_to do |format|

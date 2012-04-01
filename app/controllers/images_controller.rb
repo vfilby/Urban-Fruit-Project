@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   # GET /uploads/1
   # GET /uploads/1.xml
   def show
-    debugger
+    #debugger
     @image = Image.find(params[:id])
   end
 
@@ -40,7 +40,7 @@ class ImagesController < ApplicationController
     @image = Image.new(newparams[:image])
     if @image.save
       flash[:notice] = "Successfully created Image."
-      debugger
+      #debugger
       respond_to do |format|
         format.html {redirect_to @image.fruit_cache}
         format.json {render :json => { :result => 'success', :image => image_path(@image) } }

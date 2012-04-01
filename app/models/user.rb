@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :authorizations, :dependent => :destroy
+  has_many :fruit_caches, :class_name => "fruit_cache", :foreign_key => "user_id"
+  
   validates_presence_of :email, :message => "can't be blank"
   validates_presence_of :name, :message => "can't be blank"
 

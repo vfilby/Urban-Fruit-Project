@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     end
     @user = User.new
     @user.valid?
-    debugger
+    #debugger
   end
   
   def create

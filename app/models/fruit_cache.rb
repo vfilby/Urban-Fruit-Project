@@ -1,6 +1,7 @@
 class FruitCache < ActiveRecord::Base
   include Tanker
   
+  belongs_to :user, :class_name => "User", :foreign_key => "user_id"
   has_many :log_entries
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true#, :reject_if => lambda { |t| t('trip_image').nil? }
