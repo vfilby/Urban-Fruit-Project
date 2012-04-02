@@ -24,22 +24,25 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'json'
 gem 'geocoder'
 gem 'haml'
-gem 'indextank'
-gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
+#gem 'indextank'
+#gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'mime-types', :require => 'mime/types'
 gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'sorcery'
-gem 'omniauth', '>= 0.2.6'
+gem 'omniauth', '~> 0.3.2' #, '~> 1.0'
+#gem 'omniauth-openid'
+#gem 'omniauth-twitter'
+#gem 'omniauth-facebook'
 gem 'cancan'
+gem 'exception_notification'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-   gem 'webrat'
+   #gem 'webrat'
    gem 'ruby-debug19', :require => 'ruby-debug'
    gem 'awesome_print'
 end

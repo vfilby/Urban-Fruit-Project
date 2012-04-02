@@ -11,7 +11,7 @@ class FlashSessionCookieMiddleware
       req = Rack::Request.new(env)
       env['HTTP_COOKIE'] = [ @session_key,
                              req.params[@session_key] ].join('=').freeze unless req.params[@session_key].nil?
-      #env['HTTP_ACCEPT'] = "#{req.params['_http_accept']}".freeze unless req.params['_http_accept'].nil?
+      env['HTTP_ACCEPT'] = "#{req.params['_http_accept']}".freeze unless req.params['_http_accept'].nil?
     end
     @app.call(env)
   end
