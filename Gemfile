@@ -24,8 +24,8 @@ gem 'jquery-rails', '>= 1.0.12'
 gem 'json'
 gem 'geocoder'
 gem 'haml'
-#gem 'indextank'
-#gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
+gem 'indextank'
+gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
@@ -37,6 +37,7 @@ gem 'omniauth', '~> 0.3.2' #, '~> 1.0'
 #gem 'omniauth-facebook'
 gem 'cancan'
 gem 'exception_notification'
+gem 'css-bootstrap-rails'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
