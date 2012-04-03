@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title
+      = content_for?(:title) ? yield(:title) : "Untitled" 
+    = stylesheet_link_tag    "application" 
+    = javascript_include_tag "application" 
+    = csrf_meta_tags
+
+  %body
+    .user_nav
+      - if current_user
+        Logged in as 
+        = link_to current_user.email, authorizations_path
+        = link_to "Log out", log_out_path
+      - else
+        = link_to "Sign up", sign_up_path 
+        or
+        = link_to "log in", log_in_path
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+
+    
+    = content_tag :h1, yield(:title) if show_title?
+
+    = yield 
+
