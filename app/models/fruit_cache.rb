@@ -20,6 +20,18 @@ class FruitCache < ActiveRecord::Base
           1 => longitude
       }
     end
+
+    # You may defined some server-side functions that can be
+    # referenced in your queries. They're always referenced by
+    # their integer key:
+    functions do
+      {
+        1 => '-km(query.var[0], query.var[1], doc.var[0], doc.var[1])',
+        2 => 'km(query.var[0], query.var[1], doc.var[0], doc.var[1])',
+        3 => '-age',
+        4 => 'age',
+      }
+    end
   end
   
 
