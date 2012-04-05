@@ -5,7 +5,7 @@ gem 'rails', '3.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -44,11 +44,16 @@ gem 'cancan'
 gem 'exception_notification'
 gem 'css-bootstrap-rails'
 
+group :production do
+  gem 'pg'
+end
+
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-   #gem 'webrat'
-   gem 'ruby-debug19', :require => 'ruby-debug'
-   gem 'awesome_print'
+  gem 'sqlite3'
+  #gem 'webrat'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'awesome_print'
 end
