@@ -1,8 +1,10 @@
-%h1 Urban Fruit Project
-%h3 Let the games begin
-
-.about There are many hidden fruit trees on public land, trails or on roadsides.  These trees and bushes can be a bountiful supply of many good things.. if you know where they are.  Here is that knowledge.  If you know of fruit, share it.  If you need fruit, go get it.
-
-%a{ :href => '/search' } Find fruit!
-%a{ :href => fruit_caches_url } See all the fruits
-%a{ :href => new_fruit_cache_url } Record your find
+.hero-unit
+  %h1
+    Urban Fruit Project
+  %p
+    There are many hidden fruit trees on public land, trails or on roadsides.  These trees and bushes can be a bountiful supply of many good things.. if you know where they are.  Here is that knowledge.  If you know of fruit, share it.  If you need fruit, go get it.
+  %p
+    %a{ :class => "btn btn-primary btn-large", :href => sign_up_path  } Join
+    %a{ :class => "btn btn-large", :href => '/search' } Find fruit!
+    %a{ :class => "btn btn-large", :href => fruit_caches_url } See all the fruits
+    %a{ :class => "btn btn-large", :href => new_fruit_cache_url } Record your find

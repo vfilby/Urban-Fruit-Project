@@ -23,24 +23,27 @@
               %a{ href: "/caches/new" }
                 New Cache
             
-          = form_tag( "/search", :method => "get", class: "pull-right navbar-search" ) do
+          = form_tag( "/search", :method => "get", class: "navbar-search" ) do
             = text_field_tag( :q, @query, placeholder: "Search", class: "search-query" )
-            
-    .container
-      .subnav-fixed
-        - if current_user
-          Logged in as 
-          = link_to current_user.email, authorizations_path
-          = link_to "Log out", log_out_path
-        - else
-          = link_to "Sign up", sign_up_path 
-          or
-          = link_to "log in", log_in_path
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+          %ul.nav.pull-right
+            - if current_user
+              %li.dropdown
+                %a.dropdown-toggle{ :href=>"#", :'data-toggle'=>"dropdown" }
+                  = current_user.email 
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{:href=>authorizations_path} Profile
+                    %li.divider
+                    %a{:href=>log_out_path} Log out
+            - else
+              %li 
+                %a{:href=>sign_up_path} Join!
+              %li
+                %a{:href=>log_in_path} Sign in
 
+    .container
 
       = content_tag :h1, yield(:title) if show_title?
-
       = yield 
 
