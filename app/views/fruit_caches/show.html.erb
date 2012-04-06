@@ -1,3 +1,5 @@
+<% title( @fruit_cache.name ) %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -26,8 +28,19 @@
 </p>
 
 <h3 id="photos_count"><%= pluralize(@fruit_cache.images.size, "Photo")%></h3>
-<div id="images"> <%= render :partial => @fruit_cache.images %>
-</div>
+<ul class="thumbnails">
+  <% @fruit_cache.images.each do |image| %>
+    <li>
+      <div class="thumbnail">
+        <%= image_tag image.photo.url(:small) %>
+        <p><%= image.caption %></p>
+        <% if can? :delete, image %>
+          <%= link_to 'Remove image', image_path(image, :redirect_to => fruit_cache_path(image.fruit_cache)), :method => :delete %>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
 <%= render :partial => "show" %>
 <h3>Upload a Photo</h3> 
 <%= form_for Image.new(:fruit_cache_id => @fruit_cache.id), :html => {:multipart => true} do |f| %> 

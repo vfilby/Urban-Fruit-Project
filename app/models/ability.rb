@@ -10,5 +10,9 @@ class Ability
     can :manage, FruitCache do |cache|
       cache && cache.user == user
     end
+    
+    can :manage, Image do |image|
+      image.fruit_cache.user == user
+    end
   end
 end

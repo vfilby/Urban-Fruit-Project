@@ -15,6 +15,8 @@ class ImagesController < ApplicationController
   def show
     #debugger
     @image = Image.find(params[:id])
+    
+    authorize! :show, @image
   end
 
   # GET /uploads/new
@@ -31,11 +33,14 @@ class ImagesController < ApplicationController
   # GET /uploads/1/edit
   def edit
     @image = Image.find(params[:id])
+    
+    authorize! :edit, @image
   end
 
   # POST /uploads
   # POST /uploads.xml
   def create
+    
     newparams = coerce(params)
     @image = Image.new(newparams[:image])
     if @image.save
@@ -70,8 +75,10 @@ class ImagesController < ApplicationController
   # DELETE /uploads/1.xml
   def destroy
     @image = Image.find(params[:id])
-    @image.destroy
+    authorize! :destroy, @image
 
+    @image.destroy
+      
     respond_to do |format|
       format.html { redirect_to(params[:redirect_to] || images_url) }
       format.xml  { head :ok }
