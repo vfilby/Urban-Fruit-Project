@@ -12,12 +12,10 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a.brand{ href: "#" }
+          %a.brand{ href: "/" }
             Urban Fruit Project
           %ul.nav
-            %li 
-              %a{href:"/"} 
-                Home
+
             %li
               %a{ href: "/caches" }
                 Fruit Caches
@@ -29,7 +27,7 @@
             = text_field_tag( :q, @query, placeholder: "Search", class: "search-query" )
             
     .container
-      .user-nav  
+      .subnav-fixed
         - if current_user
           Logged in as 
           = link_to current_user.email, authorizations_path
