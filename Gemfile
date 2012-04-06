@@ -41,12 +41,8 @@ gem 'omniauth', '~> 0.3.2' #, '~> 1.0'
 #gem 'omniauth-twitter'
 #gem 'omniauth-facebook'
 gem 'cancan'
-gem 'exception_notification'
-gem 'css-bootstrap-rails'
+gem 'pg'
 
-group :production do
-  gem 'pg'
-end
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -54,6 +50,6 @@ end
 group :development, :test do
   gem 'sqlite3'
   #gem 'webrat'
-  gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'awesome_print'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'awesome_print'
 end
