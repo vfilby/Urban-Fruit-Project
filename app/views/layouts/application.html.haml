@@ -34,9 +34,14 @@
                   %b.caret
                 %ul.dropdown-menu
                   %li
-                    %a{:href=>authorizations_path} Profile
-                    %li.divider
-                    %a{:href=>log_out_path} Log out
+                    %a{:href=>authorizations_path} 
+                      %i.icon-user
+                      Profile
+                  %li.divider
+                  %li
+                    %a{:href=>log_out_path} 
+                      %i.icon-off
+                      Log out
             - else
               %li 
                 %a{:href=>sign_up_path} Join!

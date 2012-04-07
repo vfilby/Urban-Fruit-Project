@@ -9,6 +9,7 @@ class FruitCache < ActiveRecord::Base
   after_save :update_tank_indexes
   after_destroy :delete_tank_indexes
   
+  reverse_geocoded_by :latitude, :longitude
   acts_as_gmappable :process_geocoding => false
   
   tankit Rails.configuration.indextank_index do
