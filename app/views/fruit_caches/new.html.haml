@@ -1,0 +1,10 @@
+- title "Record Your Find"
+- if can? :create, FruitCache 
+  = render 'form'
+- else
+  .hero-unit
+    %h1 User account needed :'( 
+    %p We are terribly sorry but we need you to log in or create an account first before you can record your new found stash of goodies.  We promise it's easy!
+    %p
+      %a{ :class => "btn btn-primary btn-large", :href => log_in_path  } Log In
+      %a{ :class => "btn btn-large", :href => sign_up_path  } Create An Account
