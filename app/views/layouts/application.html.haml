@@ -7,6 +7,7 @@
     = stylesheet_link_tag    "application" 
     = javascript_include_tag "application" 
     = csrf_meta_tags
+    = yield :head
 
   %body
     .navbar.navbar-fixed-top
@@ -43,7 +44,16 @@
                 %a{:href=>log_in_path} Sign in
 
     .container
-
+      - if flash[:notice]
+        .alert.alert-success.fade.in
+          %a.close{ :'data-dismiss' => "alert"} ×
+          = flash[:notice]
+      - if flash[:warning]  
+        .alert.alert-error.fade.in
+          %a.close{ :'data-dismiss' => "alert"} ×
+          = flash[:warning]
+        
       = content_tag :h1, yield(:title) if show_title?
       = yield 
+    = yield :scripts
 

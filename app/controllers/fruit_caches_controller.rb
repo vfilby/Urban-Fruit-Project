@@ -1,8 +1,10 @@
 class FruitCachesController < ApplicationController
+  
   # GET /fruit_caches
   # GET /fruit_caches.xml
   def index
     @fruit_caches = FruitCache.all
+    @google_maps_json = @fruit_caches.to_gmaps4rails
     
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +16,9 @@ class FruitCachesController < ApplicationController
   # GET /fruit_caches/1.xml
   def show
     @fruit_cache = FruitCache.find(params[:id])
+    @json = @fruit_cache.to_gmaps4rails do |cache, marker|
+      "\"id\":#{cache.id}" 
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fruit_cache }
@@ -41,6 +46,7 @@ class FruitCachesController < ApplicationController
   # POST /fruit_caches
   # POST /fruit_caches.xml
   def create    
+    authorize! :create, FruitCache
     @fruit_cache = FruitCache.new(params[:fruit_cache])
     @fruit_cache.user = current_user
     

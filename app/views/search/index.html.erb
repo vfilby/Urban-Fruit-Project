@@ -28,34 +28,17 @@
     <td><%= fruit_cache.latitude %></td>
     <td><%= fruit_cache.longitude %></td>
     <td><%= link_to 'Show', fruit_cache %></td>
-    <td><%= link_to 'Edit', edit_fruit_cache_path(fruit_cache) %></td>
-    <td><%= link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if can? :edit, fruit_cache %>
+      <td><%= link_to 'Edit', edit_fruit_cache_path(fruit_cache) %></td>
+    <% end %>
+    <% if can? :destroy, fruit_cache %>
+      <td><%= link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<%= gmaps4rails(@google_maps_json)%>
 
-<% 
-
-map = Cartographer::Gmap.new( 'map' )
-map.zoom = :bound
-map.icons << Cartographer::Gicon.new
-
-
-@fruit_caches.each do |fruit_cache|
-  marker = Cartographer::Gmarker.new(
-    :name => "marker_"+fruit_cache.id.to_s,
-    :marker_type => 'Building',
-    :position => [fruit_cache.latitude,fruit_cache.longitude],
-    :info_window_url => fruit_cache_path(fruit_cache.id)
-  )
-  map.markers << marker     
-end
-
-%>
-
-<%= raw Cartographer::Header.new.to_s %>
-<%= raw map.to_html %>
-<div style="width:600px;height:400px;" id="map" > [Map] </div>

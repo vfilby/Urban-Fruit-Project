@@ -7,7 +7,9 @@ class Ability
     end
     
     can :read, :all
-    can :manage, FruitCache do |cache|
+    
+    can :create, FruitCache if user
+    can [:update, :delete], FruitCache do |cache|
       cache && cache.user == user
     end
     

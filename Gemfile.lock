@@ -65,6 +65,8 @@ GEM
     faraday-stack (0.1.5)
       faraday (>= 0.6, < 0.8)
     geocoder (1.1.1)
+    gmaps4rails (1.4.8)
+      json
     haml (3.1.4)
     hike (1.2.1)
     httparty (0.8.1)
@@ -230,6 +232,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.1.0)
   geocoder
+  gmaps4rails
   haml
   indextank
   jquery-rails

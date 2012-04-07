@@ -23,31 +23,22 @@
     <%= f.label :rating %><br />
     <%= f.text_field :rating %>
   </div>
-  <% 
-  # Default to the cache lat/long, if none assume it's a new cache and
-  # default to the users ip geolocation
-  latitude = @fruit_cache.latitude || request.location.latitude || 0.0
-  longitude = @fruit_cache.longitude || request.location.longitude || 0.0
-  
-  map = Cartographer::Gmap.new( 'geocode_map' )
-  map.zoom = 16
-  map.center = [latitude, longitude]
-  map.icons << Cartographer::Gicon.new
 
-  #TODO: When unknown center marker on the users ip-geolocation
-  marker = Cartographer::Gmarker.new(
-    :name => 'geolocation_marker',
-    :marker_type => 'Building',
-    :position => [latitude, longitude],
-    :draggable => true,
-    :drag_end => 'HandleGeocodeEvent( mouseEvent )'
-  )
-  map.markers << marker
-  %>
+  <% 
+   # Default to the cache lat/long, if none assume it's a new cache and
+   # default to the users ip geolocation
+   latitude = @fruit_cache.latitude || request.location.latitude || 0.0
+   longitude = @fruit_cache.longitude || request.location.longitude || 0.0
+   zoom = (latitude == 0.0 && longitude == 0.0) ? 4 : 16
+   @markers = "[{\"lng\": \"#{longitude}\", \"lat\": \"#{latitude}\" }]"  %>
+               
+   <%= gmaps({
+       "map_options" => { "zoom" => zoom, "auto_adjust" => false},
+       "markers" => { "data" => @markers, "options" => { "draggable" => true } }
+       })
+       %>  
   
-  <%= raw Cartographer::Header.new.to_s %>
-  <%= raw map.to_html %>
-  <div style="width:600px;height:400px;" id="geocode_map" > [Map] </div>
+ 
   
   <div class="field">
     <%= f.label :latitude %><br />
@@ -61,11 +52,25 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <% content_for :scripts do %>
   <script type="text/javascript">
-  function HandleGeocodeEvent( mouseEvent ) {
-    $( '#fruit_cache_latitude' ).val( mouseEvent.latLng.lat() );
-    $( '#fruit_cache_longitude' ).val( mouseEvent.latLng.lng() );
-    
+  Gmaps.map.callback = function() {
+    for (var i = 0; i <  this.markers.length; ++i) {
+      google.maps.event.addListener(
+        Gmaps.map.markers[i].serviceObject, 
+        'dragend', 
+        function() { 
+          HandleDragend(this.getPosition()) 
+        }
+      );
+    }
   }
+  HandleDragend = function(pos) {
+    $( '#fruit_cache_latitude' ).val( pos.lat() );
+    $( '#fruit_cache_longitude' ).val( pos.lng() );
+  }
+
+
   </script>
+  <% end %>
 <% end %>

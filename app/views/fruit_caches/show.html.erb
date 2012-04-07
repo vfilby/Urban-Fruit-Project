@@ -27,6 +27,9 @@
   <%= @fruit_cache.longitude %>
 </p>
 
+<h3>Map</h3>
+<%= gmaps4rails(@json) %>
+
 <h3 id="photos_count"><%= pluralize(@fruit_cache.images.size, "Photo")%></h3>
 <ul class="thumbnails">
   <% @fruit_cache.images.each do |image| %>

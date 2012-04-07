@@ -23,6 +23,8 @@ class SearchController < ApplicationController
         :filter_functions => {1 => [[-50,0]]}
         
       )
+      
+      @google_maps_json = @fruit_caches.to_gmaps4rails
     end
     
     respond_with(@fruit_caches)
