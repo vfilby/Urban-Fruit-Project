@@ -43,6 +43,7 @@ gem 'omniauth', '~> 0.3.2' #, '~> 1.0'
 gem 'cancan'
 gem 'pg'
 gem'gmaps4rails'
+gem 'grape'
 
 group :production do
   gem 'thin'

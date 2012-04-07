@@ -67,7 +67,14 @@ GEM
     geocoder (1.1.1)
     gmaps4rails (1.4.8)
       json
+    grape (0.2.0)
+      hashie (~> 1.2)
+      multi_json
+      multi_xml
+      rack
+      rack-mount
     haml (3.1.4)
+    hashie (1.2.0)
     hike (1.2.1)
     httparty (0.8.1)
       multi_json
@@ -232,6 +239,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.0)
   geocoder
   gmaps4rails
+  grape
   haml
   indextank
   jquery-rails
