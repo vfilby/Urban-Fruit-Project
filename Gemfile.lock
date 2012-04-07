@@ -134,10 +134,9 @@ GEM
       oa-more (= 0.3.2)
       oa-oauth (= 0.3.2)
       oa-openid (= 0.3.2)
-    paperclip (3.0.1)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
+    paperclip (2.7.0)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
     pg (0.13.2)
@@ -239,7 +238,7 @@ DEPENDENCIES
   json
   mime-types
   omniauth (~> 0.3.2)
-  paperclip
+  paperclip (~> 2.7)
   pg
   rails (= 3.1)
   ruby-debug19

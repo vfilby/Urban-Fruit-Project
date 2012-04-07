@@ -1,0 +1,37 @@
+- title( @fruit_cache.name )
+
+.row
+  .span6
+    %p
+      = @fruit_cache.description
+      
+    %h3#photos_count
+    = pluralize(@fruit_cache.images.size, "Photo")
+
+    %ul.thumbnails#images
+      - @fruit_cache.images.each do |image|
+        %li
+          = render :partial => "images/smallthumbnail", :locals => { :image => image }
+
+    = render :partial => "uploadify"
+
+    = form_for Image.new(:fruit_cache_id => @fruit_cache.id), :html => {:multipart => true} do |f|
+      = f.hidden_field :fruit_cache_id, "value" => @fruit_cache.id
+      %p
+        = f.file_field :photo
+      %p
+        = f.submit "Upload photos..."
+      
+  .span6
+    = gmaps( :map_options => { :container_class => "map_container", :class => "height300" },:markers => { "data" => @json} )
+
+
+%h2 logs
+- @fruit_cache.log_entries.each do |log|
+  .log_entry
+    .text
+      = log.text
+      
+= link_to 'Add log entry', new_fruit_cache_log_entry_path( @fruit_cache )
+= link_to 'Edit', edit_fruit_cache_path(@fruit_cache)  
+= link_to 'Back', fruit_caches_path

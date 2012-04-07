@@ -13,7 +13,8 @@ class Ability
       cache && cache.user == user
     end
     
-    can :manage, Image do |image|
+    can :create, Image if user
+    can [:update, :delete], Image do |image|
       image.fruit_cache.user == user
     end
   end

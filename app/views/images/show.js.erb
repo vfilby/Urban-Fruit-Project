@@ -1,1 +1,1 @@
-$('#images').append("<%= escape_javascript(render(:partial => "images/image", :locals => {:image => @image})) %>");
+$('ul#images').append("<li><%= escape_javascript(render(:partial => "images/smallthumbnail", :locals => {:image => @image})) %></li>");

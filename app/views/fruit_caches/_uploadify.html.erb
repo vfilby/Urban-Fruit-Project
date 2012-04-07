@@ -8,11 +8,14 @@ $(document).ready(function() {
 	}); 
 	
 	$('#image_photo').uploadify({
-  	uploader : '/javascripts/uploadify/uploadify.swf',
-		cancelImg : '/javascripts/uploadify/cancel.png',
+  	uploader : '/assets/uploadify.swf',
+		cancelImg : '/assets/cancel.png',
 		multi : true,
 		auto : true,
   	script : '/images',
+  	onError : function( event, id, fileObj, errorObj ) {
+	    alert( errorObj.info )
+  	},
 		onComplete : function(event, queueID, fileObj, response, data) { 
 			  var dat = eval('(' + response + ')');
 			  $.getScript(dat.image);

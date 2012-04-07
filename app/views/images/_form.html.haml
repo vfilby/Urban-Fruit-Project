@@ -1,0 +1,24 @@
+= form_for(@image) do |f|
+  - if @image.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@image.errors.count, "error") + "prohibited this upload from being saved:"
+      %ul
+      - @image.errors.full_messages.each do |msg|
+        %li
+          = msg
+
+  .field
+    = f.file_field :photo
+    
+  .field
+    = f.label :fruit_cache_id
+    %br
+    = f.text_field :fruit_cache_id
+    
+  .field
+    = f.label :caption
+    = f.text_field :caption
+  
+  .actions
+    = f.submit

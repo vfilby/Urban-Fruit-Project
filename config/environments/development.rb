@@ -11,7 +11,6 @@ Urbanfruitproject::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  #config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
@@ -30,6 +29,8 @@ Urbanfruitproject::Application.configure do
   config.assets.debug = true
   
   config.indextank_index = 'urbanfruitproject_dev'
+  
+  Paperclip.options[:command_path] = "/usr/local/ImageMagick/bin/"
   
   #Debug needs to be squashed!
   require 'ruby-debug'
