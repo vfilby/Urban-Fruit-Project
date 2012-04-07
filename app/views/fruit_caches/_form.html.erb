@@ -33,7 +33,7 @@
    @markers = "[{\"lng\": \"#{longitude}\", \"lat\": \"#{latitude}\" }]"  %>
                
    <%= gmaps({
-       "map_options" => { "zoom" => zoom, "auto_adjust" => false},
+       "map_options" => { "zoom" => zoom, "auto_adjust" => true},
        "markers" => { "data" => @markers, "options" => { "draggable" => true } }
        })
        %>  
