@@ -20,7 +20,7 @@
       %p
         = f.file_field :photo
       %p
-        = f.submit "Upload photos..."
+        = f.submit "Upload photos...", :id => "image_submit"
       
   .span6
     = gmaps( :map_options => { :container_class => "map_container", :class => "height300" },:markers => { "data" => @json} )

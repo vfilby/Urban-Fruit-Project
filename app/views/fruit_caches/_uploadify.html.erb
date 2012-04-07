@@ -8,6 +8,7 @@ $(document).ready(function() {
 	}); 
 	
 	$('#image_photo').uploadify({
+	  buttonText : "Upload photos...",
   	uploader : "<%= asset_path 'uploadify.swf' %>",
 		cancelImg : "<%= asset_path 'cancel.png' %>",
 		multi : true,
@@ -30,6 +31,7 @@ $(document).ready(function() {
 	    }
 	});
 	
+	$('#image_submit').hide();
 	$('#image_submit').click(function(event){ 
 			event.preventDefault(); 
 			$('#image_photo').uploadifyUpload(); 
