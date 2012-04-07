@@ -75,7 +75,7 @@ class ImagesController < ApplicationController
   # DELETE /uploads/1.xml
   def destroy
     @image = Image.find(params[:id])
-    authorize! :destroy, @image
+    authorize! :delete, @image
 
     @image.destroy
       
