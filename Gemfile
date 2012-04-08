@@ -42,7 +42,7 @@ gem 'omniauth', '~> 0.3.2' #, '~> 1.0'
 #gem 'omniauth-facebook'
 gem 'cancan'
 gem 'pg'
-gem'gmaps4rails'
+gem 'gmaps4rails'
 
 group :production do
   gem 'thin'

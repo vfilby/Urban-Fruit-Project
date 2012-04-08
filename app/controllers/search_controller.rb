@@ -10,7 +10,6 @@ class SearchController < ApplicationController
       @query = params[:q]
       logger.debug(params[:q])
       location = Geocoder.search(params[:q])
-
       
       logger.debug location[0].latitude
       logger.debug location[0].longitude

@@ -1,0 +1,22 @@
+- title( current_user.name )
+.row 
+  .span6
+    %h3 Users tasks
+    %ul
+      %li
+        %a{ :href => edit_user_path( current_user ) }
+          Edit your profile
+      %li
+        %a{ :href => authorizations_path }
+          Edit your authorizations
+  .span6
+    %h3 Your caches
+    - caches = FruitCache.where( :user_id => current_user )
+    - if caches && !caches.nil?
+      %ul
+        - caches.each do |cache|
+          %li
+            %a{ :href => fruit_cache_path(cache.id)}
+              = cache.name
+    - else
+      %p No caches :'(

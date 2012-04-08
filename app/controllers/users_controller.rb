@@ -61,5 +61,9 @@ class UsersController < ApplicationController
     flash[:notice] = "User destroyed"
     redirect_to root_url
   end
+  
+  def profile
+    
+  end
 
 end

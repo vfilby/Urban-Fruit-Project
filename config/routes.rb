@@ -7,6 +7,8 @@ Urbanfruitproject::Application.routes.draw do
   match "/auth/:provider/callback" => "authorizations#create"
   
   resources :users
+  match "/profile" => 'users#profile'
+    
   resources :authorizations
   resources :sessions
   resources :images

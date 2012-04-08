@@ -1,0 +1,33 @@
+- if @authorizations && !@authorizations.empty?
+  %p
+    %strong You can sign in to this account using:
+  .authorizations
+    - for authorization in @authorizations
+      .authorization
+        = image_tag "authbuttons/#{authorization.provider}_32.png", :size => "32x32"
+        .provider
+          = authorization.provider.titleize
+        .uid
+          = authorization.uid
+        = link_to "X", authorization, :confirm =>  'Are you sure you want to remove this authorization option?', :method => :delete, :class => "remove"
+      .clear
+     
+    %p
+      = link_to "remove current user", current_user, :confirm => 'are you sure?', :method => :delete
+    %p
+      %strong Add another service to sign in with:
+- else
+  %p
+    %strong Sign in through one of these services:
+ 
+  
+%a.auth_provider{:href=>"/auth/twitter"} 
+  = image_tag "authbuttons/twitter_64.png", :size => "64x64", :alt => "Twitter"
+  Twitter
+%a.auth_provider{ :href=>"/auth/facebook" }
+  = image_tag "authbuttons/facebook_64.png", :size => "64x64", :alt => "Facebook"
+  Facebook
+%a.auth_provider{ :href=>"/auth/google" }
+  = image_tag "authbuttons/google_64.png", :size => "64x64", :alt => "Google"
+  Google
+.clear
