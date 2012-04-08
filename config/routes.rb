@@ -1,3 +1,5 @@
+include UrbanFruitProject
+
 Urbanfruitproject::Application.routes.draw do
 
   get "log_in" => "authorizations#index", :as => "log_in"
@@ -19,8 +21,9 @@ Urbanfruitproject::Application.routes.draw do
   
 
   match 'search(/:q)' => 'search#index'
-  
   root :to => 'home#index'
+  
+  mount UrbanFruitProject::API => "/"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
