@@ -3,8 +3,11 @@ class Image < ActiveRecord::Base
   
   has_attached_file :photo, 
     :styles => { 
-      :small => "150x150>", 
-      :large => "320x240>" 
+      :thumbnail_crop => "60x60#",
+      :halfwidth => "460",
+      :halfwidth_crop => "460x345#",
+      :fullwidth => "940",
+      :fullwidth_crop => "940x550#"
     },
     :storage => :s3,
     :bucket => ENV['PAPERCLIP_S3_BUCKET'],

@@ -11,10 +11,38 @@
       -else
         = "No photos :'("
 
+    #slideshowModal.modal.modal-fullwidth.fade{ :style=>"display: none"}
+      .modal-header
+        %a.close{:'data-dismiss'=>"modal"} ×
+        %h3 Slideshow
+      .modal-body
+        - if @fruit_cache.images && @fruit_cache.images.count > 0
+          #myCarousel.carousel
+            .carousel-inner
+              - @fruit_cache.images[0..0].each do |image|
+                .item.active
+                  = image_tag image.photo.url(:fullwidth_crop)
+                  - if image.caption
+                    .carousel-caption
+                      = image.caption
+              - if @fruit_cache.images && @fruit_cache.images.count > 1
+                - @fruit_cache.images[1..-1].each do |image|
+                  .item
+                    = image_tag image.photo.url(:fullwidth_crop)
+                    - if image.caption
+                      .carousel-caption
+                        = image.caption
+            - if @fruit_cache.images && @fruit_cache.images.count > 1 
+              %a.carousel-control.left{ :href=>'#myCarousel', :'data-slide'=>"prev"} &lsaquo;
+              %a.carousel-control.right{ :href=>'#myCarousel', :'data-slide'=>"next"} &rsaquo;
+
+        
+
     %ul.thumbnails#images
       - @fruit_cache.images.each do |image|
         %li
-          = render :partial => "images/smallthumbnail", :locals => { :image => image }
+          %a{'data-toggle'=>"modal", :href=>"#slideshowModal"}
+            = render :partial => "images/smallthumbnail", :locals => { :image => image }
 
     = render :partial => "uploadify"
 
@@ -44,6 +72,3 @@
           %a{ :href => fruit_cache_path(cache.id)}
             = cache.name
 
-
-= link_to 'Edit', edit_fruit_cache_path(@fruit_cache)  
-= link_to 'Back', fruit_caches_path

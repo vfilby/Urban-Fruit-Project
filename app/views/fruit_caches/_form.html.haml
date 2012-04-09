@@ -1,0 +1,51 @@
+.row
+  .span12
+    = bootstrap_form_for @fruit_cache, :html => {:multipart => true, :class=>"well form-horizontal"}  do |f|
+      - if @fruit_cache.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@fruit_cache.errors.count, "error") + " need to be fixed before we can continue"
+          %ul
+            - @fruit_cache.errors.full_messages.each do |msg|
+              %li
+                = msg
+      %fieldset
+
+        = f.text_field :name
+        = f.text_field :description, :class => "input-xlarge" 
+        = f.text_field :rating, :class => "input-xlarge"
+ 
+      - # Default to the cache lat/long, if none assume it's a new cache and
+      - # default to the users ip geolocation
+      - latitude = @fruit_cache.latitude || request.location.latitude || 0.0
+      - longitude = @fruit_cache.longitude || request.location.longitude || 0.0
+      - zoom = (latitude == 0.0 && longitude == 0.0) ? 4 : 16
+      - @markers = "[{\"lng\": \"#{longitude}\", \"lat\": \"#{latitude}\" }]" 
+
+      = gmaps({"map_options" => { "zoom" => zoom, "auto_adjust" => true},"markers" => { "data" => @markers, "options" => { "draggable" => true } }})
+
+
+      = f.text_field :latitude, :class => "input-xlarge"
+      = f.text_field :longitude, :class => "input-xlarge"
+
+  
+      .actions
+        = f.submit
+
+      - content_for :scripts do
+        :javascript
+          Gmaps.map.callback = function() {
+            for (var i = 0; i <  this.markers.length; ++i) {
+              google.maps.event.addListener(
+                Gmaps.map.markers[i].serviceObject, 
+                'dragend', 
+                function() { 
+                  HandleDragend(this.getPosition()) 
+                }
+              );
+            }
+          }
+          HandleDragend = function(pos) {
+            $( '#fruit_cache_latitude' ).val( pos.lat() );
+            $( '#fruit_cache_longitude' ).val( pos.lng() );
+          }

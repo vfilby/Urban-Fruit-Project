@@ -1,5 +1,5 @@
 %div.thumbnail
-  = image_tag image.photo.url(:small)
+  = image_tag image.photo.url(:thumbnail_crop)
   %p
     = image.caption
   - if can? :delete, image 

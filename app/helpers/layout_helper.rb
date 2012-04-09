@@ -7,6 +7,11 @@ module LayoutHelper
     content_for(:title) { page_title.to_s }
     @show_title = show_title
   end
+  
+  def clear_title
+    content_for(:title) { "" }
+    @show_title = false
+  end
 
   def show_title?
     @show_title
