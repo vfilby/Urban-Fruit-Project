@@ -62,7 +62,7 @@
     = link_to 'Add log entry', new_fruit_cache_log_entry_path( @fruit_cache )
       
   .span6
-    = gmaps( :map_options => { :container_class => "map_container", :class => "height300" },:markers => { "data" => @json} )
+    = gmaps( :map_options => { :container_class => "map_container", :class => "height300", :auto_adjust => true, :auto_zoom => false, :zoom => 16 },:markers => { "data" => @json} )
     
     %h3
       Nearby Caches

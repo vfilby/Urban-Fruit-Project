@@ -1,0 +1,17 @@
+= bootstrap_form_for @user, :html => {:multipart => true, :class=>"well form-horizontal"}  do |f|
+  - if @user.errors.any?
+    .alert.alert-block.alert-error
+      %a.close{ :'data-dismiss'=>"alert"} 
+        ×
+      %h4.alert-heading 
+        Warning!
+        = pluralize(@user.errors.count, "error") + " need to be fixed before we can continue"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  = f.text_field :name
+  = f.text_field :email
+  
+  = f.submit "Submit", :disable_with => 'Submiting...'

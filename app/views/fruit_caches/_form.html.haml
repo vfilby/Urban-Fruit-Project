@@ -2,8 +2,11 @@
   .span12
     = bootstrap_form_for @fruit_cache, :html => {:multipart => true, :class=>"well form-horizontal"}  do |f|
       - if @fruit_cache.errors.any?
-        #error_explanation
-          %h2
+        .alert.alert-block.alert-error
+          %a.close{ :'data-dismiss'=>"alert"} 
+            ×
+          %h4.alert-heading 
+            Warning!            
             = pluralize(@fruit_cache.errors.count, "error") + " need to be fixed before we can continue"
           %ul
             - @fruit_cache.errors.full_messages.each do |msg|
@@ -17,12 +20,12 @@
  
       - # Default to the cache lat/long, if none assume it's a new cache and
       - # default to the users ip geolocation
-      - latitude = @fruit_cache.latitude || request.location.latitude || 0.0
-      - longitude = @fruit_cache.longitude || request.location.longitude || 0.0
+      - latitude = @fruit_cache.latitude || lat_long[:latitude] || request.location.latitude || 0.0
+      - longitude = @fruit_cache.longitude || lat_long[:longitude] || request.location.longitude || 0.0
       - zoom = (latitude == 0.0 && longitude == 0.0) ? 4 : 16
       - @markers = "[{\"lng\": \"#{longitude}\", \"lat\": \"#{latitude}\" }]" 
 
-      = gmaps({"map_options" => { "zoom" => zoom, "auto_adjust" => true},"markers" => { "data" => @markers, "options" => { "draggable" => true } }})
+      = gmaps({"map_options" => { "zoom" => zoom, "auto_adjust" => true, "auto_zoom" => false },"markers" => { "data" => @markers, "options" => { "draggable" => true } }})
 
 
       = f.text_field :latitude, :class => "input-xlarge"

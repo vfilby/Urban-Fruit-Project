@@ -1,0 +1,40 @@
+%h1 Search Page
+
+= form_tag( "/search", :method => "get") do 
+  = text_field_tag :q, @query 
+  = submit_tag( "Search" )
+
+
+- if @fruit_caches.count > 0
+  %h1 Search results
+
+  %table
+    %tr
+      %th Name
+      %th Description
+      %th Rating    
+      %th Latitude
+      %th Longitude
+      %th 
+      %th 
+      %th 
+
+    - @fruit_caches.each do |fruit_cache| 
+      %tr
+        %td= fruit_cache.name
+        %td= fruit_cache.description
+        %td= fruit_cache.rating 
+        %td= fruit_cache.latitude
+        %td= fruit_cache.longitude
+        %td= link_to 'Show', fruit_cache
+        
+        - if can? :edit, fruit_cache 
+          %td= link_to 'Edit', edit_fruit_cache_path(fruit_cache)
+
+        - if can? :destroy, fruit_cache
+          = link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete
+
+  %br
+
+  = gmaps4rails(@google_maps_json)
+
