@@ -61,5 +61,8 @@
         
       = content_tag :h1, yield(:title) if show_title?
       = yield 
+    - unless stored_lat_long?
+      :javascript
+        getGeoLocation();
     = yield :scripts
 

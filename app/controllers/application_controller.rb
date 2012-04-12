@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  helper_method :lat_long
+  helper_method :stored_lat_long?
   
   protected
 
@@ -16,6 +18,17 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.id
+  end
+  
+  def stored_lat_long?
+    return !cookies[:lat_lng].nil?
+  end
+  
+  def lat_long
+    return { } unless cookies[:lat_lng]
+    
+    latitude, longitude = cookies[:lat_lng].split("|")
+    { latitude: latitude, longitude: longitude }
   end
 
 end
