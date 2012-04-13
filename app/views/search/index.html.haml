@@ -3,16 +3,25 @@
 
 - if @fruit_caches.nil? || @fruit_caches.count <= 0
   %h1 Search
-  = form_tag( "/search", :method => "get") do 
-    = text_field_tag :q, @query 
-    = submit_tag( "Search", :class => "")
-    %p.help-block
+  - if @fruit_caches.count == 0 && @query
+    .alert.alert-warning
+      %h4= "No #{@keyword ? @keyword : @query} found near #{(@location ? @location : "you")}"
+      Remember that all searches are based on your current location unless you specify a location in the query.
+  .row.well
+    .span5
+      = form_tag( "/search", :method => "get", :class => "form-search") do 
+        = text_field_tag :q, @query, :class => "input-medium span3"
+        = submit_tag( "Search", :class => "btn btn-primary")
+    .span4{ :style => "border-left: 1px solid #CCC; padding-left: 2em"}
       Try things like:
       %ul
         %li pears
         %li Pears near Oakville
         %li Cherries in Ottawa
         %li Oakville, ON
+        %li Macin*
+        %li tree AND sour
+    
 - else 
   %h1 Search results
 

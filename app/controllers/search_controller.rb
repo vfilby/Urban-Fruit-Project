@@ -7,11 +7,11 @@ class SearchController < ApplicationController
     return unless params[:q] && params[:q].length > 0
 
     vars = parse_query(params[:q])
-    logger.debug(params[:q])
-    logger.debug( vars )
+    @query = params[:q]
     
     if vars.has_key?( :keyword )
-      keywords = "#{vars[:keyword]} __type:FruitCache"
+      keywords = "#{vars[:keyword]}"
+      @keyword = vars[:keyword]
     else
       keywords = "__type:FruitCache"
     end
@@ -19,6 +19,7 @@ class SearchController < ApplicationController
     debugger
     if vars.has_key?( :location )
       location = Geocoder.search(vars[:location])
+      @location = vars[:location]
 
       latitude = location[0].latitude
       longitude = location[0].longitude
