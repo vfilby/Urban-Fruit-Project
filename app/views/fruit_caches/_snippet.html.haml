@@ -1,0 +1,16 @@
+.row
+  .span6.cache
+    - if fruit_cache.images.size > 0
+      %img{ :src => fruit_cache.images[0].photo.url(:thumbnail_crop), :class => "span1" }
+    - else
+      .span1
+      
+    = link_to fruit_cache.description, fruit_cache
+
+    - if can? :edit, fruit_cache
+      %td
+        = link_to 'Edit', edit_fruit_cache_path(fruit_cache)
+    - if can? :delete, fruit_cache
+      %td
+        = link_to 'Destroy', fruit_cache, :'data-method'=>"delete",:'data-confirm' => 'Are you sure?', :method => :delete
+
