@@ -25,7 +25,7 @@
                 New Cache
             
           = form_tag( "/search", :method => "get", class: "navbar-search" ) do
-            = text_field_tag( :q, @query, placeholder: "Search", class: "search-query" )
+            = text_field_tag( :q, @query, placeholder: "Pears in Oakville, ON", class: "search-query" )
           %ul.nav.pull-right
             - if current_user
               %li.dropdown

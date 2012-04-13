@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   def index
     @fruit_caches = []
     
-    redirect_to home_path unless params[:q] && params[:q].length > 0
+    return unless params[:q] && params[:q].length > 0
 
     vars = parse_query(params[:q])
     logger.debug(params[:q])

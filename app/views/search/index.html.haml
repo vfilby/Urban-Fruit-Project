@@ -1,11 +1,19 @@
-%h1 Search Page
-
-= form_tag( "/search", :method => "get") do 
-  = text_field_tag :q, @query 
-  = submit_tag( "Search" )
 
 
-- if @fruit_caches.count > 0
+
+- if @fruit_caches.nil? || @fruit_caches.count <= 0
+  %h1 Search
+  = form_tag( "/search", :method => "get") do 
+    = text_field_tag :q, @query 
+    = submit_tag( "Search", :class => "")
+    %p.help-block
+      Try things like:
+      %ul
+        %li pears
+        %li Pears near Oakville
+        %li Cherries in Ottawa
+        %li Oakville, ON
+- else 
   %h1 Search results
 
   %table
