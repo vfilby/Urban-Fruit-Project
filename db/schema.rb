@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,25 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916034755) do
+ActiveRecord::Schema.define(:version => 20120415152433) do
 
   create_table "authorizations", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "provider"
+    t.string    "uid"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "fruit_caches", :force => true do |t|
-    t.string    "name"
-    t.string    "description"
-    t.integer   "rating"
-    t.float     "latitude"
-    t.float     "longitude"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "rating"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "location"
   end
 
   create_table "images", :force => true do |t|
@@ -50,10 +52,10 @@ ActiveRecord::Schema.define(:version => 20110916034755) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
+    t.string    "email"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.string    "name"
   end
 
 end
