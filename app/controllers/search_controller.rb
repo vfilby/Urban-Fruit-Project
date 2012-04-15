@@ -21,8 +21,11 @@ class SearchController < ApplicationController
       location = Geocoder.search(vars[:location])
       @location = vars[:location]
 
+      # If google fails to geocode we need to fall back on reliable defaults
+      
       latitude = location[0].latitude
       longitude = location[0].longitude
+      
     else
       latitude = lat_long[:latitude] || request.location.latitude
       longitude = lat_long[:longitude] || request.location.longitude
