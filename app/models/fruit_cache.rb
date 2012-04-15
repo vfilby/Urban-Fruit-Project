@@ -49,5 +49,12 @@ class FruitCache < ActiveRecord::Base
     end
   end
   
+  def short_description( length = 55 )
+    if description.length > length
+      return description[0..length] + "..."
+    else 
+      return description
+    end
+  end
 
 end

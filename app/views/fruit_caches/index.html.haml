@@ -1,4 +1,4 @@
-- title "Fruit Caches"
+- title "Caches near you"
 
 .row
   .span6
@@ -9,5 +9,3 @@
     = gmaps( :map_options => { :container_class => "map_container", :class => "height300", :auto_adjust => true },:markers => { "data" => @google_maps_json} )
 %br
 
-= link_to 'New Fruit cache', new_fruit_cache_path
-= #gmaps4rails(@google_maps_json)

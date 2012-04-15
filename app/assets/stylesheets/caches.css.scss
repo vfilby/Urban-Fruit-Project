@@ -1,11 +1,18 @@
 .cache {
   padding: .5em;
+  
+  .thumbnail {
+    height: 40px;
+    width: 40px;
+    margin-right: .5em;
+  }
+  
+  &:hover {
+    outline: 1px solid #DDD;
+    background: #EEE;
+  }
 }
 
-.cache:hover {
-  outline: 1px solid #DDD;
-  background: #EEE;
-}
 
 .footer {
   color: lighten(#999, 10%);

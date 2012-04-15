@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
   
   has_attached_file :photo, 
     :styles => { 
+      :micro_crop => "40x40#",
       :thumbnail_crop => "60x60#",
       :halfwidth => "460",
       :halfwidth_crop => "460x345#",

@@ -1,16 +1,23 @@
 .row
   .span6.cache
-    - if fruit_cache.images.size > 0
-      %img{ :src => fruit_cache.images[0].photo.url(:thumbnail_crop), :class => "span1" }
-    - else
-      .span1
-      
-    = link_to fruit_cache.description, fruit_cache
+    .controls.pull-right
+      %ul.unstyled
+        - if can? :edit, fruit_cache
+          %li
+            .i.icon-cog
+            = link_to 'Edit', edit_fruit_cache_path(fruit_cache)
+        - if can? :delete, fruit_cache
+          %li
+            .i.icon-remove
+            = link_to 'Destroy', fruit_cache, :'data-method'=>"delete",:'data-confirm' => 'Are you sure?', :method => :delete
+    .thumbnail.pull-left
+      - if fruit_cache.images.size > 0
+        %img{ :src => fruit_cache.images[0].photo.url(:micro_crop), :class => "span1" }
+      - else
+        %img{ :src => asset_path( "missing_micro.png"), :class => "span1" }
+    %div
+      = link_to fruit_cache.short_description, fruit_cache
+    %div
+      = fruit_cache.location
 
-    - if can? :edit, fruit_cache
-      %td
-        = link_to 'Edit', edit_fruit_cache_path(fruit_cache)
-    - if can? :delete, fruit_cache
-      %td
-        = link_to 'Destroy', fruit_cache, :'data-method'=>"delete",:'data-confirm' => 'Are you sure?', :method => :delete
 
