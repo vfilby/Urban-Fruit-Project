@@ -60,7 +60,7 @@ Urbanfruitproject::Application.configure do
   # config.assets.manifest = YOUR_PATH
 
   config.assets.js_compressor  = :uglifier
-  config.assets.css_compressor = :scss
+  #config.assets.css_compressor = :scss
   
   config.indextank_index = 'urbanfruitproject'
   
