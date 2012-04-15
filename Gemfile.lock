@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/nickpad/will_paginate-bootstrap.git
+  revision: 0c1c2d3f78ab2c1978f3a6c3696dd3f2bc9cf3fa
+  specs:
+    will_paginate-bootstrap (0.2.0)
+      will_paginate (>= 3.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -255,4 +262,5 @@ DEPENDENCIES
   tanker
   thin
   uglifier
-  will_paginate
+  will_paginate (~> 3.0)
+  will_paginate-bootstrap!

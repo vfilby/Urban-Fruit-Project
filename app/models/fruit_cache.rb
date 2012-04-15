@@ -49,6 +49,11 @@ class FruitCache < ActiveRecord::Base
     end
   end
   
+  # Note! Will Paginate pagination, thanks mislav!
+  def self.per_page
+    10
+  end
+  
   def short_description( length = 55 )
     if description.length > length
       return description[0..length] + "..."

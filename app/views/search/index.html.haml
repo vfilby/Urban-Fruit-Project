@@ -23,35 +23,18 @@
         %li tree AND sour
     
 - else 
-  %h1 Search results
+  - title "Caches near #{@location || "you"}"
 
-  %table
-    %tr
-      %th Name
-      %th Description
-      %th Rating    
-      %th Latitude
-      %th Longitude
-      %th 
-      %th 
-      %th 
+  .row
+    .span6
+      - @fruit_caches.each do |fruit_cache|
+        = render :partial => "fruit_caches/snippet", :locals => { :fruit_cache => fruit_cache }
 
-    - @fruit_caches.each do |fruit_cache| 
-      %tr
-        %td= fruit_cache.name
-        %td= fruit_cache.description
-        %td= fruit_cache.rating 
-        %td= fruit_cache.latitude
-        %td= fruit_cache.longitude
-        %td= link_to 'Show', fruit_cache
-        
-        - if can? :edit, fruit_cache 
-          %td= link_to 'Edit', edit_fruit_cache_path(fruit_cache)
+      = will_paginate @fruit_caches, :renderer => BootstrapPagination::Rails
+    .span6
+      = gmaps( :map_options => { :container_class => "map_container", :class => "height300", :auto_adjust => true },:markers => { "data" => @google_maps_json} )
 
-        - if can? :destroy, fruit_cache
-          = link_to 'Destroy', fruit_cache, :confirm => 'Are you sure?', :method => :delete
 
-  %br
 
-  = gmaps4rails(@google_maps_json)
+
 

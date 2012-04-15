@@ -10,3 +10,11 @@ body {
 .modal-fullwidth .modal-body {
   max-height: 705px;
 }
+
+.pagination {
+  text-align: center;
+}
+
+.pagination ul {
+  margin: 0 auto;
+}

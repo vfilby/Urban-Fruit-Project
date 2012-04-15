@@ -24,4 +24,15 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+  
+  def nearby_caches_path
+    lat = lat_long[:latitude] || request.location.latitude
+    long = lat_long[:longitude] || request.location.longitude
+    results = Geocoder.search( "#{lat},#{long}")
+    if( results[0] )
+      return "/search/?q=#{results[0].formatted_address}"
+    else  
+      return "/search/?q=#{lat},#{long}"
+    end
+  end
 end

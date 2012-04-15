@@ -32,6 +32,7 @@ class SearchController < ApplicationController
     
     @fruit_caches = FruitCache.search_tank( 
       keywords,
+      :page => (params[:page] || 1),
       :var0 => latitude,
       :var1 => longitude,
       :function => 1,

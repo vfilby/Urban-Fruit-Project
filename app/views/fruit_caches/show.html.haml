@@ -66,9 +66,6 @@
     
     %h3
       Nearby Caches
-    %ul
-      - @fruit_cache.nearbys.each do |cache|
-        %li
-          %a{ :href => fruit_cache_path(cache.id)}
-            = cache.name
+    - @fruit_cache.nearbys( 20, { :limit => 5 }).each do |cache|
+      = render :partial => "fruit_caches/snippet", :locals => { :fruit_cache => cache }
 
