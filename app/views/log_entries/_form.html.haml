@@ -1,0 +1,13 @@
+= bootstrap_form_for [@fruit_cache, @log_entry] do |f|
+  - if @log_entry.errors.any?
+    .error_explanation
+      %h2
+        = pluralize(@log_entry.errors.count, "error") + " prohibited this log_entry from being saved:"
+
+      %ul
+      - @log_entry.errors.full_messages.each do |msg|
+        %li
+          = msg
+  
+  = f.text_field :text
+  = f.submit

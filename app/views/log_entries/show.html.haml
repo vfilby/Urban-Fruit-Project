@@ -1,0 +1,11 @@
+
+
+%p
+  %b
+    Text:
+  = @log_entry.text
+
+
+
+= link_to 'Edit', edit_fruit_cache_log_entry_path(@fruit_cache, @log_entry) + "|"
+= link_to 'Back', fruit_cache_path
