@@ -4,3 +4,23 @@ Indexing Notes
 To reindex the you need to specify the environment:
   
     rake tanker:reindex RAILS_ENV=development
+    rake tanker:functions
+    
+    
+TODO:
+- Permissions control on log entries
+- style the log entries more nicely
+- API call to create a new cache
+- API call to create a new log entry (found it?)
+- Add categories to the caches
+- Add tags to the caches
+- fixed map on SERP?
+- clicking on SERP entry highlights map pin and maybe zooms?
+- Add style to the authorizations page
+- Add style to the profile settings page
+- Better public profile
+- Help page
+- Add owner to images, let cache owner or image owner remove it
+- Add flagging an image to be removed for various reasons
+- Make deleting a user just archive them to preserve cache ownership
+- Make cache deleting just archive it so that we have a record.
