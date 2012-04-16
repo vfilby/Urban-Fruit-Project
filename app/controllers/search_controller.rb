@@ -47,7 +47,12 @@ class SearchController < ApplicationController
       @fruit_caches = []
     end
     
-    @google_maps_json = @fruit_caches.to_gmaps4rails
+    @google_maps_json = @fruit_caches.to_gmaps4rails do |cache,marker|
+      marker.infowindow render_to_string( :partial => "fruit_caches/map_info", :locals  => { :cache => cache } )
+      marker.title cache.name
+      marker.sidebar cache.name
+      marker.json( { :id => cache.id })
+    end
     
     respond_with(@fruit_caches)
   end
