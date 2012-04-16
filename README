@@ -8,6 +8,7 @@ To reindex the you need to specify the environment:
     
     
 TODO:
+- twitter integration for various actions
 - Permissions control on log entries
 - style the log entries more nicely
 - API call to create a new cache
@@ -24,3 +25,4 @@ TODO:
 - Add flagging an image to be removed for various reasons
 - Make deleting a user just archive them to preserve cache ownership
 - Make cache deleting just archive it so that we have a record.
+- When uploading an image dynamically make it clickable and change the title to account for the new photo
