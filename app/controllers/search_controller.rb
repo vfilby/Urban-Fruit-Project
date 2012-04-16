@@ -15,39 +15,46 @@ class SearchController < ApplicationController
     else
       keywords = "__type:FruitCache"
     end
-    logger.debug( keywords )
-    debugger
-    if vars.has_key?( :location )
-      location = Geocoder.search(vars[:location])
+    
+    #Specified lat/long get the first kick.
+    if params[:latitude] && params[:longitude]
+      latitude = params[:latitude] |
+      longitude = params[:longitude]
+    end
+    
+    # Fall back on location if present
+    if vars.has_key?( :location ) && !latitude && !longitude
       @location = vars[:location]
+      location = Geocoder.search(vars[:location])
 
-      # If google fails to geocode we need to fall back on reliable defaults
-      
-      latitude = location[0].latitude
-      longitude = location[0].longitude
-      
+      latitude = location[0].latitude if location[0]
+      longitude = location[0].longitude if location[0]
     else
       latitude = lat_long[:latitude] || request.location.latitude
       longitude = lat_long[:longitude] || request.location.longitude
     end
-    logger.debug( "Search coordinates: #{latitude}, #{longitude}")
-
     
-    @fruit_caches = FruitCache.search_tank( 
-      keywords,
-      :page => (params[:page] || 1),
-      :var0 => latitude,
-      :var1 => longitude,
-      :function => 1,
-      :filter_functions => {1 => [[-50,0]]}
-      
-    )
+    if latitude && longitude && keywords
+      @fruit_caches = FruitCache.search_tank( 
+        keywords,
+        :page => (params[:page] || 1),
+        :var0 => latitude,
+        :var1 => longitude,
+        :function => 1,
+        :filter_functions => {1 => [[-50,0]]}
+      )
+    else 
+      @fruit_caches = []
+    end
     
     @google_maps_json = @fruit_caches.to_gmaps4rails
-
     
     respond_with(@fruit_caches)
   end
+  
+  
+  private ####################################
+  
   
   # Assume formats
   # keyword near location (cherries near Guelph, ON)
@@ -57,6 +64,8 @@ class SearchController < ApplicationController
   def parse_query( query )
     keyword_and_location_re = /[ ]+(?:near|in|around|at)[ ]+/
     location_indicator_re = /,|[0-9]+/
+    
+    debugger
     
     if query =~ keyword_and_location_re
       keyword, location = query.split( keyword_and_location_re, 2 )
@@ -68,8 +77,5 @@ class SearchController < ApplicationController
     end
     
     return { :keyword => query }
-    
-    
-    
   end
 end

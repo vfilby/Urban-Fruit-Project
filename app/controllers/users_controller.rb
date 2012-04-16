@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    debugger
     @user = User.find(params[:id])
   end
   
@@ -60,7 +59,6 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    debugger
     @user = User.find(params[:id]) || current_user
     @user.destroy
     flash[:notice] = "User destroyed"

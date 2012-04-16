@@ -5,7 +5,7 @@
   %h1 Search
   - if @fruit_caches.count == 0 && @query
     .alert.alert-warning
-      %h4= "No #{@keyword ? @keyword : @query} found near #{(@location ? @location : "you")}"
+      %h4= "No #{@keyword ? @keyword : "caches" } found near #{(@location ? @location : "you")}"
       Remember that all searches are based on your current location unless you specify a location in the query.
   .row.well
     .span5
