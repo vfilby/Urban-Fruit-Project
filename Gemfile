@@ -45,6 +45,7 @@ gem 'cancan'
 gem 'pg'
 gem 'gmaps4rails'
 gem 'grape'
+gem 'twitter'
 
 
 group :production do
