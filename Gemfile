@@ -45,6 +45,7 @@ gem 'cancan'
 gem 'pg'
 gem 'gmaps4rails'
 gem 'grape'
+gem 'newrelic_rpm'
 
 
 group :production do
