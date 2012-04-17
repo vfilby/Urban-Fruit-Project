@@ -26,3 +26,5 @@ TODO:
 - Make deleting a user just archive them to preserve cache ownership
 - Make cache deleting just archive it so that we have a record.
 - When uploading an image dynamically make it clickable and change the title to account for the new photo
+- Use marker grouping?
+- Update to a new omniauth gem
