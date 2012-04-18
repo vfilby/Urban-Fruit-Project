@@ -61,10 +61,10 @@ class SearchController < ApplicationController
   end
   
 
-  #def log_search( query )
-  #  debugger
-  #  logger.debug( "User search: #{query}")
-  #end
+  def log_search( query )
+    debugger
+    logger.debug( "User search: #{query}")
+  end
   #handle_asynchronously :log_search
   
   private ####################################

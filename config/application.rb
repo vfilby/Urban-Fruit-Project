@@ -50,8 +50,5 @@ module Urbanfruitproject
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
-    # Downgrading YAML engine for delayed-job compatibility
-    YAML::ENGINE.yamler = "syck" if RUBY_VERSION >= "1.9.2"
-  end
+      end
 end

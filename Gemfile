@@ -25,7 +25,6 @@ group :assets do
   gem 'uglifier'
 end
 gem 'jquery-rails'
-
 gem 'json'
 gem 'geocoder'
 gem 'haml'
@@ -46,9 +45,10 @@ gem 'pg'
 gem 'gmaps4rails'
 gem 'grape'
 gem 'newrelic_rpm'
-gem 'delayed_job_active_record'
+gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
+gem 'delayed_job_active_record', :git => 'git://github.com/collectiveidea/delayed_job_active_record.git'
 gem 'workless', '~> 1.0.1'
-
+gem 'twitter'
 
 group :production do
   gem 'thin'
@@ -60,6 +60,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   #gem 'webrat'
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  #gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'debugger'
   gem 'awesome_print'
 end
