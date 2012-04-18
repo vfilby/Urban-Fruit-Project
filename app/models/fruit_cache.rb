@@ -11,7 +11,6 @@ class FruitCache < ActiveRecord::Base
   
   # Ruby Geocoder
   reverse_geocoded_by :latitude, :longitude do |obj,results|
-    debugger
     if geo = results.first
       obj.location = "#{geo.city}, #{geo.state_code}, #{geo.country_code}"
     end
@@ -26,6 +25,9 @@ class FruitCache < ActiveRecord::Base
   validates_presence_of :latitude, :on => :create, :message => "Latitude required"
   validates_presence_of :longitude, :on => :create, :message => "Longitude required"
   
+  #
+  # Index descriptions & functions
+  #
   tankit Rails.configuration.indextank_index do
     indexes :name
     indexes :description
@@ -54,6 +56,8 @@ class FruitCache < ActiveRecord::Base
     10
   end
   
+  # GMaps4Rails
+  #
   def short_description( length = 55 )
     if description.length > length
       return description[0..length] + "..."
@@ -61,5 +65,10 @@ class FruitCache < ActiveRecord::Base
       return description
     end
   end
+  
+  def tweet_new_image()
+    Twitter.update  "A new image was added to #{name}: path!"
+  end
+  #handle_asynchronously :tweet_new_image
 
 end

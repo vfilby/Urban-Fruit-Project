@@ -46,6 +46,8 @@ gem 'pg'
 gem 'gmaps4rails'
 gem 'grape'
 gem 'newrelic_rpm'
+gem 'delayed_job_active_record'
+gem 'workless', '~> 1.0.1'
 
 
 group :production do

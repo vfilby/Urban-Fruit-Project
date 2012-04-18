@@ -64,5 +64,9 @@ Urbanfruitproject::Application.configure do
   
   config.indextank_index = 'urbanfruitproject'
   
+  # Workless
+  config.after_initialize do 
+    Delayed::Job.scaler = :heroku_cedar
+  end
   
 end

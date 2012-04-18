@@ -54,12 +54,22 @@ class SearchController < ApplicationController
       marker.json( { :id => cache.id })
     end
     
+    #debugger
+    #log_search( params[:q] )
+    
     respond_with(@fruit_caches)
   end
   
+
+  #def log_search( query )
+  #  debugger
+  #  logger.debug( "User search: #{query}")
+  #end
+  #handle_asynchronously :log_search
   
   private ####################################
   
+
   
   # Assume formats
   # keyword near location (cherries near Guelph, ON)
@@ -69,8 +79,6 @@ class SearchController < ApplicationController
   def parse_query( query )
     keyword_and_location_re = /[ ]+(?:near|in|around|at)[ ]+/
     location_indicator_re = /,|[0-9]+/
-    
-    debugger
     
     if query =~ keyword_and_location_re
       keyword, location = query.split( keyword_and_location_re, 2 )

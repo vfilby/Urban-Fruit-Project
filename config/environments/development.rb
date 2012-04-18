@@ -32,6 +32,11 @@ Urbanfruitproject::Application.configure do
   
   Paperclip.options[:command_path] = "/usr/local/ImageMagick/bin/"
   
+  # Workless
+  config.after_initialize do 
+    Delayed::Job.scaler = :null
+  end
+  
   #Debug needs to be squashed!
   require 'ruby-debug'
   Debugger.settings[:autoeval] = true
