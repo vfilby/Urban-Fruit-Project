@@ -65,10 +65,4 @@ class FruitCache < ActiveRecord::Base
       return description
     end
   end
-  
-  def tweet_new_image()
-    Twitter.update  "A new image was added to #{name}: path!"
-  end
-  #handle_asynchronously :tweet_new_image
-
 end

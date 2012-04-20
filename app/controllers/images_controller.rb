@@ -40,15 +40,13 @@ class ImagesController < ApplicationController
   # POST /uploads
   # POST /uploads.xml
   def create
+    debugger
     newparams = coerce(params)
     @image = Image.new(newparams[:image])
     if @image.save
       flash[:notice] = "Successfully created Image."
-      
-      debugger
-      #tiny_url = "http://is.gd/api.php?longurl=" + CGI::escape(fruit_cache_path( @image.fruit_cache ))
-      tweet = "#{current_user.name} just uploaded a new photo for #{fruit_cache_url( @image.fruit_cache )}"
-      Twitter.update tweet
+
+      Tweeter::TimeLine.tweet "A new image was added to #{@image.fruit_cache.name}: #{fruit_cache_url( @image.fruit_cache )}"
       
       respond_to do |format|
         format.html {redirect_to @image.fruit_cache}
@@ -102,5 +100,6 @@ class ImagesController < ApplicationController
       params
     end 
   end
-  
+
+
 end

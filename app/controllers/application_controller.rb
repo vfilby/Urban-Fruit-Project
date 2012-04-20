@@ -30,5 +30,4 @@ class ApplicationController < ActionController::Base
     latitude, longitude = cookies[:lat_lng].split("|")
     { latitude: latitude, longitude: longitude }
   end
-
 end

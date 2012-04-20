@@ -54,22 +54,11 @@ class SearchController < ApplicationController
       marker.json( { :id => cache.id })
     end
     
-    #debugger
-    #log_search( params[:q] )
-    
     respond_with(@fruit_caches)
   end
   
-
-  def log_search( query )
-    debugger
-    logger.debug( "User search: #{query}")
-  end
-  #handle_asynchronously :log_search
-  
   private ####################################
   
-
   
   # Assume formats
   # keyword near location (cherries near Guelph, ON)
