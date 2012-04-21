@@ -49,9 +49,14 @@ class FruitCachesController < ApplicationController
     authorize! :create, FruitCache
     @fruit_cache = FruitCache.new(params[:fruit_cache])
     @fruit_cache.user = current_user
+  
     
     respond_to do |format|
       if @fruit_cache.save
+        
+        message = ":user just created a new cache! #{fruit_cache_url( @fruit_cache )}" 
+        Tweeter::TimeLine.tweet( message, { :user => current_user.name } ) rescue nil
+        
         format.html { redirect_to(@fruit_cache, :notice => 'Fruit cache was successfully created.') }
         format.xml  { render :xml => @fruit_cache, :status => :created, :location => @fruit_cache }
       else
