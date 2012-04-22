@@ -5,12 +5,22 @@ class UrbanFruitProject::API < Grape::API
   default_format :json
   
   
-  resource "caches" do
+  resource "cache" do
+    
+    # Loads a cache
+    #
+    # @param [id] The id of the cache you want to load
     get "/show/:id" do
       @fruit_cache = FruitCache.find(params[:id])
     end
     
-    
+    # Search for caches
+    #
+    # Either specify a lat/long or a location string
+    #
+    # @param [latitude] Latitude of the search center
+    # @param [longitude] Longitude of the search center
+    # @param [location] A location string to be geocoded
     get "/search" do
 
       latitude = 0.0
@@ -35,6 +45,57 @@ class UrbanFruitProject::API < Grape::API
         :filter_functions => {1 => [[-50,0]]} 
       )
     end
+    
+    segment '/:cache_id/' do
+      
+      resource :images do
+        # Get a list of images associated with a cache
+        #
+        # 
+        get '/' do
+          @fruit_cache = FruitCache.find(params[:cache_id]).images
+        end
+
+        # Get a specific image belonging to a cache
+        #
+        get '/:image_id' do
+          @fruit_cache = FruitCache.find(params[:cache_id]).images.find(params[:image_id])          
+        end
+        
+        # Adds a new image to an existing fruit cache
+        #
+        # @param[cache_id]
+        # @param [filename]
+        # @param [image]
+        # @params [caption]
+        post '/upload' do
+          @fruit_cache = FruitCache.find(params[:cache_id])
+          
+          image_params = {
+            :fruit_cache_id => @params[:cache_id],
+            :photo => ActionDispatch::Http::UploadedFile.new( params[:image] ),
+            :caption => params[:caption], 
+          }
+          
+          image = Image.new( image_params )
+          
+          if image.save!
+            "success"
+          else
+            error!( "Unable to save image", 500)
+          end
+        end
+      end
+    end
   end
 
+  resource "test" do
+    get "echo" do
+      params
+    end
+    
+    post "echo" do
+      params
+    end
+  end
 end
