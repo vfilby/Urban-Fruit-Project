@@ -12,6 +12,7 @@ class UrbanFruitProject::API < Grape::API
     # @param [id] The id of the cache you want to load
     get "/show/:id" do
       @fruit_cache = FruitCache.find(params[:id])
+      present @fruit_cache, :with => UrbanFruitProject::Entities::Cache
     end
     
     # Search for caches
@@ -99,3 +100,4 @@ class UrbanFruitProject::API < Grape::API
     end
   end
 end
+
