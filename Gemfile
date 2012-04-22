@@ -26,7 +26,7 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'json'
-gem 'geocoder'
+gem 'geocoder', :git => 'git://github.com/alexreisner/geocoder.git'
 gem 'haml'
 gem 'indextank'
 gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'

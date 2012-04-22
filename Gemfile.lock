@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/alexreisner/geocoder.git
+  revision: cfdca9d047828f992ea6ae32a6308e58655be804
+  specs:
+    geocoder (1.1.1)
+
+GIT
   remote: git://github.com/nickpad/will_paginate-bootstrap.git
   revision: 0c1c2d3f78ab2c1978f3a6c3696dd3f2bc9cf3fa
   specs:
@@ -83,7 +89,6 @@ GEM
     faraday-stack (0.1.5)
       faraday (>= 0.6, < 0.8)
     fattr (2.2.1)
-    geocoder (1.1.1)
     gmaps4rails (1.4.8)
       json
     grape (0.2.0)
@@ -273,7 +278,7 @@ DEPENDENCIES
   debugger
   delayed_job
   delayed_job_active_record
-  geocoder
+  geocoder!
   gmaps4rails
   grape
   haml
