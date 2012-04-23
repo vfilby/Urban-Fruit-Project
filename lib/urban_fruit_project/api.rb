@@ -15,6 +15,54 @@ class UrbanFruitProject::API < Grape::API
       present @fruit_cache, :with => UrbanFruitProject::Entities::Cache
     end
     
+    
+    # Creates a new cache
+    #
+    # @param [json] A JSON object representing the cache. 
+    #
+    # Format:
+    # {
+    #   "cache_id":19,
+    #   "cache_owner":1,
+    #   "name":"Pear Tree",
+    #   "description":"Pear Tree",
+    #   "location":"Burlington, ON, CA", <== Ignored use lat/long instead
+    #   "latitude":43.3649522937441,
+    #   "longitude":-79.7653398037541,
+    # }
+    post "/save" do
+      debugger
+      error!( "required json parameter not found", 500 ) unless params[:json] 
+      
+      
+      parser = Yajl::Parser.new
+      h = parser.parse params[:json]
+      
+      # If updating then load the existing object
+      if h["cache_id"] && h["cache_id"] > 0
+        cache = FruitCache.find( h["cache_id"])
+      else
+        cache = FruitCache.new
+      end
+
+      begin
+        cache.user_id = h["cache_owner"]
+        cache.name = h["name"]
+        cache.description = h["description"]
+        cache.latitude = h["latitude"]
+        cache.longitude = h["longitude"]
+      
+        if cache.save
+          "success"
+        else
+          error!( "Error saving cache: #{cache.errors.to_json}", 500)
+        end
+      
+      rescue Exception => e
+        error!( "Error parsing the json object: #{e.to_json}", 500)
+      end
+    end
+    
     # Search for caches
     #
     # Either specify a lat/long or a location string
