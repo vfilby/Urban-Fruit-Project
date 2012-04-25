@@ -1,0 +1,18 @@
+.log_entry {
+  background-color: whiteSmoke;
+  border: 1px solid #EEE;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  
+  padding: 1em 1em 0 1em;
+  margin-bottom: 1em;
+  
+  .meta {
+    font-size: .8em;
+    padding-top: .5em;
+    padding: .5em;
+  }
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417232915) do
+ActiveRecord::Schema.define(:version => 20120424212403) do
 
   create_table "authorizations", :force => true do |t|
     t.string    "provider"
@@ -22,17 +22,17 @@ ActiveRecord::Schema.define(:version => 20120417232915) do
   end
 
   create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "priority",   :default => 0
+    t.integer   "attempts",   :default => 0
+    t.text      "handler"
+    t.text      "last_error"
+    t.timestamp "run_at"
+    t.timestamp "locked_at"
+    t.timestamp "failed_at"
+    t.string    "locked_by"
+    t.string    "queue"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20120417232915) do
     t.string    "photo_content_type"
     t.integer   "photo_file_size"
     t.timestamp "photo_updated_at"
+    t.integer   "user_id"
   end
 
   create_table "log_entries", :force => true do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20120417232915) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.integer   "fruit_cache_id"
+    t.integer   "user_id"
   end
 
   create_table "users", :force => true do |t|

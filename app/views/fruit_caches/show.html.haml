@@ -44,22 +44,27 @@
           %a{'data-toggle'=>"modal", :href=>"#slideshowModal"}
             = render :partial => "images/smallthumbnail", :locals => { :image => image }
 
-    = render :partial => "uploadify"
-
-    = form_for Image.new(:fruit_cache_id => @fruit_cache.id), :html => {:multipart => true} do |f|
-      = f.hidden_field :fruit_cache_id, "value" => @fruit_cache.id
-      %p
-        = f.file_field :photo
-      %p
-        = f.submit "Upload photos...", :id => "image_submit"
+    - if can? :create, Image
+      = render :partial => "uploadify"
+      = form_for Image.new(:fruit_cache_id => @fruit_cache.id), :html => {:multipart => true} do |f|
+        = f.hidden_field :fruit_cache_id, "value" => @fruit_cache.id
+        %p
+          = f.file_field :photo
+        %p
+          = f.submit "Upload photos...", :id => "image_submit"
+    - else
+      Log in to upload photos
 
     %h3 Logs
     - @fruit_cache.log_entries.each do |log|
-      .log_entry
-        .text
-          = log.text
+      .row
+        .span6
+          = render :partial => 'log_entries/log_entry', :locals => { :log => log }
 
-    = link_to 'Add log entry', new_fruit_cache_log_entry_path( @fruit_cache )
+    - if can? :create, LogEntry
+      = link_to 'Add log entry', new_fruit_cache_log_entry_path( @fruit_cache )
+    - else
+      Log in to add your logs
       
   .span6
     = gmaps( :map_options => { :container_class => "map_container", :class => "height300", :auto_adjust => true, :auto_zoom => false, :zoom => 16 },:markers => { "data" => @json} )

@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  load_and_authorize_resource
+  
   # GET /uploads
   # GET /uploads.xml
   def index
@@ -15,8 +17,6 @@ class ImagesController < ApplicationController
   def show
     #debugger
     @image = Image.find(params[:id])
-    
-    authorize! :show, @image
   end
 
   # GET /uploads/new
@@ -33,8 +33,6 @@ class ImagesController < ApplicationController
   # GET /uploads/1/edit
   def edit
     @image = Image.find(params[:id])
-    
-    authorize! :edit, @image
   end
 
   # POST /uploads
@@ -43,6 +41,7 @@ class ImagesController < ApplicationController
 
     newparams = coerce(params)
     @image = Image.new(newparams[:image])
+    @image.user = current_user
     if @image.save
       flash[:notice] = "Successfully created Image."
 
@@ -77,7 +76,6 @@ class ImagesController < ApplicationController
   # DELETE /uploads/1.xml
   def destroy
     @image = Image.find(params[:id])
-    authorize! :delete, @image
 
     @image.destroy
       

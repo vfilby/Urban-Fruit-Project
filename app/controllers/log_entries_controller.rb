@@ -1,4 +1,5 @@
 class LogEntriesController < ApplicationController
+  load_and_authorize_resource
   before_filter :find_fruit_cache
   
   # GET /log_entries
@@ -27,7 +28,7 @@ class LogEntriesController < ApplicationController
   # GET /log_entries/new.xml
   def new
     @log_entry = @fruit_cache.log_entries.build
-
+    @log_entry.user = current_user
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @log_entry }
@@ -43,10 +44,10 @@ class LogEntriesController < ApplicationController
   # POST /log_entries.xml
   def create
     @log_entry = @fruit_cache.log_entries.build(params[:log_entry])
-
+    @log_entry.user = current_user
     respond_to do |format|
       if @log_entry.save
-        format.html { redirect_to([@fruit_cache,@log_entry], :notice => 'Log entry was successfully created.') }
+        format.html { redirect_to([@fruit_cache], :notice => 'Log entry was successfully created.') }
         format.xml  { render :xml => @log_entry, :status => :created, :location => @log_entry }
       else
         format.html { render :action => "new" }
