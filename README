@@ -8,9 +8,6 @@ To reindex the you need to specify the environment:
     
     
 TODO:
-- twitter integration for various actions
-- Permissions control on log entries
-- style the log entries more nicely
 - Add images to log API
 - provide authorization via the API
 - API call to create a new log entry (found it?)
@@ -22,7 +19,6 @@ TODO:
 - Add style to the profile settings page
 - Better public profile
 - Help page
-- Add owner to images, let cache owner or image owner remove it
 - Add flagging an image to be removed for various reasons
 - Make deleting a user just archive them to preserve cache ownership
 - Make cache deleting just archive it so that we have a record.
