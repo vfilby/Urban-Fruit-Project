@@ -11,7 +11,8 @@ TODO:
 - twitter integration for various actions
 - Permissions control on log entries
 - style the log entries more nicely
-- API call to create a new cache
+- Add images to log API
+- provide authorization via the API
 - API call to create a new log entry (found it?)
 - Add categories to the caches
 - Add tags to the caches

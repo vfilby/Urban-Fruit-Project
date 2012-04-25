@@ -14,13 +14,18 @@ class Ability
     end
     
     can :create, FruitCache if current_user
-    can [:update, :delete], FruitCache do |cache|
+    can [:update, :delete, :destroy], FruitCache do |cache|
       cache && cache.user == current_user
     end
     
+    can :create, LogEntry if current_user
+    can [:update, :destroy], LogEntry do |log|
+      log && log.user == current_user
+    end
+    
     can :create, Image if current_user
-    can [:update, :delete], Image do |image|
-      image.fruit_cache.user == current_user
+    can [:update, :delete, :destroy], Image do |image|
+      image.fruit_cache.user == current_user || image.user == current_user
     end
   end
 end

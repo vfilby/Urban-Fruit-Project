@@ -1,0 +1,7 @@
+
+.log_entry.clearfix
+  .text
+    = log.text
+  .meta.pull-right
+    = "#{log.created_at} - "
+    = link_to log.user.name, user_path( log.user )
