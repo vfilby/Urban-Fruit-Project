@@ -1,0 +1,5 @@
+.tag
+  %button.close 
+    ×
+  %span.parent= (tag.parent) ? "#{tag.parent.tag} >" : ""
+  %span.name= "#{tag.tag}"

@@ -2,6 +2,12 @@ include UrbanFruitProject
 
 Urbanfruitproject::Application.routes.draw do
 
+  get "tag_controller/index"
+
+  get "tag_controller/show"
+
+  get "tag_controller/edit"
+
   get "log_in" => "authorizations#index", :as => "log_in"
   get "sign_up" => "authorizations#index", :as => "sign_up"
   get "log_out" => "sessions#destroy", :as => "log_out"

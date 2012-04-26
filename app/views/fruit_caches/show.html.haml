@@ -4,7 +4,11 @@
   .span6
     %p
       = @fruit_cache.description
-      
+    
+    %div
+      - @fruit_cache.tags.each do |tag|
+        = render :partial => 'tags/tag', :locals => { :tag => tag }
+        
     %h3#photos_count
       -if @fruit_cache.images.size > 0
         = pluralize(@fruit_cache.images.size, "Photo")
