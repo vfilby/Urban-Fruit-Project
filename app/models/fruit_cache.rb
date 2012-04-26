@@ -4,6 +4,8 @@ class FruitCache < ActiveRecord::Base
   belongs_to :user, :class_name => "User", :foreign_key => "user_id"
   has_many :log_entries
   has_many :images, :dependent => :destroy
+  has_and_belongs_to_many :tags
+  
   accepts_nested_attributes_for :images, :allow_destroy => true#, :reject_if => lambda { |t| t('trip_image').nil? }
     
   after_save :update_tank_indexes

@@ -49,6 +49,7 @@ gem 'delayed_job'#, :git => 'git://github.com/collectiveidea/delayed_job.git'
 gem 'delayed_job_active_record'#, :git => 'git://github.com/collectiveidea/delayed_job_active_record.git'
 gem 'workless', '~> 1.0.1'
 gem 'twitter'
+gem 'acts_as_tree_rails3'
 
 group :production do
   gem 'thin'
