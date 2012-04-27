@@ -13,6 +13,10 @@ TODO:
 - API call to create a new log entry (found it?)
 - Add categories to the caches
 - Add tags to the caches
+ - Add tag view page
+ - add tag index page
+ - Allow moderators/admins to edit the tags (set meta, parent, etc)
+ - Fix the styling on the cache form
 - fixed map on SERP?
 - clicking on SERP entry highlights map pin and maybe zooms?
 - Add style to the authorizations page
