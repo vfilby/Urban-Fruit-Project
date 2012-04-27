@@ -37,4 +37,16 @@ class UrbanFruitProject::API < Grape::API
     end
   end
 
+  resource "tags" do
+    get "/autocomplete" do
+      
+      tags = Tag.search_tank( "#{params[:q]}*")
+      results = []
+      tags.each do |tag|
+        results << { :id => tag.id, :name => tag.tag}
+      end
+      
+      results
+    end
+  end
 end
