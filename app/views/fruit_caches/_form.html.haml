@@ -53,3 +53,6 @@
             $( '#fruit_cache_latitude' ).val( pos.lat() );
             $( '#fruit_cache_longitude' ).val( pos.lng() );
           }
+          $(document).ready(function () {
+              $("#fruit_cache_tags").tokenInput("/api/tags/autocomplete");
+          });
