@@ -47,6 +47,11 @@ class FruitCachesController < ApplicationController
   # POST /fruit_caches.xml
   def create    
     authorize! :create, FruitCache
+    debugger 
+    # Process the comma separated tags
+    params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," )
+    params[:fruit_cache].delete( :tags )
+    
     @fruit_cache = FruitCache.new(params[:fruit_cache])
     @fruit_cache.user = current_user
   
@@ -71,6 +76,10 @@ class FruitCachesController < ApplicationController
   def update
     @fruit_cache = FruitCache.find(params[:id])
     authorize! :update, @fruit_cache
+
+    # Process the comma separated tags
+    params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," )
+    params[:fruit_cache].delete( :tags )
 
     respond_to do |format|
       if @fruit_cache.update_attributes(params[:fruit_cache])

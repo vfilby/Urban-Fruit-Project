@@ -35,7 +35,7 @@
   
       .actions
         = f.submit
-
+      
       - content_for :scripts do
         :javascript
           Gmaps.map.callback = function() {
@@ -54,5 +54,10 @@
             $( '#fruit_cache_longitude' ).val( pos.lng() );
           }
           $(document).ready(function () {
-              $("#fruit_cache_tags").tokenInput("/api/tags/autocomplete");
+              $("#fruit_cache_tags").tokenInput("/api/tags/autocomplete",
+                { 
+                  theme: "facebook",
+                  prePopulate: #{'[' + FruitCache.find(57).tags.map { |tag| "{ id: #{tag.id}, name: \"#{tag.tag}\" }"}.join( ', ' ) + ']'}
+                }
+              );
           });
