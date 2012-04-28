@@ -14,8 +14,13 @@ ul.token-input-list-facebook {
     padding: 0;
     background-color: #fff;
     list-style-type: none;
-    clear: left;
 }
+
+ul.list-full {
+  border: 1px solid transparent;
+}
+
+
 
 ul.token-input-list-facebook li input {
     border: 0;

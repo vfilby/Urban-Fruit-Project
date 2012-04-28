@@ -1,0 +1,29 @@
+
+= bootstrap_form_for @tag, :html => {:multipart => true, :class=>"well form-horizontal"}  do |f|
+  = f.text_field :tag
+  = f.text_field :parent
+  = f.submit
+  
+  
+- content_for :scripts do
+  :javascript
+    $(document).ready(function () {
+        $("#tag_parent").tokenInput("/api/tags/autocomplete",
+          { 
+            theme: "facebook",
+            tokenLimit: 1,
+            prePopulate: #{ (@tag.parent) ? "[ { id: #{@tag.parent.id}, name: \"#{@tag.parent.tag}\" } ]" : "[]" },
+            onAdd: function( item ) {
+              $('#tag_parent').prev().addClass( 'list-full' )
+            },
+            onDelete: function( item ) {
+              $('#tag_parent').prev().removeClass( 'list-full' )
+            },
+            onReady: function( item ) {
+              if( $('#tag_parent').prev().children().size()/2 >= 1 ) {
+                $('#tag_parent').prev().addClass( 'list-full' )
+              }
+            }
+          }
+        );
+    });

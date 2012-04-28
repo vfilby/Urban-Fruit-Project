@@ -374,11 +374,6 @@ $.TokenList = function (input, url_or_data, settings) {
         });
     }
 
-    // Initialization is done
-    if($.isFunction(settings.onReady)) {
-        settings.onReady.call();
-    }
-
     //
     // Public functions
     //
@@ -416,6 +411,11 @@ $.TokenList = function (input, url_or_data, settings) {
     this.getTokens = function() {
    		return saved_tokens;
    	}
+   	
+   	// Initialization is done
+    if($.isFunction(settings.onReady)) {
+        settings.onReady.call();
+    }
 
     //
     // Private functions

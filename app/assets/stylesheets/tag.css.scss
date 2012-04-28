@@ -8,7 +8,35 @@
   border-radius: $radius;
 }
 
-$tagbg: #FFE;
+
+
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #333;
+$gray:                  #555;
+$grayLight:             #999;
+$grayLighter:           #eee;
+$white:                 #fff;
+$orange:                #f89406;
+$linkColor:             #08c;
+
+
+$tagBackground:                     $white;
+$tagBackgroundHighlight:            darken($white, 10%);
+$tagBorder:                         #ccc;
+$tagPrimaryBackground:              $linkColor;
+$tagPrimaryBackgroundHighlight:     spin($tagPrimaryBackground, 15%);
+$tagInfoBackground:                 #5bc0de;
+$tagInfoBackgroundHighlight:        #2f96b4;
+$tagSuccessBackground:              #62c462;
+$tagSuccessBackgroundHighlight:     #51a351;
+$tagWarningBackground:              lighten($orange, 15%);
+$tagWarningBackgroundHighlight:     $orange;
+$tagDangerBackground:               #ee5f5b;
+$tagDangerBackgroundHighlight:      #bd362f;
+$tagInverseBackground:              $gray;
+$tagInverseBackgroundHighlight:     $grayDarker;
+
 
 .tag {
   display: inline-block;
@@ -25,13 +53,6 @@ $tagbg: #FFE;
   vertical-align: middle;
   background-color: #f5f5f5;
   *background-color: #e6e6e6;
-  background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-  background-repeat: repeat-x;
   border: 1px solid #cccccc;
   *border: 0;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -52,4 +73,61 @@ $tagbg: #FFE;
     line-height: 14px;
     
   }
+}
+
+
+// Set text color
+// -------------------------
+.tag-primary,
+.tag-primary:hover,
+.tag-warning,
+.tag-warning:hover,
+.tag-danger,
+.tag-danger:hover,
+.tag-success,
+.tag-success:hover,
+.tag-info,
+.tag-info:hover,
+.tag-inverse,
+.tag-inverse:hover {
+  color: $white;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+}
+// Provide *some* extra contrast for those who can get it
+.tag-primary.active,
+.tag-warning.active,
+.tag-danger.active,
+.tag-success.active,
+.tag-info.active,
+.tag-inverse.active {
+  color: rgba(255,255,255,.75);
+}
+
+
+// Set the backgrounds
+// -------------------------
+.tag {
+  // reset here as of 2.0.3 due to Recess property order
+  border-color: #ccc;
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+}
+
+.tag-warning {
+  background-color: darken( $tagWarningBackground, 15% ) ;
+}
+
+.tag-danger {
+  background-color: darken( $tagDangerBackground, 10% );
+}
+// Success appears as green
+.tag-success {
+  background: darken( $tagSuccessBackground, 10% );
+}
+// Info appears as a neutral blue
+.tag-info {
+  background-color: darken( $tagInfoBackground, 10% );
+}
+// Inverse appears as dark gray
+.tag-inverse {
+  background-color: darken( $tagInverseBackground, 10% );
 }

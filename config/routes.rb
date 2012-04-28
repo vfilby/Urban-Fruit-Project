@@ -2,11 +2,7 @@ include UrbanFruitProject
 
 Urbanfruitproject::Application.routes.draw do
 
-  get "tag_controller/index"
 
-  get "tag_controller/show"
-
-  get "tag_controller/edit"
 
   get "log_in" => "authorizations#index", :as => "log_in"
   get "sign_up" => "authorizations#index", :as => "sign_up"
@@ -20,6 +16,7 @@ Urbanfruitproject::Application.routes.draw do
   resources :authorizations
   resources :sessions
   resources :images
+  resources :tags
   resources :fruit_caches, :path => 'caches' do
     resources :log_entries, :path => 'logs'
   end
