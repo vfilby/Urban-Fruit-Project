@@ -4,6 +4,7 @@
   .span6
     .tag
       = @tag.tag
+    =link_to( "Edit", edit_tag_path( @tag ) )
     .parent
       = @tag.parent
     .children

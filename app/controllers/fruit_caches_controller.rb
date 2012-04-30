@@ -39,6 +39,7 @@ class FruitCachesController < ApplicationController
 
   # GET /fruit_caches/1/edit
   def edit  
+    debugger
     @fruit_cache = FruitCache.find(params[:id])
     authorize! :edit, @fruit_cache
   end
@@ -76,9 +77,9 @@ class FruitCachesController < ApplicationController
   def update
     @fruit_cache = FruitCache.find(params[:id])
     authorize! :update, @fruit_cache
-
+    debugger
     # Process the comma separated tags
-    params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," )
+    params[:fruit_cache][:tag_ids] = Tag.process_tag_ids( params[:fruit_cache][:tags] )
     params[:fruit_cache].delete( :tags )
 
     respond_to do |format|

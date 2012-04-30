@@ -57,7 +57,8 @@
               $("#fruit_cache_tags").tokenInput("/api/tags/autocomplete",
                 { 
                   theme: "facebook",
-                  prePopulate: #{'[' + FruitCache.find(57).tags.map { |tag| "{ id: #{tag.id}, name: \"#{tag.tag}\" }"}.join( ', ' ) + ']'}
+                  allowCustomEntry: true,
+                  prePopulate: #{'[' + @fruit_cache.tags.map { |tag| "{ id: #{tag.id}, name: \"#{tag.tag}\" }"}.join( ', ' ) + ']'}
                 }
               );
           });
