@@ -10,7 +10,7 @@ class UrbanFruitProject::API < Grape::API
     # Loads a cache
     #
     # @param [id] The id of the cache you want to load
-    get "/show/:id" do
+    get "/:id" do
       @fruit_cache = FruitCache.find(params[:id])
       present @fruit_cache, :with => UrbanFruitProject::Entities::Cache
     end
@@ -95,20 +95,22 @@ class UrbanFruitProject::API < Grape::API
       )
     end
     
-    segment '/:cache_id/' do
+    segment '/:cache_id' do
       
-      resource :images do
+      resource '/images' do
         # Get a list of images associated with a cache
         #
         # 
         get '/' do
-          @fruit_cache = FruitCache.find(params[:cache_id]).images
+          @images = FruitCache.find(params[:cache_id]).images
+          present @images, :with => UrbanFruitProject::Entities::Image
         end
 
         # Get a specific image belonging to a cache
         #
         get '/:image_id' do
-          @fruit_cache = FruitCache.find(params[:cache_id]).images.find(params[:image_id])          
+          @image = FruitCache.find(params[:cache_id]).images.find(params[:image_id])          
+          present @image, :with => UrbanFruitProject::Entities::Image
         end
         
         # Adds a new image to an existing fruit cache

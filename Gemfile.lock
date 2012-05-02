@@ -1,21 +1,29 @@
 GIT
   remote: git://github.com/alexreisner/geocoder.git
-  revision: cfdca9d047828f992ea6ae32a6308e58655be804
+  revision: 620b98f979a387291003433913e6ad205a5ec3f2
   specs:
     geocoder (1.1.1)
 
 GIT
   remote: git://github.com/nickpad/will_paginate-bootstrap.git
-  revision: 0c1c2d3f78ab2c1978f3a6c3696dd3f2bc9cf3fa
+  revision: 3695c81258a6f395a9c3696c85a8e8e4bfd82bbb
   specs:
     will_paginate-bootstrap (0.2.0)
       will_paginate (>= 3.0.3)
 
+PATH
+  remote: /Users/vfilby/Projects/grape
+  specs:
+    grape (0.2.0)
+      hashie (~> 1.2)
+      multi_json
+      multi_xml
+      rack
+      rack-mount
+
 GEM
   remote: http://rubygems.org/
   specs:
-    XMLCanonicalizer (1.0.1)
-      log4r (>= 1.0.4)
     actionmailer (3.1.0)
       actionpack (= 3.1.0)
       mail (~> 2.3.0)
@@ -63,16 +71,16 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.2.0)
+    coffee-script-source (1.3.1)
     columnize (0.3.6)
     daemons (1.1.8)
-    debugger (1.1.1)
+    debugger (1.1.3)
       columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1)
-      debugger-ruby_core_source (~> 1.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.1.2)
     debugger-linecache (1.1.1)
       debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.1.1)
+    debugger-ruby_core_source (1.1.2)
     delayed_job (3.0.2)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.2)
@@ -80,34 +88,26 @@ GEM
       delayed_job (~> 3.0.0)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    execjs (1.3.0)
+    execjs (1.3.1)
       multi_json (~> 1.0)
-    faraday (0.7.6)
-      addressable (~> 2.2)
+    faraday (0.8.0)
       multipart-post (~> 1.1)
-      rack (~> 1.1)
-    faraday-stack (0.1.5)
-      faraday (>= 0.6, < 0.8)
+    faraday-stack (0.1.3)
+      faraday (~> 0.6)
     fattr (2.2.1)
-    gmaps4rails (1.4.8)
-      json
-    grape (0.2.0)
-      hashie (~> 1.2)
-      multi_json
-      multi_xml
-      rack
-      rack-mount
+    gmaps4rails (1.5.0)
     haml (3.1.4)
     hashie (1.2.0)
-    heroku (2.24.1)
+    heroku (2.25.0)
       launchy (>= 0.3.2)
       netrc (~> 0.7.1)
       rest-client (~> 1.6.1)
       rubyzip
     hike (1.2.1)
-    httparty (0.8.1)
-      multi_json
+    httparty (0.8.3)
+      multi_json (~> 1.0)
       multi_xml
+    httpauth (0.1)
     i18n (0.6.0)
     indextank (1.0.12)
       faraday-stack
@@ -115,63 +115,42 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.6)
+    json (1.7.0)
     launchy (2.1.0)
       addressable (~> 2.2.6)
-    log4r (1.1.10)
-    macaddr (1.5.0)
-      systemu (>= 2.4.0)
     mail (2.3.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
-    multi_json (1.0.4)
-    multi_xml (0.4.2)
+    multi_json (1.3.4)
+    multi_xml (0.4.4)
     multipart-post (1.1.5)
-    net-ldap (0.2.2)
     netrc (0.7.1)
-    newrelic_rpm (3.3.3)
+    newrelic_rpm (3.3.4.1)
     nokogiri (1.5.2)
-    oa-basic (0.3.2)
-      oa-core (= 0.3.2)
-      rest-client (~> 1.6.0)
-    oa-core (0.3.2)
-    oa-enterprise (0.3.2)
-      XMLCanonicalizer (~> 1.0.1)
-      addressable (~> 2.2.6)
-      net-ldap (~> 0.2.2)
-      nokogiri (~> 1.5.0)
-      oa-core (= 0.3.2)
-      pyu-ruby-sasl (~> 0.0.3.1)
-      rubyntlm (~> 0.1.1)
-      uuid
-    oa-more (0.3.2)
-      multi_json (~> 1.0.0)
-      oa-core (= 0.3.2)
-      rest-client (~> 1.6.0)
-    oa-oauth (0.3.2)
-      faraday (~> 0.7.3)
-      multi_json (~> 1.0.0)
-      multi_xml (~> 0.4.0)
-      oa-core (= 0.3.2)
-      oauth (~> 0.4.0)
-      oauth2 (~> 0.5.0)
-    oa-openid (0.3.2)
-      oa-core (= 0.3.2)
-      rack-openid (~> 1.3.1)
-      ruby-openid-apps-discovery (~> 1.2.0)
-    oauth (0.4.5)
-    oauth2 (0.5.2)
+    oauth (0.4.6)
+    oauth2 (0.6.1)
       faraday (~> 0.7)
-      multi_json (~> 1.0)
-    omniauth (0.3.2)
-      oa-basic (= 0.3.2)
-      oa-core (= 0.3.2)
-      oa-enterprise (= 0.3.2)
-      oa-more (= 0.3.2)
-      oa-oauth (= 0.3.2)
-      oa-openid (= 0.3.2)
+      httpauth (~> 0.1)
+      multi_json (~> 1.3)
+    omniauth (1.1.0)
+      hashie (~> 1.2)
+      rack
+    omniauth-facebook (1.2.0)
+      omniauth-oauth2 (~> 1.0.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.0.2)
+      oauth2 (~> 0.6.0)
+      omniauth (~> 1.0)
+    omniauth-openid (1.0.1)
+      omniauth (~> 1.0)
+      rack-openid (~> 1.3.1)
+    omniauth-twitter (0.0.11)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     paperclip (2.7.0)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
@@ -179,7 +158,6 @@ GEM
       mime-types
     pg (0.13.2)
     polyglot (0.3.3)
-    pyu-ruby-sasl (0.0.3.3)
     rack (1.3.6)
     rack-cache (1.0.3)
       rack (>= 0.4)
@@ -213,13 +191,10 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     ruby-openid (2.1.8)
-    ruby-openid-apps-discovery (1.2.0)
-      ruby-openid (>= 2.1.7)
-    rubyntlm (0.1.1)
-    rubyzip (0.9.7)
+    rubyzip (0.9.8)
     rush (0.6.8)
       session
-    sass (3.1.15)
+    sass (3.1.16)
     sass-rails (3.1.4)
       actionpack (~> 3.1.0)
       railties (~> 3.1.0)
@@ -228,13 +203,12 @@ GEM
       tilt (~> 1.3.2)
     session (3.1.0)
       fattr
-    simple_oauth (0.1.5)
-    sprockets (2.0.3)
+    simple_oauth (0.1.7)
+    sprockets (2.0.4)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.5)
-    systemu (2.5.0)
+    sqlite3 (1.3.6)
     tanker (1.1.6)
       json (>= 1.5.1)
     thin (1.3.1)
@@ -246,17 +220,15 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (2.2.0)
+    twitter (2.2.5)
       activesupport (>= 2.3.9, < 4)
-      faraday (~> 0.7)
-      multi_json (~> 1.0)
-      simple_oauth (~> 0.1)
-    tzinfo (0.3.32)
+      faraday (~> 0.8)
+      multi_json (~> 1.3)
+      simple_oauth (~> 0.1.6)
+    tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    uuid (2.3.5)
-      macaddr (~> 1.0)
     uuidtools (2.1.2)
     will_paginate (3.0.3)
     workless (1.0.1)
@@ -280,14 +252,18 @@ DEPENDENCIES
   delayed_job_active_record
   geocoder!
   gmaps4rails
-  grape
+  grape!
   haml
   indextank
   jquery-rails
   json
   mime-types
+  multi_json (~> 1.3.4)
   newrelic_rpm
-  omniauth (~> 0.3.2)
+  omniauth (~> 1.0)
+  omniauth-facebook
+  omniauth-openid
+  omniauth-twitter
   paperclip (~> 2.7)
   pg
   rails (= 3.1)
