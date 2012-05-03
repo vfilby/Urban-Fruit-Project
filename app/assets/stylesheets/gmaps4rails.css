@@ -6,27 +6,12 @@
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+  width: 800px;
 }
 
 .gmaps4rails_map {
   width: 800px;
   height: 400px;
-}
-
-.height200 {
-  height: 200px;
-}
-
-.height300 {
-  height: 300px;
-}
-
-.height400 {
-  height: 400px;
-}
-
-.height500 {
-  height: 500px;
 }
 
 .bing_map {
