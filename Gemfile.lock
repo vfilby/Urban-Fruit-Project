@@ -11,16 +11,6 @@ GIT
     will_paginate-bootstrap (0.2.0)
       will_paginate (>= 3.0.3)
 
-PATH
-  remote: /Users/vfilby/Projects/grape
-  specs:
-    grape (0.2.0)
-      hashie (~> 1.2)
-      multi_json
-      multi_xml
-      rack
-      rack-mount
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -96,6 +86,12 @@ GEM
       faraday (~> 0.6)
     fattr (2.2.1)
     gmaps4rails (1.5.0)
+    grape (0.2.0)
+      hashie (~> 1.2)
+      multi_json
+      multi_xml
+      rack
+      rack-mount
     haml (3.1.4)
     hashie (1.2.0)
     heroku (2.25.0)
@@ -252,7 +248,7 @@ DEPENDENCIES
   delayed_job_active_record
   geocoder!
   gmaps4rails
-  grape!
+  grape
   haml
   indextank
   jquery-rails
