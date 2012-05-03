@@ -5,6 +5,40 @@ class UrbanFruitProject::API < Grape::API
   default_format :json
   
   
+  resource "search" do
+    # Search for caches
+    #
+    # Either specify a lat/long or a location string
+    #
+    # @param [latitude] Latitude of the search center
+    # @param [longitude] Longitude of the search center
+    # @param [location] A location string to be geocoded
+    get "/" do
+
+      latitude = 0.0
+      longitude = 0.0
+      
+      if params.latitude? && params.longitude?
+        latitude = params[:latitude]
+        longitude = params[:longitude]
+      elsif params.location?
+        location = Geocoder.search(params[:location])
+        latitude = location[0].latitude
+        longitude = location[0].longitude
+      else
+        error!('500 Query Error', 500 )
+      end
+      
+      @fruit_caches = FruitCache.search_tank( 
+        '__type:FruitCache',
+        :var0 => latitude,
+        :var1 => longitude,
+        :function => 1,
+        :filter_functions => {1 => [[-50,0]]} 
+      )
+    end
+  end
+  
   resource "cache" do
     
     # Loads a cache
@@ -31,9 +65,7 @@ class UrbanFruitProject::API < Grape::API
     #   "longitude":-79.7653398037541,
     # }
     post "/save" do
-      debugger
       error!( "required json parameter not found", 500 ) unless params[:json] 
-      
       
       parser = Yajl::Parser.new
       h = parser.parse params[:json]
@@ -63,37 +95,7 @@ class UrbanFruitProject::API < Grape::API
       end
     end
     
-    # Search for caches
-    #
-    # Either specify a lat/long or a location string
-    #
-    # @param [latitude] Latitude of the search center
-    # @param [longitude] Longitude of the search center
-    # @param [location] A location string to be geocoded
-    get "/search" do
 
-      latitude = 0.0
-      longitude = 0.0
-      
-      if params.latitude? && params.longitude?
-        latitude = params[:latitude]
-        longitude = params[:longitude]
-      elsif params.location?
-        location = Geocoder.search(params[:location])
-        latitude = location[0].latitude
-        longitude = location[0].longitude
-      else
-        error!('500 Query Error', 500 )
-      end
-      
-      @fruit_caches = FruitCache.search_tank( 
-        '__type:FruitCache',
-        :var0 => latitude,
-        :var1 => longitude,
-        :function => 1,
-        :filter_functions => {1 => [[-50,0]]} 
-      )
-    end
     
     segment '/:cache_id' do
       

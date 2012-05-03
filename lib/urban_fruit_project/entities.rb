@@ -8,12 +8,18 @@ module UrbanFruitProject
       expose :location
       expose :latitude
       expose :longitude
-      expose( :images, :using => UrbanFruitProject::Entities::Image )
-      #expose(:images) do |model,options| 
-      #   model.images.reduce( [] ) do |a,i| 
-      #    a << { :id => i.id, :url => i.photo.url, :caption => i.caption, :filename => i.photo_file_name, :filesize => i.photo_file_size } 
-      #  end
-      #end
+      #expose( :images, :using => UrbanFruitProject::Entities::Image )
+      expose(:images) do |model,options| 
+         model.images.reduce( [] ) do |a,i| 
+          a << { 
+            :id => i.id, 
+            :url => i.photo.url, 
+            :caption => i.caption, 
+            :filename => i.photo_file_name, 
+            :filesize => i.photo_file_size
+          } 
+        end
+      end
     end
     
     class Image < Grape::Entity
