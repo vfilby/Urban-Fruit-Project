@@ -22,17 +22,17 @@ ActiveRecord::Schema.define(:version => 20120424212403) do
   end
 
   create_table "delayed_jobs", :force => true do |t|
-    t.integer   "priority",   :default => 0
-    t.integer   "attempts",   :default => 0
-    t.text      "handler"
-    t.text      "last_error"
-    t.timestamp "run_at"
-    t.timestamp "locked_at"
-    t.timestamp "failed_at"
-    t.string    "locked_by"
-    t.string    "queue"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
@@ -48,13 +48,6 @@ ActiveRecord::Schema.define(:version => 20120424212403) do
     t.integer   "user_id"
     t.string    "location"
   end
-
-  create_table "fruit_caches_tags", :id => false, :force => true do |t|
-    t.integer "fruit_cache_id"
-    t.integer "tag_id"
-  end
-
-  add_index "fruit_caches_tags", ["fruit_cache_id", "tag_id"], :name => "index_fruit_caches_tags_on_fruit_cache_id_and_tag_id"
 
   create_table "images", :force => true do |t|
     t.string    "caption"
@@ -74,14 +67,6 @@ ActiveRecord::Schema.define(:version => 20120424212403) do
     t.timestamp "updated_at"
     t.integer   "fruit_cache_id"
     t.integer   "user_id"
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string   "tag"
-    t.integer  "parent_id"
-    t.string   "meta"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
