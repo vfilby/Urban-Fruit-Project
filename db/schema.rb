@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(:version => 20120424212403) do
     t.string    "location"
   end
 
+  create_table "fruit_caches_tags", :id => false, :force => true do |t|
+    t.integer "fruit_cache_id"
+    t.integer "tag_id"
+  end
+
+  add_index "fruit_caches_tags", ["fruit_cache_id", "tag_id"], :name => "index_fruit_caches_tags_on_fruit_cache_id_and_tag_id"
+
   create_table "images", :force => true do |t|
     t.string    "caption"
     t.integer   "fruit_cache_id"
@@ -67,6 +74,14 @@ ActiveRecord::Schema.define(:version => 20120424212403) do
     t.timestamp "updated_at"
     t.integer   "fruit_cache_id"
     t.integer   "user_id"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "tag"
+    t.integer  "parent_id"
+    t.string   "meta"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
