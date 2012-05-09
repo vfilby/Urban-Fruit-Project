@@ -38,7 +38,7 @@ class ImagesController < ApplicationController
   # POST /uploads
   # POST /uploads.xml
   def create
-    debugger
+
     newparams = coerce(params)
     @image = Image.new(newparams[:image])
     @image.user = current_user
