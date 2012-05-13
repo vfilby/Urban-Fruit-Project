@@ -5,8 +5,9 @@
     .tag
       = @tag.tag
     =link_to( "Edit", edit_tag_path( @tag ) )
-    .parent
-      = @tag.parent
+    - if @tag.parent
+      .parent
+        = "#{@tag.parent.tag} #{(@tag.parent.id)}"
     .children
       = @tag.children
     .meta

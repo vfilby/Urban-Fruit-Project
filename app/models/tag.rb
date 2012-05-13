@@ -5,6 +5,9 @@ class Tag < ActiveRecord::Base
   serialize :meta, Hash
   has_and_belongs_to_many :fruit_caches
   
+  after_save :update_tank_indexes
+  after_destroy :delete_tank_indexes
+  
   tankit Rails.configuration.indextank_index do
     indexes :tag
   end
@@ -20,16 +23,21 @@ class Tag < ActiveRecord::Base
     parts = tagIdString.split( "," )
     tagIds = []
     parts.each do |part|
-      begin  
-        id = Integer part
-        tagIds << id
-      rescue
-        tag = Tag.new( :tag => part.tr( "'", "" ) )
-        tag.save
-        tagIds << tag.id
-      end
+      tag_id = Tag.process_tag_id part
+      tagIds << tag_id
     end
     
     tagIds
+  end
+  
+  def self.process_tag_id( tag_string )
+    begin  
+      id = Integer tag_string
+      return id
+    rescue
+      tag = Tag.new( :tag => tag_string.tr( "'", "" ) )
+      tag.save
+      return tag.id
+    end
   end
 end

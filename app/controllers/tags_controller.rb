@@ -18,7 +18,7 @@ class TagsController < ApplicationController
   def update
     @tag = Tag.find(params[:id])
     debugger
-    params[:tag][:parent_id] = params[:tag][:parent]
+    params[:tag][:parent_id] = Tag.process_tag_id( params[:tag][:parent] )
     params[:tag].delete( :parent )
 
     respond_to do |format|

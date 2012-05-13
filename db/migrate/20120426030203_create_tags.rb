@@ -8,7 +8,7 @@ class CreateTags < ActiveRecord::Migration
       t.timestamps
     end
     
-      create_table :fruit_caches_tags, :id => false do |t|
+    create_table :fruit_caches_tags, :id => false do |t|
       t.references :fruit_cache, :tag
     end
     

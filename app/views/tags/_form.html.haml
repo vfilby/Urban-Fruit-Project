@@ -11,7 +11,7 @@
         $("#tag_parent").tokenInput("/api/tags/autocomplete",
           { 
             theme: "facebook",
-            tokenLimit: 10,
+            tokenLimit: 1,
             allowCustomEntry: true,
             prePopulate: #{ (@tag.parent) ? "[ { id: #{@tag.parent.id}, name: \"#{@tag.parent.tag}\" } ]" : "[]" },
             onAdd: function( item ) {

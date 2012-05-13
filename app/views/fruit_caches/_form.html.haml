@@ -14,6 +14,7 @@
                 = msg
       %fieldset
 
+        = f.text_field :primary_tag_id
         = f.text_field :name
         = f.text_field :description, :class => "input-xlarge" 
         = f.text_field :rating, :class => "input-xlarge"
@@ -59,6 +60,26 @@
                   theme: "facebook",
                   allowCustomEntry: true,
                   prePopulate: #{'[' + @fruit_cache.tags.map { |tag| "{ id: #{tag.id}, name: \"#{tag.tag}\" }"}.join( ', ' ) + ']'}
+                }
+              );
+              
+              $("#fruit_cache_primary_tag_id").tokenInput("/api/tags/autocomplete",
+                { 
+                  theme: "facebook",
+                  tokenLimit: 1,
+                  allowCustomEntry: true,
+                  prePopulate: #{ (@fruit_cache.primary_tag) ? "[ { id: #{@fruit_cache.primary_tag.id}, name: \"#{@fruit_cache.primary_tag.tag}\" } ]" : "[]" },
+                  onAdd: function( item ) {
+                    $('#fruit_cache_primary_tag_id').prev().addClass( 'list-full' )
+                  },
+                  onDelete: function( item ) {
+                    $('#fruit_cache_primary_tag_id').prev().removeClass( 'list-full' )
+                  },
+                  onReady: function( item ) {
+                    if( $('#fruit_cache_primary_tag_id').prev().children().size()/2 >= 1 ) {
+                      $('#fruit_cache_primary_tag_id').prev().addClass( 'list-full' )
+                    }
+                  }
                 }
               );
           });
