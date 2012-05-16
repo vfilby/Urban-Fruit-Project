@@ -78,6 +78,11 @@ class FruitCachesController < ApplicationController
     @fruit_cache = FruitCache.find(params[:id])
     authorize! :update, @fruit_cache
     debugger
+    
+    # process the primary tag
+    params[:fruit_cache][:primary_tag_id] = Tag.process_tag_id params[:fruit_cache][:primary_tag_id]
+    #params[:fruit_cache].delete( :primary_tag )
+    
     # Process the comma separated tags
     params[:fruit_cache][:tag_ids] = Tag.process_tag_ids( params[:fruit_cache][:tags] )
     params[:fruit_cache].delete( :tags )
