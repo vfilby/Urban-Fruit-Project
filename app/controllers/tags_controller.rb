@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  load_and_authorize_resource 
   respond_to :html
   
   def index
@@ -7,17 +8,14 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
     respond_with @tag
   end
 
   def edit
-    @tag = Tag.find(params[:id])
+
   end
   
   def update
-    @tag = Tag.find(params[:id])
-    debugger
     params[:tag][:parent_id] = Tag.process_tag_id( params[:tag][:parent] )
     params[:tag].delete( :parent )
 

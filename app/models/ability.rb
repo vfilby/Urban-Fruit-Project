@@ -27,5 +27,10 @@ class Ability
     can [:update, :delete, :destroy], Image do |image|
       image.fruit_cache.user == current_user || image.user == current_user
     end
+    
+    can :create, Tag if current_user
+    can [:update, :delete, :destroy], Tag do |tag|
+      current_user && current_user.id == 2
+    end
   end
 end
