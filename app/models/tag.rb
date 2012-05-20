@@ -34,6 +34,7 @@ class Tag < ActiveRecord::Base
   end
   
   def self.process_tag_id( tag_string )
+    return if tag_string.blank?
     begin  
       id = Integer tag_string
       return id

@@ -50,6 +50,7 @@ class FruitCachesController < ApplicationController
     authorize! :create, FruitCache
     debugger 
     # Process the comma separated tags
+    params[:fruit_cache][:primary_tag_id] = Tag.process_tag_id params[:fruit_cache][:primary_tag_id]
     params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," )
     params[:fruit_cache].delete( :tags )
     
