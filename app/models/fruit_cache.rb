@@ -23,8 +23,7 @@ class FruitCache < ActiveRecord::Base
   # Gmaps4rails
   acts_as_gmappable :process_geocoding => false
   
-  validates_presence_of :name, :on => :create, :message => "Please provide a name"
-  validates_presence_of :description, :on => :create, :message => "Please provide a description"
+  validates_presence_of :primary_tag, :on => :create, :message => "Primary category required"
   validates_presence_of :latitude, :on => :create, :message => "Latitude required"
   validates_presence_of :longitude, :on => :create, :message => "Longitude required"
   

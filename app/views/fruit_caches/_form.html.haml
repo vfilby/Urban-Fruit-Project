@@ -14,12 +14,21 @@
                 = msg
       %fieldset
 
-        = f.text_field :primary_tag_id
-        = f.text_field :name
-        = f.text_field :description, :class => "input-xlarge" 
-        = f.text_field :rating, :class => "input-xlarge"
-        = f.text_field :tags, :class => "input-xlarge"
- 
+        = f.text_field :primary_tag_id, :label => { text: "Name" } do
+          %p.helptext The primary category, usually a name like 'Pear' or 'Morel Mushroom'"
+        = f.text_area :description, :class => "input-xlarge", rows: 5
+        = f.text_field :tags, :class => "input-xlarge" do
+          %p.helptext Anything you think is important such as: 'Poisonous', 'Edible', 'Overpicked'
+        
+        = f.text_field :latitude, :class => "input-xlarge" do
+          %p.helptext Drag the marker on the map below to set automatically
+        = f.text_field :longitude, :class => "input-xlarge" do
+          %p.helptext Drag the marker on the map below to set automatically
+           
+        .actions
+          = f.submit :class => "btn btn-primary"
+        %br
+          
       - # Default to the cache lat/long, if none assume it's a new cache and
       - # default to the users ip geolocation
       - latitude = @fruit_cache.latitude || lat_long[:latitude] || request.location.latitude || 0.0
@@ -28,14 +37,6 @@
       - @markers = "[{\"lng\": \"#{longitude}\", \"lat\": \"#{latitude}\" }]" 
 
       = gmaps({"map_options" => { "zoom" => zoom, "auto_adjust" => true, "auto_zoom" => false },"markers" => { "data" => @markers, "options" => { "draggable" => true } }})
-
-
-      = f.text_field :latitude, :class => "input-xlarge"
-      = f.text_field :longitude, :class => "input-xlarge"
-
-  
-      .actions
-        = f.submit
       
       - content_for :scripts do
         :javascript
