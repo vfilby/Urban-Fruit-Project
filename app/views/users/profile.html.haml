@@ -17,6 +17,7 @@
         - caches.each do |cache|
           %li
             %a{ :href => fruit_cache_path(cache.id)}
-              = cache.name
+              = "#{cache.primary_tag.tag}"
+            =  " - #{cache.location}"
     - else
       %p No caches :'(

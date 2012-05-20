@@ -12,11 +12,6 @@ TODO:
 - provide authorization via the API
 - API call to create a new log entry (found it?)
 - Add categories to the caches
-- Add tags to the caches
- - Add tag view page
- - add tag index page
- - Allow moderators/admins to edit the tags (set meta, parent, etc)
- - Fix the styling on the cache form
 - fixed map on SERP?
 - clicking on SERP entry highlights map pin and maybe zooms?
 - Add style to the authorizations page
@@ -28,4 +23,4 @@ TODO:
 - Make cache deleting just archive it so that we have a record.
 - When uploading an image dynamically make it clickable and change the title to account for the new photo
 - Use marker grouping?
-- Update to a new omniauth gem
+
