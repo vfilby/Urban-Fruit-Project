@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(:version => 20120513170525) do
   end
 
   create_table "tags", :force => true do |t|
-    t.string   "tag"
-    t.integer  "parent_id"
-    t.string   "meta"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "tag"
+    t.integer   "parent_id"
+    t.string    "meta"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "users", :force => true do |t|

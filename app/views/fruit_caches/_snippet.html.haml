@@ -16,7 +16,7 @@
       - else
         %img{ :src => asset_path( "missing_micro.png"), :class => "span1" }
     %div
-      = link_to fruit_cache.short_description, fruit_cache
+      = link_to fruit_cache.primary_tag.tag, fruit_cache
     %div
       = fruit_cache.location
 

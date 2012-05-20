@@ -31,7 +31,12 @@ class FruitCache < ActiveRecord::Base
   # Index descriptions & functions
   #
   tankit Rails.configuration.indextank_index do
-    indexes :name
+    indexes :name do
+      primary_tag.tag
+    end
+    indexes :tags do
+      tags.map { |t| t.tag }
+    end
     indexes :description
     variables do 
       {
