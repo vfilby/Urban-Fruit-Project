@@ -1,5 +1,12 @@
-- title( @fruit_cache.name )
 
+- title @fruit_cache.primary_tag.tag
+
+- if can? :edit, @fruit_cache
+  .row
+    .span6
+      .i.icon-cog
+      = link_to 'Edit', edit_fruit_cache_path(@fruit_cache)
+    
 .row
   .span6
     %p

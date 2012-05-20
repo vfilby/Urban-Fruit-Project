@@ -2,8 +2,11 @@
 = bootstrap_form_for @tag, :html => {:multipart => true, :class=>"well form-horizontal"}  do |f|
   = f.text_field :tag
   = f.text_field :parent
+  = f.text_area :meta_edit
   = f.submit
   
+
+
   
 - content_for :scripts do
   :javascript
