@@ -60,7 +60,7 @@
                 { 
                   theme: "facebook",
                   allowCustomEntry: true,
-                  prePopulate: #{'[' + @fruit_cache.tags.map { |tag| "{ id: #{tag.id}, name: \"#{tag.tag}\" }"}.join( ', ' ) + ']'}
+                  prePopulate: #{'[' + @fruit_cache.tags.map { |tag| "{ id: #{tag.id}, name: \"#{escape_javascript tag.tag}\" }"}.join( ', ' ) + ']'}
                 }
               );
               
@@ -69,7 +69,7 @@
                   theme: "facebook",
                   tokenLimit: 1,
                   allowCustomEntry: true,
-                  prePopulate: #{ (@fruit_cache.primary_tag) ? "[ { id: #{@fruit_cache.primary_tag.id}, name: \"#{@fruit_cache.primary_tag.tag}\" } ]" : "[]" },
+                  prePopulate: #{ (@fruit_cache.primary_tag) ? "[ { id: #{@fruit_cache.primary_tag.id}, name: \"#{escape_javascript @fruit_cache.primary_tag.tag}\" } ]" : "[]" },
                   onAdd: function( item ) {
                     $('#fruit_cache_primary_tag_id').prev().addClass( 'list-full' )
                   },
