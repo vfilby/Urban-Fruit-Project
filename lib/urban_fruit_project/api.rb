@@ -36,7 +36,19 @@ class UrbanFruitProject::API < Grape::API
         :function => 1,
         :filter_functions => {1 => [[-50,0]]} 
       )
+      present @fruit_caches, :with => UrbanFruitProject::Entities::Cache
     end
+  end
+  
+  # http://urbanfruitproject.dev/api/bounding_box?sw_lat=43.494184&sw_long=79.677633&ne_lat=43.494204&ne_long=-79.677653
+  get "bounding_box" do
+    #debugger
+    sw_lat = params[:sw_lat]
+    sw_long = params[:sw_long]
+    ne_lat = params[:ne_lat]
+    ne_long = params[:ne_long]
+    @caches = FruitCache.within_bounding_box( [[sw_lat, sw_long],[ne_lat, ne_long]] )
+    present @caches, :with => UrbanFruitProject::Entities::Cache
   end
   
   resource "cache" do
