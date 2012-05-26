@@ -1,7 +1,0 @@
-Indexing Notes
-==============
-
-To reindex the you need to specify the environment:
-  
-    rake tanker:reindex RAILS_ENV=development
-    rake tanker:functions
