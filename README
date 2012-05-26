@@ -5,22 +5,3 @@ To reindex the you need to specify the environment:
   
     rake tanker:reindex RAILS_ENV=development
     rake tanker:functions
-    
-    
-TODO:
-- Add images to log API
-- provide authorization via the API
-- API call to create a new log entry (found it?)
-- Add categories to the caches
-- fixed map on SERP?
-- clicking on SERP entry highlights map pin and maybe zooms?
-- Add style to the authorizations page
-- Add style to the profile settings page
-- Better public profile
-- Help page
-- Add flagging an image to be removed for various reasons
-- Make deleting a user just archive them to preserve cache ownership
-- Make cache deleting just archive it so that we have a record.
-- When uploading an image dynamically make it clickable and change the title to account for the new photo
-- Use marker grouping?
-

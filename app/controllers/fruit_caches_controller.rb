@@ -1,5 +1,5 @@
 class FruitCachesController < ApplicationController
-  
+  require 'geonames'
   # GET /fruit_caches
   # GET /fruit_caches.xml
   def index
@@ -19,6 +19,7 @@ class FruitCachesController < ApplicationController
     @json = @fruit_cache.to_gmaps4rails do |cache, marker|
       "\"id\":#{cache.id}" 
     end
+     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fruit_cache }

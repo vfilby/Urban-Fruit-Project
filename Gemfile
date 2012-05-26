@@ -27,6 +27,7 @@ end
 gem 'jquery-rails'
 gem 'json'
 gem 'geocoder', :git => 'git://github.com/alexreisner/geocoder.git'
+gem 'ruby-geonames', :git => 'git://github.com/vfilby/ruby-geonames.git'
 gem 'haml'
 gem 'indextank'
 gem 'tanker' #, :path => '/Users/vfilby/Projects/tanker' #, :git => 'git://github.com/vfilby/tanker.git'
