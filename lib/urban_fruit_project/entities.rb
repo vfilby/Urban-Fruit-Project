@@ -24,7 +24,6 @@ module UrbanFruitProject
       expose :latitude
       expose :longitude
       expose :images, :using => UrbanFruitProject::Entities::Image
-      expose :name
     end
   
   end
