@@ -1,0 +1,11 @@
+/ app/views/errors/not_found.html.haml
+%h1 
+  The page you were looking for doesn't exist.
+%br
+%p
+  You may have mistyped the address or the page may have moved.
+
+:javascript
+  var GOOG_FIXURL_LANG = '#{I18n.locale}';
+  var GOOG_FIXURL_SITE = '#{request.protocol}#{request.host}';
+%script{ :type => 'text/javascript', :src => 'http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js' }

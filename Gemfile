@@ -1,18 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
+gem 'rails', '3.2.3'
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -20,11 +8,19 @@ gem 'rails', '3.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 group :assets do
-  gem 'sass-rails', "3.1.4"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'sass-rails'
+  gem 'coffee-rails', "~> 3.2.2"
+  gem 'uglifier', '>= 1.0.3'
 end
-gem 'jquery-rails'
+
+# Authentication and permissions
+gem 'omniauth', '~> 1.0'
+gem 'omniauth-openid'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'cancan'
+
+gem 'jquery-rails', '~> 2.0.0'
 gem 'json'
 gem 'geocoder', :git => 'git://github.com/alexreisner/geocoder.git'
 gem 'ruby-geonames', :git => 'git://github.com/vfilby/ruby-geonames.git'
@@ -37,11 +33,6 @@ gem 'paperclip', '~> 2.7'
 gem 'aws-sdk', '~> 1.3.4'
 gem 'mime-types', :require => 'mime/types'
 gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'omniauth', '~> 1.0'
-gem 'omniauth-openid'
-gem 'omniauth-twitter'
-gem 'omniauth-facebook'
-gem 'cancan'
 gem 'pg'
 gem 'gmaps4rails'
 gem 'multi_json', '~> 1.3.4' #, :git => 'git://github.com/intridea/multi_json.git'

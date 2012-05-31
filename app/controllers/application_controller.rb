@@ -4,6 +4,17 @@ class ApplicationController < ActionController::Base
   helper_method :stored_lat_long?
   
   protected
+  
+  def render_not_found(exception)
+    log_error(exception)
+    render :template => "/error/404.html.haml", :status => 404
+  end
+
+  def render_error(exception)
+    log_error(exception)
+    render :template => "/error/500.html.haml", :status => 500
+  end
+  
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])

@@ -1,8 +1,10 @@
 include UrbanFruitProject
 
 Urbanfruitproject::Application.routes.draw do
-
-
+  
+  match "/404" => 'errors#not_found'
+  match "/500" => 'errors#internal_server_error'
+  
 
   get "log_in" => "authorizations#index", :as => "log_in"
   get "sign_up" => "authorizations#index", :as => "sign_up"
@@ -24,12 +26,12 @@ Urbanfruitproject::Application.routes.draw do
     resources :log_entries, :path => 'logs'
   end
   
-  
 
   match 'search(/:q)' => 'search#index'
   root :to => 'home#index'
   
   mount UrbanFruitProject::API => "/"
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
