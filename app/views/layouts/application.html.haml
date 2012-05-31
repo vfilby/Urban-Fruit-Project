@@ -48,6 +48,26 @@
                 %a{:href=>sign_up_path} Join!
               %li
                 %a{:href=>log_in_path} Sign in
+            %li.dropdown
+              %a.dropdown-toggle{ :href=>'#', :'data-toggle'=>"dropdown"}
+                Help
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a About Us
+                %li
+                  %a{ :href=>'http://blog.urbanfruitproject.com' } Our Blog
+                %li 
+                  %a Terms of Use
+
+                %li.divider
+                %li
+                  %a How to use
+                %li.divider
+                %li
+                  %a{ :href=>'http://www.facebook.com/UrbanFruitProject' } Facebook
+                %li 
+                  %a{ :href=>'http://www.twitter.com/fruitproject' } Twitter
 
     .container
       - if flash[:notice]
