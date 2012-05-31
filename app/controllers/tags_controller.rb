@@ -12,12 +12,10 @@ class TagsController < ApplicationController
   end
 
   def edit
-    debugger
     @tag.meta_edit = @tag.read_attribute(:meta).inspect
   end
   
   def update
-    debugger
     params[:tag][:parent_id] = Tag.process_tag_id( params[:tag][:parent] )
     params[:tag].delete( :parent )
 

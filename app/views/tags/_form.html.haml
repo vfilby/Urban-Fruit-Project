@@ -18,7 +18,7 @@
             theme: "facebook",
             tokenLimit: 1,
             allowCustomEntry: true,
-            prePopulate: #{ (@tag.parent) ? "[ { id: #{@tag.parent.id}, name: \"#{escape javascript @tag.parent.tag}\" } ]" : "[]" },
+            prePopulate: #{ (@tag.parent) ? "[ { id: #{@tag.parent.id}, name: \"#{escape_javascript @tag.parent.tag}\" } ]" : "[]" },
             onAdd: function( item ) {
               $('#tag_parent').prev().addClass( 'list-full' )
             },

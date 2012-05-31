@@ -2,48 +2,50 @@ require 'test_helper'
 
 class LogEntriesControllerTest < ActionController::TestCase
   setup do
+    @cache = fruit_caches(:guelph_cache)
     @log_entry = log_entries(:one)
+    user = users(:vfilby)
+    session[:user_id] = user.id
   end
 
   test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:log_entries)
+    get :index, :fruit_cache_id => @cache.id
+    assert_redirected_to fruit_cache_path(@cache)
   end
 
   test "should get new" do
-    get :new
+    get :new, :fruit_cache_id => @cache.id
     assert_response :success
   end
 
   test "should create log_entry" do
     assert_difference('LogEntry.count') do
-      post :create, :log_entry => @log_entry.attributes
+      post :create, :fruit_cache_id => @cache.id, :log_entry => @log_entry.attributes
     end
 
-    assert_redirected_to log_entry_path(assigns(:log_entry))
+    assert_redirected_to fruit_cache_path(@cache)
   end
 
   test "should show log_entry" do
-    get :show, :id => @log_entry.to_param
+    get :show, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @log_entry.to_param
+    get :edit, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
     assert_response :success
   end
 
   test "should update log_entry" do
-    put :update, :id => @log_entry.to_param, :log_entry => @log_entry.attributes
-    assert_redirected_to log_entry_path(assigns(:log_entry))
+    put :update, :fruit_cache_id => @cache.id, :id => @log_entry.to_param, :log_entry => @log_entry.attributes
+    assert_redirected_to fruit_cache_path(@cache)
   end
 
   test "should destroy log_entry" do
     assert_difference('LogEntry.count', -1) do
-      delete :destroy, :id => @log_entry.to_param
+      delete :destroy, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
     end
 
-    assert_redirected_to log_entries_path
+    assert_redirected_to fruit_cache_path(@cache)
   end
 end

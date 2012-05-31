@@ -5,18 +5,13 @@ class LogEntriesController < ApplicationController
   # GET /log_entries
   # GET /log_entries.xml
   def index
-    @log_entries = LogEntry.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @log_entries }
-    end
+    redirect_to( @fruit_cache )
   end
 
   # GET /log_entries/1
   # GET /log_entries/1.xml
   def show
-    @log_entry = LogEntry.find(params[:id])
+    @log_entry = @fruit_cache.log_entries.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +32,7 @@ class LogEntriesController < ApplicationController
 
   # GET /log_entries/1/edit
   def edit
-    @log_entry = @fruit_cache.LogEntry.find(params[:id])
+    @log_entry = @fruit_cache.log_entries.find(params[:id])
   end
 
   # POST /log_entries
@@ -59,11 +54,11 @@ class LogEntriesController < ApplicationController
   # PUT /log_entries/1
   # PUT /log_entries/1.xml
   def update
-    @log_entry = @fruit_cache.LogEntry.find(params[:id])
+    @log_entry = @fruit_cache.log_entries.find(params[:id])
 
     respond_to do |format|
       if @log_entry.update_attributes(params[:log_entry])
-        format.html { redirect_to(@log_entry, :notice => 'Log entry was successfully updated.') }
+        format.html { redirect_to(@fruit_cache, :notice => 'Log entry was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -75,11 +70,11 @@ class LogEntriesController < ApplicationController
   # DELETE /log_entries/1
   # DELETE /log_entries/1.xml
   def destroy
-    @log_entry = @fruit_cache.LogEntry.find(params[:id])
+    @log_entry = @fruit_cache.log_entries.find(params[:id])
     @log_entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to(log_entries_url) }
+      format.html { redirect_to(@fruit_cache, :notice => 'Log entry was deleted.') }
       format.xml  { head :ok }
     end
   end

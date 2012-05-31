@@ -2,7 +2,9 @@ require 'test_helper'
 
 class FruitCachesControllerTest < ActionController::TestCase
   setup do
-    @fruit_cach = fruit_caches(:one)
+    @fruit_cache = fruit_caches(:guelph_cache)
+    user = users(:vfilby)
+    session[:user_id] = user.id
   end
 
   test "should get index" do
@@ -16,32 +18,32 @@ class FruitCachesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create fruit_cach" do
+  test "should create fruit_cache" do
     assert_difference('FruitCache.count') do
-      post :create, :fruit_cach => @fruit_cach.attributes
+      post :create, :fruit_cache => @fruit_cache.attributes
     end
 
-    assert_redirected_to fruit_cach_path(assigns(:fruit_cach))
+    assert_redirected_to fruit_cache_path(assigns(:fruit_cache))
   end
 
-  test "should show fruit_cach" do
-    get :show, :id => @fruit_cach.to_param
+  test "should show fruit_cache" do
+    get :show, :id => @fruit_cache.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @fruit_cach.to_param
+    get :edit, :id => @fruit_cache.to_param
     assert_response :success
   end
 
-  test "should update fruit_cach" do
-    put :update, :id => @fruit_cach.to_param, :fruit_cach => @fruit_cach.attributes
-    assert_redirected_to fruit_cach_path(assigns(:fruit_cach))
+  test "should update fruit_cache" do
+    put :update, :id => @fruit_cache.to_param, :fruit_cache => @fruit_cache.attributes
+    assert_redirected_to fruit_cache_path(assigns(:fruit_cache))
   end
 
-  test "should destroy fruit_cach" do
+  test "should destroy fruit_cache" do
     assert_difference('FruitCache.count', -1) do
-      delete :destroy, :id => @fruit_cach.to_param
+      delete :destroy, :id => @fruit_cache.to_param
     end
 
     assert_redirected_to fruit_caches_path

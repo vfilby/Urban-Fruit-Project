@@ -2,9 +2,6 @@ class Ability
   include CanCan::Ability
   
   def initialize(current_user)
-    if !current_user
-      can :read, :all
-    end
     
     can :read, :all
     
@@ -12,6 +9,7 @@ class Ability
     can [:profile, :update, :delete, :destroy], User do |user|
       user == current_user
     end
+    cannot :index, User unless (current_user && current_user.id == 1)
     
     can :create, FruitCache if current_user
     can [:update, :delete, :destroy], FruitCache do |cache|
@@ -22,6 +20,7 @@ class Ability
     can [:update, :destroy], LogEntry do |log|
       log && log.user == current_user
     end
+    
     
     can :create, Image if current_user
     can [:update, :delete, :destroy], Image do |image|

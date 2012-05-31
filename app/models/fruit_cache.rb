@@ -1,5 +1,6 @@
 class FruitCache < ActiveRecord::Base
   include Tanker
+  include BrowseCacheManager
   
   belongs_to :user, :class_name => "User", :foreign_key => "user_id"
   has_many :log_entries
@@ -11,6 +12,9 @@ class FruitCache < ActiveRecord::Base
     
   after_save :update_tank_indexes
   after_destroy :delete_tank_indexes
+  after_create :create_cached_locations
+  after_update :update_cached_locations
+  after_destroy :destroy_cached_locations
   
   # Ruby Geocoder
   reverse_geocoded_by :latitude, :longitude do |obj,results|
@@ -72,4 +76,22 @@ class FruitCache < ActiveRecord::Base
       return description
     end
   end
+  
+  def create_cached_locations
+    BrowseCacheManager.add_location( latitude, longitude )
+  end
+  
+  def update_cached_locations
+    if( self.latitude_changed? || self.longitude_changed? )
+      BrowseCacheManager.remove_location( latitude, longitude )
+      BrowseCacheManager.add_location( latitude, longitude )
+    end
+  end
+  
+  def destroy_cached_locations
+    BrowseCacheManager.remove_location( latitude, longitude )
+  end
+  
+  
+  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513170525) do
+ActiveRecord::Schema.define(:version => 20120527160837) do
 
   create_table "authorizations", :force => true do |t|
     t.string    "provider"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20120513170525) do
     t.integer   "user_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "cached_browse_locations", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "delayed_jobs", :force => true do |t|

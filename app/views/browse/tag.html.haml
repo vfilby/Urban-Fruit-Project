@@ -1,0 +1,12 @@
+%ul
+  - @tags.each do |tag|
+    %li
+      = link_to tag.tag, "#{request.fullpath}/#{tag.id}-#{tag.tag}"
+
+.row
+  .span6
+    - @caches.each do |fruit_cache|
+      = render :partial => "fruit_caches/snippet", :locals => { :fruit_cache => fruit_cache }
+  .span6
+    - if @caches && @caches.count > 0
+      = gmaps( :map_options => { :container_class => "map_container", :class => "height300", :auto_adjust => true },:markers => { "data" => @google_maps_json} )

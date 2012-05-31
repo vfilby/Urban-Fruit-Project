@@ -36,4 +36,10 @@ Urbanfruitproject::Application.configure do
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
+  
+  config.indextank_index = 'urbanfruitproject_dev'
+  
+  Paperclip.options[:command_path] = "/usr/local/ImageMagick/bin/"
+  
+  Delayed::Worker.delay_jobs = false
 end

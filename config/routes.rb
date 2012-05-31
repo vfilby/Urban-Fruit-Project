@@ -10,6 +10,9 @@ Urbanfruitproject::Application.routes.draw do
   
   match "/auth/:provider/callback" => "authorizations#create"
   
+  get "browse/type(/*hierarchy)" => 'browse#tag'
+  get "browse/location(/*hierarchy)" => 'browse#location'
+  
   resources :users
   match "/profile" => 'users#profile'
     

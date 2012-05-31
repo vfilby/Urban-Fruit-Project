@@ -1,9 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
-  tag: MyString
-  meta: MyString
+flower:
+  tag: Flower Petals Rock
+  meta: {}
+  
+trillium:
+  tag: Trillium
+  parent: flower
+  meta: {}
 
-two:
-  tag: MyString
-  meta: MyString
+poisonous:
+  tag: Poisonous
+  meta: {}

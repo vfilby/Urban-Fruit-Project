@@ -5,12 +5,6 @@ class AuthorizationsController < ApplicationController
     @authorizations = current_user.authorizations if current_user  
   end
 
-  def show
-  end
-
-  def new
-  end
-
   def create
     auth = request.env['omniauth.auth']
     authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])

@@ -40,7 +40,6 @@ class FruitCachesController < ApplicationController
 
   # GET /fruit_caches/1/edit
   def edit  
-    debugger
     @fruit_cache = FruitCache.find(params[:id])
     authorize! :edit, @fruit_cache
   end
@@ -49,11 +48,12 @@ class FruitCachesController < ApplicationController
   # POST /fruit_caches.xml
   def create    
     authorize! :create, FruitCache
-    debugger 
     # Process the comma separated tags
     params[:fruit_cache][:primary_tag_id] = Tag.process_tag_id params[:fruit_cache][:primary_tag_id]
-    params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," )
-    params[:fruit_cache].delete( :tags )
+    if params[:fruit_cache][:tags]
+      params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," ) 
+      params[:fruit_cache].delete( :tags ) 
+    end
     
     @fruit_cache = FruitCache.new(params[:fruit_cache])
     @fruit_cache.user = current_user
@@ -79,16 +79,17 @@ class FruitCachesController < ApplicationController
   def update
     @fruit_cache = FruitCache.find(params[:id])
     authorize! :update, @fruit_cache
-    debugger
     
     # process the primary tag
     params[:fruit_cache][:primary_tag_id] = Tag.process_tag_id params[:fruit_cache][:primary_tag_id]
     #params[:fruit_cache].delete( :primary_tag )
     
     # Process the comma separated tags
-    params[:fruit_cache][:tag_ids] = Tag.process_tag_ids( params[:fruit_cache][:tags] )
-    params[:fruit_cache].delete( :tags )
-
+    if params[:fruit_cache][:tags]
+      params[:fruit_cache][:tag_ids] = Tag.process_tag_ids( params[:fruit_cache][:tags] )
+      params[:fruit_cache].delete( :tags )
+    end
+    
     respond_to do |format|
       if @fruit_cache.update_attributes(params[:fruit_cache])
         format.html { redirect_to(@fruit_cache, :notice => 'Fruit cache was successfully updated.') }

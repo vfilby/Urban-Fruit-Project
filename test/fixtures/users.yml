@@ -1,11 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  email: MyString
-  password_hash: MyString
-  password_salt: MyString
+anonymouse:
+    email: anonymouse@urbanfruitproject.com
+    name: Anonymouse
 
-two:
-  email: MyString
-  password_hash: MyString
-  password_salt: MyString
+vfilby:
+  email: vfilby@gmail.com
+  name: Vincent Filby
+
+tag_admin:
+    email: tagadmin@urbanfruitproject.com
+    name: Tag Admin
+    id: 2

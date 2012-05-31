@@ -1,15 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  Name: MyString
-  Description: MyString
-  Rating: 1
-  Latitude: 1.5
-  Longitude: 1.5
-
-two:
-  Name: MyString
-  Description: MyString
-  Rating: 1
-  Latitude: 1.5
-  Longitude: 1.5
+guelph_cache:
+  latitude: 43.48772
+  longitude: -80.258507
+  user: vfilby
+  location: 'Puslinch, ON, CA'
+  description: 'Guelph cache'
+  primary_tag: trillium
+  tags:
+    - poisonous
+  
+ajax_cache:
+  latitude: 43.8508553
+  longitude: -79.0203732
+  user_id: 2
+  location: 'Ajax, ON, CA'
+  description: 'Ajax cache'
+  primary_tag: trillium
