@@ -1,6 +1,4 @@
 .tag
-  %button.close 
-    ×
   %a{ :href => tag_path( tag ) }
     %span.parent= (tag.parent) ? "#{tag.parent.tag} >" : ""
     %span.name= "#{tag.tag}"

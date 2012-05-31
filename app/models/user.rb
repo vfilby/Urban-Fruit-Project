@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :message => "can't be blank"
 
   def self.create_from_hash!(hash)
-    create(:name => hash['user_info']['name'])
+    create(:name => hash['info']['name'])
   end
   
   def build_authorization( omniauth )
-    self.email = omniauth['user_info']['email'] if email.blank?
+    self.email = omniauth['info']['email'] if email.blank?
     authorizations.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
 end
