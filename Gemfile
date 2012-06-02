@@ -44,7 +44,6 @@ gem 'workless', '~> 1.0.1'
 gem 'twitter'
 gem 'acts_as_tree_rails3'
 gem 'high_voltage'
-gem 'shoulda'
 
 group :production do
   gem 'thin'

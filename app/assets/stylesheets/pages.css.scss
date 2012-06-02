@@ -1,0 +1,30 @@
+/** Styling the navigational menus by adding a subtle background, and padding **/
+ul.section_menu{
+	background:#ededed;
+	padding:20px 10px;
+}
+
+/** Style our faq questions **/
+dl.faq{
+	margin-bottom:30px;
+}
+
+/** Make the question itself stand out **/
+dl.faq dt{
+	font-weight:bold;
+	color:#000000;
+	padding:25px 0 5px 0;
+	display:block;
+	line-height: 20pt;
+	font-size: 16pt;
+}
+
+/** Add a divisor below the question answer **/
+dl.faq dd{
+	padding-bottom:25px;
+	border-bottom:1px solid #cccccc;
+	display:block;
+	font-size: 14pt;
+	line-height: 16pt;
+	margin-left: 0;
+}

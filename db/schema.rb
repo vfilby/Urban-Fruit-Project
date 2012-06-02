@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20120527160837) do
   create_table "cached_browse_locations", :force => true do |t|
     t.string   "name",       :null => false
     t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -45,16 +45,16 @@ ActiveRecord::Schema.define(:version => 20120527160837) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "fruit_caches", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "rating"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "location"
-    t.integer  "primary_tag_id"
+    t.string    "name"
+    t.string    "description"
+    t.integer   "rating"
+    t.float     "latitude"
+    t.float     "longitude"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
+    t.string    "location"
+    t.integer   "primary_tag_id"
   end
 
   create_table "fruit_caches_tags", :id => false, :force => true do |t|

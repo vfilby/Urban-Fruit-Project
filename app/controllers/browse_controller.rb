@@ -23,6 +23,17 @@ class BrowseController < ApplicationController
   def location
     # "/" select all precalculated locations that don't have a parent
     # "/ontario/" all that have ontario for the root 
+    debugger
+    if params[:hierarchy]
+      puts params[:hierarchy]
+      parts = params[:hierarchy].split( '/' )
+      parent = CachedBrowseLocation.find_by_id( parts.last.to_i )
+      @locations = parent.children
+    else
+      puts "No hierarch"
+      @locations = CachedBrowseLocation.root.children
+    end
+    
   end
   
 end

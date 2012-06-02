@@ -51,7 +51,7 @@ class FruitCachesController < ApplicationController
     # Process the comma separated tags
     params[:fruit_cache][:primary_tag_id] = Tag.process_tag_id params[:fruit_cache][:primary_tag_id]
     if params[:fruit_cache][:tags]
-      params[:fruit_cache][:tag_ids] = params[:fruit_cache][:tags].split( "," ) 
+      params[:fruit_cache][:tag_ids] = Tag.process_tag_ids params[:fruit_cache][:tags]
       params[:fruit_cache].delete( :tags ) 
     end
     
