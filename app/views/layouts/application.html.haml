@@ -54,20 +54,21 @@
                 %b.caret
               %ul.dropdown-menu
                 %li
-                  %a About Us
+                  %a{ :href=>page_path('about') } About Us
+                %li
+                  %a{ :href=>page_path('faq') } FAQ
+                %li.divider  
                 %li
                   %a{ :href=>'http://blog.urbanfruitproject.com' } Our Blog
-                %li 
-                  %a Terms of Use
-
-                %li.divider
-                %li
-                  %a How to use
-                %li.divider
                 %li
                   %a{ :href=>'http://www.facebook.com/UrbanFruitProject' } Facebook
                 %li 
                   %a{ :href=>'http://www.twitter.com/fruitproject' } Twitter
+                %li.divider
+                %li 
+                  %a{ :href=>page_path('terms') } Terms of Use
+
+                  
 
     .container
       - if flash[:notice]

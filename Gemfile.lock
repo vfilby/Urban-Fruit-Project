@@ -108,6 +108,7 @@ GEM
       rubyzip
     heroku-api (0.2.1)
       excon (~> 0.13.3)
+    high_voltage (1.1.1)
     hike (1.2.1)
     httparty (0.8.3)
       multi_json (~> 1.0)
@@ -207,6 +208,11 @@ GEM
       tilt (~> 1.3)
     session (3.1.0)
       fattr
+    shoulda (3.0.1)
+      shoulda-context (~> 1.0.0)
+      shoulda-matchers (~> 1.0.0)
+    shoulda-context (1.0.0)
+    shoulda-matchers (1.0.0)
     simple_oauth (0.1.8)
     sprockets (2.1.3)
       hike (~> 1.2)
@@ -259,6 +265,7 @@ DEPENDENCIES
   gmaps4rails
   grape
   haml
+  high_voltage
   indextank
   jquery-rails (~> 2.0.0)
   json
@@ -274,6 +281,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   ruby-geonames!
   sass-rails
+  shoulda
   sqlite3
   tanker
   thin

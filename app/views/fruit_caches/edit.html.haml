@@ -1,0 +1,8 @@
+%h1
+  = "Editing #{(@fruit_cache.primary_tag) ? @fruit_cache.primary_tag.tag : "cache"}"
+
+= render 'form'
+
+= link_to 'Show', @fruit_cache 
+|
+= link_to 'Back', fruit_caches_path 
