@@ -2,9 +2,11 @@ require 'test_helper'
 
 class FruitCachesControllerTest < ActionController::TestCase
   setup do
-    @fruit_cache = fruit_caches(:guelph_cache)
-    user = users(:vfilby)
-    session[:user_id] = user.id
+    @fruit_cache = FactoryGirl.create(:guelph_cache)
+    @user = FactoryGirl.create( :user )
+    @admin = FactoryGirl.create :admin_user
+    
+    session[:user_id] = @user.id
   end
 
   test "should get index" do
@@ -31,21 +33,60 @@ class FruitCachesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  test "should not be able to edit" do
+    assert_raise( CanCan::AccessDenied ) do
+      get :edit, :id => @fruit_cache.to_param
+    end
+  end
+  
+  # test "admin can edit" do
+  #   session[:user_id] = @admin.id
+  #   
+  #   get :edit, :id => @fruit_cache.to_param
+  #   assert_response :success
+  # end
+  
+  test "owner can edit" do
+    session[:user_id] = @fruit_cache.user.id
+    
     get :edit, :id => @fruit_cache.to_param
-    assert_response :success
+    assert_response :success    
+  end
+  
+  test "other should not update fruit_cache" do
+    assert_raise( CanCan::AccessDenied ) do    
+      put :update, :id => @fruit_cache.to_param, :fruit_cache => @fruit_cache.attributes
+    end
   end
 
-  test "should update fruit_cache" do
+  # test "admin should update fruit_cache" do
+  #   session[:user_id] = @admin.id
+  #   
+  #   put :update, :id => @fruit_cache.to_param, :fruit_cache => @fruit_cache.attributes
+  #   assert_redirected_to fruit_cache_path(assigns(:fruit_cache))
+  # end
+
+  test "owner should update fruit_cache" do
+    session[:user_id] = @fruit_cache.user.id
+    
     put :update, :id => @fruit_cache.to_param, :fruit_cache => @fruit_cache.attributes
     assert_redirected_to fruit_cache_path(assigns(:fruit_cache))
   end
 
-  test "should destroy fruit_cache" do
-    assert_difference('FruitCache.count', -1) do
+  test "should not be able to destroy fruit_cache" do
+    assert_raise( CanCan::AccessDenied ) do
       delete :destroy, :id => @fruit_cache.to_param
     end
-
-    assert_redirected_to fruit_caches_path
   end
+  
+  # test "admin can delete cache" do
+  #   debugger
+  #   session[:user_id] = @admin.id
+  #   
+  #   assert_difference('FruitCache.count', -1) do
+  #     delete :destroy, :id => @fruit_cache.to_param
+  #   end
+  # 
+  #   assert_redirected_to fruit_caches_path
+  # end
 end

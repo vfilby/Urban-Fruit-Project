@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-flower:
-  tag: Flower Petals Rock
-  meta: {}
-  
-trillium:
-  tag: Trillium
-  parent: flower
-  meta: {}
-
-poisonous:
-  tag: Poisonous
-  meta: {}
+# flower:
+#   tag: Flower Petals Rock
+#   meta: {}
+#   
+# trillium:
+#   tag: Trillium
+#   parent: flower
+#   meta: {}
+# 
+# poisonous:
+#   tag: Poisonous
+#   meta: {}

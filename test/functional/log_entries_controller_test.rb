@@ -2,9 +2,9 @@ require 'test_helper'
 
 class LogEntriesControllerTest < ActionController::TestCase
   setup do
-    @cache = fruit_caches(:guelph_cache)
-    @log_entry = log_entries(:one)
-    user = users(:vfilby)
+    @cache = FactoryGirl.create :guelph_cache
+    @log_entry = FactoryGirl.create :log_entry, :fruit_cache => @cache  
+    user = FactoryGirl.create(:user)
     session[:user_id] = user.id
   end
 
@@ -31,21 +31,45 @@ class LogEntriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  test "owner should get edit" do
+    session[:user_id] = @log_entry.user.id
+    
     get :edit, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
     assert_response :success
   end
+  
+  test "other should not get edit" do
+    assert_raise( CanCan::AccessDenied ) do
+      get :edit, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
+    end
+  end
 
-  test "should update log_entry" do
+  test "owner should update log_entry" do
+    session[:user_id] = @log_entry.user.id
+    
     put :update, :fruit_cache_id => @cache.id, :id => @log_entry.to_param, :log_entry => @log_entry.attributes
     assert_redirected_to fruit_cache_path(@cache)
   end
+  
+  test "other user should not update log_entry" do
+    assert_raise( CanCan::AccessDenied ) do
+      put :update, :fruit_cache_id => @cache.id, :id => @log_entry.to_param, :log_entry => @log_entry.attributes
+    end
+  end
 
-  test "should destroy log_entry" do
+  test "owner should destroy log_entry" do
+    session[:user_id] = @log_entry.user.id
+    
     assert_difference('LogEntry.count', -1) do
       delete :destroy, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
     end
 
     assert_redirected_to fruit_cache_path(@cache)
+  end
+  
+  test "other user should not destroy log_entry" do
+    assert_raise( CanCan::AccessDenied ) do
+      delete :destroy, :fruit_cache_id => @cache.id, :id => @log_entry.to_param
+    end
   end
 end

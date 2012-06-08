@@ -11,5 +11,6 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'fruit_cache', 'fruit_caches'
+  inflect.irregular 'FruitCache', 'FruitCaches'
 end
 

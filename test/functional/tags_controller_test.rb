@@ -3,9 +3,9 @@ require 'test_helper'
 class TagsControllerTest < ActionController::TestCase
   
   setup do
-    @trillium = tags(:trillium)
-    @poisonous = tags(:poisonous)
-    user = users(:tag_admin)
+    @trillium = FactoryGirl.create(:tag)
+    @poisonous = FactoryGirl.create(:tag)
+    user = FactoryGirl.create( :user, id: 2 )
     session[:user_id] = user.id
   end
   

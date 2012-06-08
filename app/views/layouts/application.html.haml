@@ -3,7 +3,6 @@
   %head
     %title
       = content_for?(:title) ? "Urban Fruit Project | " + yield(:title) : "Urban Fruit Project" 
-    = stylesheet_link_tag   "http://twitter.github.com/bootstrap/assets/css/bootstrap.css"
     = stylesheet_link_tag    "application" 
     = javascript_include_tag "application" 
     = csrf_meta_tags

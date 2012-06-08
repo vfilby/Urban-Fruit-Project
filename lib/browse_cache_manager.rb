@@ -1,7 +1,7 @@
 module BrowseCacheManager
   require 'Geonames'
   
-  def add_location( latitude, longitude )
+  def add_location( cache, latitude, longitude )
     options = {
       maxRows: 50,
       radius: 50,
@@ -10,17 +10,29 @@ module BrowseCacheManager
 
     nearby_places = Geonames::WebService.find_nearby_place_name( latitude, longitude, options ).reject { |o| o.population <= 0 }
     nearby_places.each do |place|
-      location = CachedBrowseLocation.new({:name => place.name, :id => place.geoname_id.to_i })
+      location = CachedBrowseLocation.find_by_id place.geoname_id.to_i
+      if( !location )
+        location = CachedBrowseLocation.new(
+          { :name => place.name, 
+            :id => place.geoname_id.to_i, 
+            :latitude => place.latitude, 
+            :longitude => place.longitude 
+          })
+      end
+      
+      location.fruit_caches << cache
+      location.save!
+      
       save_hierarchy( location )
     end
   rescue Exception => e
-    error( e.message )
+    Rails.logger.error( e.message )
   end
   handle_asynchronously :add_location
-
+  
   
   def remove_location( latitude, longitude )
-    options = {
+    options = {  
       maxRows: 50,
       radius: 50,
       style: "full",
@@ -37,7 +49,7 @@ module BrowseCacheManager
       end
     end    
   rescue Exception => e
-    error( e.message )
+    Rails.logger.error( e.message )
   end
   handle_asynchronously :remove_location
   
@@ -67,13 +79,27 @@ module BrowseCacheManager
     hierarchy.each_index do |i|
       current = hierarchy[i]
       
-      next if CachedBrowseLocation.find_by_id( current.geoname_id.to_i )
-      
       parent_id = (i > 0) ? hierarchy[i-1].geoname_id.to_i : nil
       name = current.name
       id = current.geoname_id.to_i
       
-      c = CachedBrowseLocation.new( {:name => name, :id => id, :parent_id => parent_id} )
+      # If location exists ensure that the parent is set
+      db_location = CachedBrowseLocation.find_by_id( id )
+      if db_location
+        db_location.parent_id = parent_id
+        db_location.save!
+        next
+      end
+      
+      c = CachedBrowseLocation.new( 
+        {
+          :name => name, 
+          :id => id, 
+          :parent_id => parent_id, 
+          :latitude => current.latitude, 
+          :longitude => current.longitude 
+        } 
+      )
       c.save!
     end
     

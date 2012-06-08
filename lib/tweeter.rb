@@ -9,6 +9,7 @@ module Tweeter
         message[ ":"+token.to_s] = replacement
       end
       
+
       Delayed::Job.enqueue Tweeter::TwitterJob.new( message )
       
     rescue

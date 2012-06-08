@@ -9,6 +9,7 @@
 
 }
 
+/* Fixed the squished images */
 .map_container img { max-width: none; }
 
 .gmaps4rails_map {

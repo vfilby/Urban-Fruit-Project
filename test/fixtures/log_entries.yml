@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  user: vfilby
-  fruit_cache: guelph_cache
-  text: Log Entry
-
-two:
-  user: vfilby
-  fruit_cache: guelph_cache
-  text: MyString
+# one:
+#   user: vfilby
+#   fruit_cache: guelph_cache
+#   text: Log Entry
+# 
+# two:
+#   user: vfilby
+#   fruit_cache: guelph_cache
+#   text: MyString

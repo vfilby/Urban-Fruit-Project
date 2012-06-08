@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120527160837) do
+ActiveRecord::Schema.define(:version => 20120602143040) do
 
   create_table "authorizations", :force => true do |t|
     t.string    "provider"
@@ -26,7 +26,16 @@ ActiveRecord::Schema.define(:version => 20120527160837) do
     t.integer  "parent_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "latitude"
+    t.float    "longitude"
   end
+
+  create_table "cached_browse_locations_fruit_caches", :id => false, :force => true do |t|
+    t.integer "cached_browse_location_id"
+    t.integer "fruit_cache_id"
+  end
+
+  add_index "cached_browse_locations_fruit_caches", ["cached_browse_location_id", "fruit_cache_id"], :name => "keys_index"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer   "priority",   :default => 0

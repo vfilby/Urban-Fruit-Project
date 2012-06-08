@@ -6,10 +6,10 @@ class OmniAuthTest < ActionController::TestCase
      OmniAuth.config.test_mode = true
   end
   
-  test "user info should contain email" do
-    get '/auth/google/callback'
-    debugger
-    
-  end
+  # test "user info should contain email" do
+  #   get '/auth/google/callback'
+  #   debugger
+  #   
+  # end
 
 end

@@ -78,13 +78,13 @@ class FruitCache < ActiveRecord::Base
   end
   
   def create_cached_locations
-    BrowseCacheManager.add_location( latitude, longitude )
+    BrowseCacheManager.add_location( self, latitude, longitude )
   end
   
   def update_cached_locations
     if( self.latitude_changed? || self.longitude_changed? )
       BrowseCacheManager.remove_location( latitude, longitude )
-      BrowseCacheManager.add_location( latitude, longitude )
+      BrowseCacheManager.add_location( self, latitude, longitude )
     end
   end
   

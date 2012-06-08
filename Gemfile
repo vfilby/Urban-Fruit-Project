@@ -45,6 +45,10 @@ gem 'twitter'
 gem 'acts_as_tree_rails3'
 gem 'high_voltage'
 
+gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'faker'
+
 group :production do
   gem 'thin'
 end
