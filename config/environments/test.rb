@@ -42,4 +42,5 @@ Urbanfruitproject::Application.configure do
   Paperclip.options[:command_path] = "/usr/local/ImageMagick/bin/"
   
   Delayed::Worker.delay_jobs = false
+
 end
