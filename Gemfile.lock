@@ -216,6 +216,8 @@ GEM
     session (3.1.0)
       fattr
     simple_oauth (0.1.8)
+    sitemap_generator (3.1.1)
+      builder
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   rails (= 3.2.3)
   ruby-geonames!
   sass-rails
+  sitemap_generator
   sqlite3
   tanker
   thin

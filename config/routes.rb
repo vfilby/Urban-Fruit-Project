@@ -27,7 +27,7 @@ Urbanfruitproject::Application.routes.draw do
   end
   
 
-  match 'search(/:q)' => 'search#index'
+  match 'search(/:q)' => 'search#index', :as => 'search'
   root :to => 'home#index'
   
   mount UrbanFruitProject::API => "/"
