@@ -1,4 +1,12 @@
+- title "Plants near #{@location.qualified_name}"
+
 %ul
-  - @locations.each do |location|
+  - @child_locations.each do |location|
     %li
       = link_to location.name, "#{request.fullpath}/#{location.id}-#{location.name}"
+
+%ul
+  - if @tags
+    - @tags.each do |tag|
+      %li
+        = link_to "#{tag.tag}", :controller => :search, :q => "#{tag.tag} near #{@location.qualified_name}"

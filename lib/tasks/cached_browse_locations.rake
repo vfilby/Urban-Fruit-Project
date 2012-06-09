@@ -6,7 +6,7 @@ namespace :cached_locations do
     
     FruitCache.all.each do |cache|
       print "Adding #{cache.primary_tag.tag} to the job queue...\n"
-      BrowseCacheManager.add_location cache.latitude, cache.longitude
+      BrowseCacheManager.add_location cache, cache.latitude, cache.longitude
     end
   end
 end

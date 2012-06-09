@@ -69,4 +69,5 @@ Urbanfruitproject::Application.configure do
     Delayed::Job.scaler = :heroku_cedar
   end
   
+  config.exceptions_app = self.routes
 end

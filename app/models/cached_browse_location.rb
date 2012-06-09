@@ -15,4 +15,13 @@ class CachedBrowseLocation < ActiveRecord::Base
     raise ActiveRecord::Rollback if self.fruit_caches.include? cache
   end
   
+  def qualified_name
+    if parent && parent.name != 'Earth'
+      name + ', ' + parent.qualified_name
+    else
+      name
+    end
+  end
+  
+  
 end

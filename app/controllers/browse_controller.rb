@@ -27,11 +27,14 @@ class BrowseController < ApplicationController
     if params[:hierarchy]
       puts params[:hierarchy]
       parts = params[:hierarchy].split( '/' )
-      parent = CachedBrowseLocation.find_by_id( parts.last.to_i )
-      @locations = parent.children
+      @location = CachedBrowseLocation.find_by_id( parts.last.to_i )
+      @child_locations = @location.children
+      
+      if( @location.fruit_caches.count > 0 )
+        @tags = @location.fruit_caches.map( &:primary_tag ).uniq.sort
+      end
     else
-      puts "No hierarch"
-      @locations = CachedBrowseLocation.root.children
+      @child_locations = CachedBrowseLocation.root.children
     end
     
   end
