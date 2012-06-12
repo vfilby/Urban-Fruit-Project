@@ -1,5 +1,4 @@
 module BrowseCacheManager
-  require 'Geonames'
   
   def add_location( cache, latitude, longitude )
     options = {
@@ -66,8 +65,6 @@ module BrowseCacheManager
       current = parent
     end
   end
-
-  
   
   def save_hierarchy( browse_location )
  
