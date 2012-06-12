@@ -1,4 +1,5 @@
 module BrowseCacheManager
+  require 'geonames'
   
   def add_location( cache, latitude, longitude )
     options = {
