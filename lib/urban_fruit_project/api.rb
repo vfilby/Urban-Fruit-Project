@@ -95,7 +95,12 @@ class UrbanFruitProject::API < Grape::API
         cache.description = h["description"]
         cache.latitude = h["latitude"]
         cache.longitude = h["longitude"]
-      
+        
+        if h["primary_tag"] 
+          h["primary_tag_id"] = Tag.process_tag_id h["primary_tag"] 
+        end
+        cache.primary_tag_id = h["primary_tag_id"]
+        
         if cache.save
           "success"
         else

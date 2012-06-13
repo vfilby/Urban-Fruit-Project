@@ -46,10 +46,6 @@ gem 'acts_as_tree_rails3'
 gem 'high_voltage'
 gem 'sitemap_generator'
 
-gem 'factory_girl'
-gem 'factory_girl_rails'
-gem 'faker'
-
 group :production do
   gem 'thin'
 end
@@ -60,7 +56,12 @@ end
 group :development, :test do
   gem 'sqlite3'
   #gem 'webrat'
-  #gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'debugger'
   gem 'awesome_print'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
+
