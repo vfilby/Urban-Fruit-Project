@@ -70,12 +70,15 @@ class UrbanFruitProject::API < Grape::API
     # {
     #   "cache_id":19,
     #   "cache_owner":1,
-    #   "name":"Pear Tree",
+    #   "primary_tag":17, <== If this is text ("primary_tag":"buttercup") a new tag will be created
     #   "description":"Pear Tree",
     #   "location":"Burlington, ON, CA", <== Ignored use lat/long instead
     #   "latitude":43.3649522937441,
     #   "longitude":-79.7653398037541,
     # }
+    #
+    # Can be tested using curl:
+    # curl -X POST http://staging.urbanfruitproject.com/api/cache/save -d "json={\"cache_owner\":1,\"primary_tag\":\"Buttercup\",\"description\":\"Pear Tree\",\"location\":\"Burlington, ON, CA\",\"latitude\":43.3649522937441,\"longitude\":-79.7653398037541}"
     post "/save" do
       error!( "required json parameter not found", 500 ) unless params[:json] 
       
