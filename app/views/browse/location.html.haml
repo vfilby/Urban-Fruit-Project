@@ -1,4 +1,8 @@
-- title "Plants near #{@location.qualified_name}"
+- if @location
+  - title "Plants near #{@location.qualified_name}"
+- else
+  - title "Browse for plants by location"
+
 
 %ul
   - @child_locations.each do |location|
