@@ -3,3 +3,6 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
+
+# Sitemap
+Sitemap: http://www.urbanfruitproject.com/sitemap_index.xml.gz
