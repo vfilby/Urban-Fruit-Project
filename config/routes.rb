@@ -2,6 +2,8 @@ include UrbanFruitProject
 
 Urbanfruitproject::Application.routes.draw do
   
+  wiki_root '/wiki'
+
   match "/404" => 'errors#not_found'
   match "/500" => 'errors#internal_server_error'
   
