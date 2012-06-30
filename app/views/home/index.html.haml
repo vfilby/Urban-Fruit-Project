@@ -1,15 +1,16 @@
-.hero-unit
-  .row
-    .span9
-      %h1
-        Urban Fruit Project
-      %p
-        There are many hidden fruit trees on public land, trails or on roadsides.  These trees and bushes can be a bountiful supply of many good things.. if you know where they are.  Here is that knowledge.  If you know of fruit, share it.  If you need fruit, go get it.
-      %p
-        %a{ :class => "btn btn-primary btn-large", :href => sign_up_path  } Join
-        %a{ :class => "btn btn-large", :href => '/search' } Find fruit!
-        %a{ :class => "btn btn-large", :href => nearby_caches_path } See nearby caches
-        %a{ :class => "btn btn-large", :href => new_fruit_cache_url } Record your find
-    .span1
-      %a{ :href => "http://www.twitter.com/fruitproject"}= image_tag "authbuttons/twitter_64.png", :size => "64x64", :alt => "Twitter"
-      %a{ :href => "http://www.facebook.com/UrbanFruitProject" }= image_tag "authbuttons/facebook_64.png", :size => "64x64", :alt => "Facebook"
+- content_for :hero do
+  .hero-unit
+    .row
+      .span9
+        %h1
+          Urban Fruit Project
+        %p
+          There are many hidden fruit trees on public land, trails or on roadsides.  These trees and bushes can be a bountiful supply of many good things.. if you know where they are.  Here is that knowledge.  If you know of fruit, share it.  If you need fruit, go get it.
+        %p
+          %a{ :class => "btn btn-primary btn-large", :href => sign_up_path  } Join
+          %a{ :class => "btn btn-large", :href => '/search' } Find fruit!
+          %a{ :class => "btn btn-large", :href => nearby_caches_path } See nearby caches
+          %a{ :class => "btn btn-large", :href => new_fruit_cache_url } Record your find
+      .span1
+        %a{ :href => "http://www.twitter.com/fruitproject"}= image_tag "authbuttons/twitter_64.png", :size => "64x64", :alt => "Twitter"
+        %a{ :href => "http://www.facebook.com/UrbanFruitProject" }= image_tag "authbuttons/facebook_64.png", :size => "64x64", :alt => "Facebook"

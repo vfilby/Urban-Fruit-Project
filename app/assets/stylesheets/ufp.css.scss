@@ -1,0 +1,53 @@
+$serifFontFamily: Georgia, "Times New Roman", Times, serif;
+$ralewayFontFamily: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sansFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$baseFontSize: 16px;
+$baseFontFamily: $serifFontFamily;
+$altFontFamily: $sansFontFamily;
+$headingsFontFamily: $sansFontFamily;
+$navbarLinkColor: #fff;
+
+@font-face {
+    font-family: 'RalewayThin';
+    src: url('raleway_thin-webfont.eot');
+    src: url('raleway_thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('raleway_thin-webfont.woff') format('woff'),
+         url('raleway_thin-webfont.ttf') format('truetype'),
+         url('raleway_thin-webfont.svg#RalewayThin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@import "bootstrap";
+
+body {
+  background: image-url("bg.png") repeat;
+}
+
+.content {
+  background-color: #fff;
+}
+
+.top-pattern {
+   width: 100%;
+   height: 50px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background: transparent image-url("bg-top.png") repeat-x;
+   z-index: -1000;
+}
+.navbar a {
+  font-family: $ralewayFontFamily;
+  font-weight: bold;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.navbar-inner {
+  height: 50  px;
+  background: image-url("bg-top.png") repeat-x;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

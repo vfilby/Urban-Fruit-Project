@@ -45,6 +45,7 @@ gem 'twitter'
 gem 'acts_as_tree_rails3'
 gem 'high_voltage'
 gem 'sitemap_generator'
+gem 'bootstrap-sass', '~> 2.0.4.0'
 
 group :production do
   gem 'thin'
