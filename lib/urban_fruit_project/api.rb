@@ -82,8 +82,7 @@ class UrbanFruitProject::API < Grape::API
     post "/save" do
       error!( "required json parameter not found", 500 ) unless params[:json] 
       
-      parser = Yajl::Parser.new
-      h = parser.parse params[:json]
+      h = params[:json]
       
       # If updating then load the existing object
       if h["cache_id"] && h["cache_id"] > 0
@@ -93,19 +92,19 @@ class UrbanFruitProject::API < Grape::API
       end
 
       begin
-        cache.user_id = h["cache_owner"]
-        cache.name = h["name"]
-        cache.description = h["description"]
-        cache.latitude = h["latitude"]
-        cache.longitude = h["longitude"]
+        cache.user_id = h["cache_owner"] if h["cache_owner"]
+        cache.name = h["name"] if h["name"]
+        cache.description = h["description"] if h["description"]
+        cache.latitude = h["latitude"] if h["latitude"]
+        cache.longitude = h["longitude"] if h["longitude"]
         
-        if h["primary_tag"] 
-          h["primary_tag_id"] = Tag.process_tag_id h["primary_tag"] 
-        end
-        cache.primary_tag_id = h["primary_tag_id"]
+        cache.primary_tag_id = Tag.process_tag_id h["primary_tag"] if h["primary_tag"]
+        cache.tag_ids = h["tags"].map do |tag| 
+          Tag.process_tag_id tag
+        end if h["tags"]
         
         if cache.save
-          "success"
+          present cache, :with => UrbanFruitProject::Entities::Cache
         else
           error!( "Error saving cache: #{cache.errors.to_json}", 500)
         end
@@ -153,7 +152,7 @@ class UrbanFruitProject::API < Grape::API
           image = Image.new( image_params )
           
           if image.save!
-            "success"
+            present image, :with => UrbanFruitProject::Entities::Image
           else
             error!( "Unable to save image", 500)
           end

@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(:version => 20120602143040) do
 
   create_table "authorizations", :force => true do |t|
-    t.string    "provider"
-    t.string    "uid"
-    t.integer   "user_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "cached_browse_locations", :force => true do |t|
@@ -38,32 +38,32 @@ ActiveRecord::Schema.define(:version => 20120602143040) do
   add_index "cached_browse_locations_fruit_caches", ["cached_browse_location_id", "fruit_cache_id"], :name => "keys_index"
 
   create_table "delayed_jobs", :force => true do |t|
-    t.integer   "priority",   :default => 0
-    t.integer   "attempts",   :default => 0
-    t.text      "handler"
-    t.text      "last_error"
-    t.timestamp "run_at"
-    t.timestamp "locked_at"
-    t.timestamp "failed_at"
-    t.string    "locked_by"
-    t.string    "queue"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "fruit_caches", :force => true do |t|
-    t.string    "name"
-    t.string    "description"
-    t.integer   "rating"
-    t.float     "latitude"
-    t.float     "longitude"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "user_id"
-    t.string    "location"
-    t.integer   "primary_tag_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "rating"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "user_id"
+    t.string   "location"
+    t.integer  "primary_tag_id"
   end
 
   create_table "fruit_caches_tags", :id => false, :force => true do |t|
@@ -74,38 +74,38 @@ ActiveRecord::Schema.define(:version => 20120602143040) do
   add_index "fruit_caches_tags", ["fruit_cache_id", "tag_id"], :name => "index_fruit_caches_tags_on_fruit_cache_id_and_tag_id"
 
   create_table "images", :force => true do |t|
-    t.string    "caption"
-    t.integer   "fruit_cache_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "photo_file_name"
-    t.string    "photo_content_type"
-    t.integer   "photo_file_size"
-    t.timestamp "photo_updated_at"
-    t.integer   "user_id"
+    t.string   "caption"
+    t.integer  "fruit_cache_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "user_id"
   end
 
   create_table "log_entries", :force => true do |t|
-    t.string    "text"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "fruit_cache_id"
-    t.integer   "user_id"
+    t.string   "text"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "fruit_cache_id"
+    t.integer  "user_id"
   end
 
   create_table "tags", :force => true do |t|
-    t.string    "tag"
-    t.integer   "parent_id"
-    t.string    "meta"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "tag"
+    t.integer  "parent_id"
+    t.string   "meta"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string    "email"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
 end
