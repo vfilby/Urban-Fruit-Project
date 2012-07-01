@@ -59,7 +59,7 @@ group :development, :test do
   gem 'debugger'
   gem 'awesome_print'
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'shoulda', :require => false
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'faker'
