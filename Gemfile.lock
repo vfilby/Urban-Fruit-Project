@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/alexreisner/geocoder.git
-  revision: f7fbf23162cf77aaeb096798a64c6414cb1b1b02
-  specs:
-    geocoder (1.1.2)
-
-GIT
   remote: git://github.com/nickpad/will_paginate-bootstrap.git
   revision: d834e2a134593358f3957c6bb69acddca9f3864a
   specs:
@@ -16,6 +10,11 @@ GIT
   revision: 7ecce1f6bbfadcd433c8a0b1734dd0b224adae70
   specs:
     ruby-geonames (0.3.0)
+
+PATH
+  remote: /Users/vfilby/Projects/geocoder
+  specs:
+    geocoder (1.1.2)
 
 GEM
   remote: http://rubygems.org/
