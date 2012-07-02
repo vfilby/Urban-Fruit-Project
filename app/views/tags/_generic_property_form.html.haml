@@ -1,0 +1,6 @@
+.control-group
+  = label_tag key, nil, :class => 'control-label edittable-label' 
+  =# text_field_tag "label", key, :style=>"width: 135px; float: left; padding-top: 5px;"
+  .controls
+    = text_field_tag "tag[meta][#{key}]", value
+    = link_to_function "Remove", "remove_field(this)"

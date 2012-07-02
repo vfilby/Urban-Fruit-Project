@@ -10,11 +10,20 @@
 .row
   .span6
     %p
-      = @fruit_cache.description
-    
-    %div
       - @fruit_cache.tags.each do |tag|
         = render :partial => 'tags/tag', :locals => { :tag => tag }
+    
+    %p
+      = @fruit_cache.description
+    
+    - attribution = []  
+    - @fruit_cache.tags.each do |tag|
+      - tag.meta.reduce( attribution ) { |attribution, (k,v)| k == attribution << v if 'Attribution' }
+    - if attribution.count > 0
+      Provided by:
+      %ul
+        - attribution.each do |link|
+          %li= raw(link)
         
     %h3#photos_count
       -if @fruit_cache.images.size > 0

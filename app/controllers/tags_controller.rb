@@ -36,7 +36,7 @@ class TagsController < ApplicationController
   end
 
   def edit
-    @tag.meta_edit = @tag.read_attribute(:meta).inspect
+    #@tag.meta_edit = @tag.read_attribute(:meta).inspect
   end
   
   def update

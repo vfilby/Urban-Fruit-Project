@@ -5,10 +5,19 @@
     .tag
       = @tag.tag
     =link_to( "Edit", edit_tag_path( @tag ) )
-    - if @tag.parent
-      .parent
-        = "#{@tag.parent.tag} #{(@tag.parent.id)}"
+    .parent
+      - if @tag.parent
+        .parent
+          = "#{@tag.parent.tag} #{(@tag.parent.id)}"
+      - else
+        No parent
     .children
-      = @tag.children
+      - if @tag.children.count > 0
+        = @tag.children
+      - else
+        No Children
     .meta
-      = @tag.meta
+      %dl
+        - @tag.meta.each do |key,value|
+          %dt= key
+          %dd= value

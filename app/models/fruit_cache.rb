@@ -16,6 +16,7 @@ class FruitCache < ActiveRecord::Base
   after_update :update_cached_locations
   after_destroy :destroy_cached_locations
   
+  
   # Ruby Geocoder
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first

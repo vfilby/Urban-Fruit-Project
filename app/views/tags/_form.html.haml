@@ -2,13 +2,17 @@
 = bootstrap_form_for @tag, :html => {:multipart => true, :class=>"well form-horizontal"}  do |f|
   = f.text_field :tag
   = f.text_field :parent
-  = f.text_area :meta_edit
   
+  - Rails.logger.debug @tag.inspect
+  - Rails.logger.debug @tag.meta
+  - @tag.meta.each do |key, value|
+    = render :partial => "generic_property_form", :locals => { :key => key, :value => value }
+  .control-group
+    .controls
+      = link_to_function( "Add", "add_fields( this, \"#{escape_javascript(render :partial=>"generic_property_form", :locals=>{ :key=>"newkey", :value => "value"})}\")" )
+        
   .actions
     = f.submit :class => "btn btn-primary"
-  
-
-
   
 - content_for :scripts do
   :javascript
