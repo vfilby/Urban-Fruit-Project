@@ -22,7 +22,7 @@ gem 'cancan'
 
 gem 'jquery-rails', '~> 2.0.0'
 gem 'json'
-gem 'geocoder', :path => '/Users/vfilby/Projects/geocoder' #, :git => 'git://github.com/alexreisner/geocoder.git'
+gem 'geocoder', :git => 'git://github.com/alexreisner/geocoder.git'
 gem 'gmaps4rails'
 gem 'ruby-geonames', :git => 'git://github.com/vfilby/ruby-geonames.git'
 gem 'haml'
