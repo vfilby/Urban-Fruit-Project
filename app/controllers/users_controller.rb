@@ -24,11 +24,11 @@ class UsersController < ApplicationController
     end
     @user = User.new
     @user.valid?
-    #debugger
   end
   
   def create
     @user = User.new(params[:user])
+    @user.token = Digest::SHA1.hexdigest([Time.now, rand].join)
     
     #clear omniauth data if it is in the session
     if session.has_key?(:omniauth) 

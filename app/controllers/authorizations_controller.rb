@@ -2,17 +2,20 @@ class AuthorizationsController < ApplicationController
   protect_from_forgery :except => :create
   
   def index
-    @authorizations = current_user.authorizations if current_user  
+    @authorizations = current_user.authorizations if current_user
+    prev_page = request.env["HTTP_REFERER"] || root_url
+    
   end
 
   def create
     auth = request.env['omniauth.auth']
     authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
+    
     if authorization
       flash[:notice] = "Signed in successfully"
       session[:user_id] = authorization.user
-      redirect_to root_url
-
+      redirect_to profile_path
+      
     elsif current_user
       current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'])
       flash[:notice] = "Authorization added to your account"

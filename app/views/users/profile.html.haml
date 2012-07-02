@@ -9,6 +9,9 @@
       %li
         %a{ :href => authorizations_path }
           Edit your authorizations
+      %li
+        %a{ :href=>"urbanfruitproject://authorize?user_id=#{current_user.id}&token=#{current_user.token}" }
+          Authorize your mobile app (beta only)
   .span6
     %h3 Your caches
     - caches = FruitCache.where( :user_id => current_user )
