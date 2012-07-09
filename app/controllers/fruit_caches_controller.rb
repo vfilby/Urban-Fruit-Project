@@ -3,8 +3,13 @@ class FruitCachesController < ApplicationController
   # GET /fruit_caches
   # GET /fruit_caches.xml
   def index
-    @fruit_caches = FruitCache.all
-    @google_maps_json = @fruit_caches.to_gmaps4rails
+    @fruit_caches = FruitCache.includes( [:tags,:primary_tag]).all
+    @google_maps_json = @fruit_caches.to_gmaps4rails do |cache,marker|
+      marker.infowindow cache.gmaps4rails_infowindow #render_to_string( :partial => "fruit_caches/map_info", :locals  => { :cache => cache } )
+      marker.title cache.name
+      marker.sidebar cache.name
+      marker.json( { :id => cache.id })
+    end
     
     respond_to do |format|
       format.html # index.html.erb

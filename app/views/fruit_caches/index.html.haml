@@ -1,11 +1,5 @@
 - title "Caches near you"
 
 .row
-  .span6
-    - @fruit_caches.each do |fruit_cache|
-      = render :partial => "snippet", :locals => { :fruit_cache => fruit_cache }
-
-  .span6
-    = gmaps( :map_options => { :container_class => "map_container", :class => "height300", :auto_adjust => true },:markers => { "data" => @google_maps_json} )
-%br
-
+  .span12
+    = gmaps( "markers" => { "data" => @google_maps_json, "options" => { "do_clustering"=>true, "clusterer_maxZoom"=>15 } }, "map_options" => { :container_class => "map_container", :class => "height500", :auto_adjust => true } )

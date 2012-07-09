@@ -16,6 +16,13 @@ class FruitCache < ActiveRecord::Base
   after_update :update_cached_locations
   after_destroy :destroy_cached_locations
   
+  # Return the first object which matches the attributes hash
+  # - or -
+  # Create new object with the given attributes
+  #
+  def self.find_or_create(attributes)
+    FruitCache.where(attributes).first || FruitCache.create(attributes)
+  end
   
   # Ruby Geocoder
   reverse_geocoded_by :latitude, :longitude do |obj,results|
@@ -71,11 +78,20 @@ class FruitCache < ActiveRecord::Base
   # GMaps4Rails
   #
   def short_description( length = 55 )
-    if description.length > length
+    if description && description.length > length
       return description[0..length] + "..."
     else 
       return description
     end
+  end
+  
+  def gmaps4rails_infowindow
+    <<-EOT
+    <b><a href=\"#{Rails.application.routes.url_helpers.fruit_cache_path self}\">#{self.primary_tag.tag}</a></b>
+    <div  class="description"
+      #{self.short_description}
+    </div>
+    EOT
   end
   
   def create_cached_locations

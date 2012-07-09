@@ -1,4 +1,5 @@
 assc
+.pyc
 .sass-cache
 capybara-*.html
 .rspec
