@@ -36,13 +36,5 @@ Urbanfruitproject::Application.configure do
   config.after_initialize do 
     Delayed::Job.scaler = :null
   end
-  
-  #Debug needs to be squashed!
-  require 'ruby-debug'
-  Debugger.settings[:autoeval] = true
-  Debugger.settings[:autolist] = 1
-  Debugger.settings[:reload_source_on_change] = true
-  Debugger.start_remote
-  puts "=> Debugger enabled"
 end
 
