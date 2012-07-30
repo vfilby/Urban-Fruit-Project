@@ -14,9 +14,6 @@ class UrbanFruitProject::API < Grape::API
     end
   end
   
-  before do
-    authenticate!
-  end
   
   resource "search" do
     # Search for caches
@@ -27,7 +24,7 @@ class UrbanFruitProject::API < Grape::API
     # @param [longitude] Longitude of the search center
     # @param [location] A location string to be geocoded
     get "/" do
-
+      
       latitude = 0.0
       longitude = 0.0
       
@@ -93,6 +90,7 @@ class UrbanFruitProject::API < Grape::API
     # Can be tested using curl:
     # curl -X POST http://staging.urbanfruitproject.com/api/cache/save -d "json={\"cache_owner\":1,\"primary_tag\":\"Buttercup\",\"description\":\"Pear Tree\",\"location\":\"Burlington, ON, CA\",\"latitude\":43.3649522937441,\"longitude\":-79.7653398037541}"
     post "/save" do
+      authenticate!
       error!( "required json parameter not found", 500 ) unless params[:json] 
       
       h = params[:json]
@@ -154,6 +152,7 @@ class UrbanFruitProject::API < Grape::API
         # @param [image]
         # @params [caption]
         post '/upload' do
+          authenticate!
           @fruit_cache = FruitCache.find(params[:cache_id])
           
           image_params = {
@@ -180,6 +179,11 @@ class UrbanFruitProject::API < Grape::API
     end
     
     post "echo" do
+      params
+    end
+    
+    get "echo_secure" do
+      authenticate!
       params
     end
   end
