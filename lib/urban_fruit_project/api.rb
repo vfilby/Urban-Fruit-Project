@@ -4,6 +4,19 @@ class UrbanFruitProject::API < Grape::API
   format :json
   default_format :json
   
+  helpers do
+    def current_user
+      nil
+    end
+    
+    def authenticate!
+      error!('401 Unauthorized', 401) unless current_user
+    end
+  end
+  
+  before do
+    authenticate!
+  end
   
   resource "search" do
     # Search for caches
