@@ -13,9 +13,9 @@ GIT
 
 GIT
   remote: git://github.com/vfilby/ruby-geonames.git
-  revision: 7ecce1f6bbfadcd433c8a0b1734dd0b224adae70
+  revision: a767907f9ed7588b26fec47f707b8d0ee43286bf
   specs:
-    ruby-geonames (0.3.0)
+    geonames (0.3.3)
 
 GEM
   remote: http://rubygems.org/
@@ -56,7 +56,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    backports (3.3.1)
+    backports (3.3.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     cancan (1.6.10)
@@ -269,7 +269,7 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (4.8.0)
+    twitter (4.8.1)
       faraday (~> 0.8, < 0.10)
       multi_json (~> 1.0)
       simple_oauth (~> 0.2)
@@ -306,6 +306,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   geocoder!
+  geonames!
   gmaps4rails
   grape
   haml
@@ -324,7 +325,6 @@ DEPENDENCIES
   pg
   rails (= 3.2.3)
   rspec-rails
-  ruby-geonames!
   sass-rails
   shoulda
   sitemap_generator
