@@ -21,13 +21,14 @@ not seasonal foraging spots, not private gardens.
 
 ## High-Level Architecture
 
-- **Frontend**: PWA (React or similar), map-centric UI
-- **Backend**: API-first (REST or GraphQL), stateless
-- **Database**: PostgreSQL (RDS)
-- **File Storage**: S3 for photos
-- **Auth**: Email/password accounts with proper password hashing
-- **Infrastructure**: AWS, defined as Infrastructure as Code (CDK, Terraform, or similar)
-- **Deployment**: Automated CI/CD pipeline
+- **Language**: TypeScript everywhere (frontend, backend, infrastructure)
+- **Frontend**: React PWA, map-centric UI using OpenStreetMap + Leaflet
+- **Backend**: REST API on AWS Lambda (Node.js)
+- **Database**: PostgreSQL with PostGIS (RDS)
+- **File Storage**: S3 for photos, CloudFront CDN
+- **Auth**: Email/password accounts with proper password hashing (JWT)
+- **Infrastructure**: AWS CDK (TypeScript)
+- **Deployment**: GitHub Actions CI/CD pipeline
 
 ## V1 Scope
 

@@ -2,7 +2,7 @@
 
 ## AWS Architecture (V1)
 
-All infrastructure defined as code (CDK or Terraform — to be decided).
+All infrastructure defined as code using **AWS CDK (TypeScript)**.
 
 ### Compute
 
@@ -59,12 +59,15 @@ All infrastructure defined as code (CDK or Terraform — to be decided).
 | `staging` | AWS — mirrors production, auto-deployed from main |
 | `production` | AWS — manual promotion from staging |
 
-## Tech Stack Decision (Backend)
+## Tech Stack
 
-Not yet decided. Candidates:
+| Layer | Technology | Rationale |
+|-------|-----------|-----------|
+| **Backend** | TypeScript (Node.js) | Same language as frontend and CDK, good Lambda support |
+| **Frontend** | TypeScript (React) | PWA with service worker, responsive |
+| **IaC** | AWS CDK (TypeScript) | Type-safe infrastructure, single language across stack |
+| **Map Tiles** | OpenStreetMap + Leaflet | Free, open source, no API key or usage fees |
+| **API Framework** | TBD (Express, Fastify, or Hono) | Lightweight, Lambda-compatible |
 
-- **TypeScript (Node.js)** — same language as frontend, large ecosystem, good Lambda support
-- **Python (FastAPI)** — excellent for API-first, good AWS/Lambda story
-- **Rust (Axum)** — fast, low Lambda cold starts, but higher development cost
-
-Recommend deciding based on team familiarity. All three work well with the architecture.
+Single-language stack (TypeScript everywhere) minimizes context switching and
+allows shared types between frontend, backend, and infrastructure.
