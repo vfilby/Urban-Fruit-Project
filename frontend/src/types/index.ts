@@ -1,29 +1,20 @@
+export interface Note {
+  id: number;
+  text: string;
+  createdAt: string;
+  userId: number;
+}
+
 export interface PlantLocation {
   id: number;
   name: string;
-  description: string | null;
+  description: string;
   latitude: number;
   longitude: number;
-  location: string | null;
-  species: string | null;
-  status: "active" | "gone" | "seasonal" | "unverified";
+  location: string;
   rating: number | null;
+  createdAt: string;
+  updatedAt: string;
   contributorName: string;
-  createdAt: string;
   notes: Note[];
-  photos: Photo[];
-}
-
-export interface Note {
-  id: number;
-  body: string;
-  authorName: string;
-  createdAt: string;
-}
-
-export interface Photo {
-  id: number;
-  caption: string | null;
-  url: string;
-  thumbnailUrl: string;
 }
