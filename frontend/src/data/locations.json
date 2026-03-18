@@ -17,6 +17,14 @@
         "createdAt": "2011-09-06 03:44:42.136484+0000",
         "userId": 1
       }
+    ],
+    "photos": [
+      {
+        "id": 20,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/20/halfwidth/photo.jpeg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/20/thumbnail_crop/photo.jpeg"
+      }
     ]
   },
   {
@@ -30,7 +38,8 @@
     "createdAt": "2011-09-02 02:48:05.160308+0000",
     "updatedAt": "2012-04-15 22:22:07.525286+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 4,
@@ -43,7 +52,8 @@
     "createdAt": "2011-09-02 02:48:45.945178+0000",
     "updatedAt": "2012-04-15 22:22:07.802999+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 5,
@@ -56,7 +66,21 @@
     "createdAt": "2011-09-02 02:49:24.737533+0000",
     "updatedAt": "2012-04-15 22:22:08.728420+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 24,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/24/halfwidth/Evernote_20110906_19_35_50.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/24/thumbnail_crop/Evernote_20110906_19_35_50.jpg"
+      },
+      {
+        "id": 25,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/25/halfwidth/Evernote_20110906_19_35_50.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/25/thumbnail_crop/Evernote_20110906_19_35_50.jpg"
+      }
+    ]
   },
   {
     "id": 7,
@@ -69,7 +93,8 @@
     "createdAt": "2011-09-02 15:28:05.059705+0000",
     "updatedAt": "2012-04-15 22:22:09.312884+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 8,
@@ -82,7 +107,8 @@
     "createdAt": "2011-09-03 00:37:44.212906+0000",
     "updatedAt": "2012-04-15 22:22:10.483757+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 9,
@@ -102,6 +128,20 @@
         "createdAt": "2012-04-07 14:06:24.966263+0000",
         "userId": 1
       }
+    ],
+    "photos": [
+      {
+        "id": 28,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/28/halfwidth/photo.JPG",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/28/thumbnail_crop/photo.JPG"
+      },
+      {
+        "id": 29,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/29/halfwidth/image.jpeg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/29/thumbnail_crop/image.jpeg"
+      }
     ]
   },
   {
@@ -115,7 +155,8 @@
     "createdAt": "2011-09-04 22:56:13.366052+0000",
     "updatedAt": "2012-04-15 22:22:11.510892+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 11,
@@ -128,7 +169,21 @@
     "createdAt": "2011-09-06 03:09:59.327733+0000",
     "updatedAt": "2012-04-15 22:22:12.766520+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 3,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/3/halfwidth/44.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/3/thumbnail_crop/44.jpg"
+      },
+      {
+        "id": 4,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/4/halfwidth/21.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/4/thumbnail_crop/21.jpg"
+      }
+    ]
   },
   {
     "id": 12,
@@ -141,7 +196,15 @@
     "createdAt": "2011-09-06 03:22:35.370844+0000",
     "updatedAt": "2012-04-15 22:22:14.209908+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 5,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/5/halfwidth/21.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/5/thumbnail_crop/21.jpg"
+      }
+    ]
   },
   {
     "id": 13,
@@ -154,7 +217,15 @@
     "createdAt": "2011-09-06 03:27:46.162350+0000",
     "updatedAt": "2012-04-15 22:22:14.942925+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 6,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/6/halfwidth/20.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/6/thumbnail_crop/20.jpg"
+      }
+    ]
   },
   {
     "id": 14,
@@ -167,7 +238,21 @@
     "createdAt": "2011-09-06 03:30:33.241512+0000",
     "updatedAt": "2012-04-15 22:22:15.146441+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 7,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/7/halfwidth/21.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/7/thumbnail_crop/21.jpg"
+      },
+      {
+        "id": 8,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/8/halfwidth/59.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/8/thumbnail_crop/59.jpg"
+      }
+    ]
   },
   {
     "id": 15,
@@ -180,7 +265,15 @@
     "createdAt": "2011-09-06 03:32:23.675891+0000",
     "updatedAt": "2012-04-15 22:22:15.736694+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 9,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/9/halfwidth/03.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/9/thumbnail_crop/03.jpg"
+      }
+    ]
   },
   {
     "id": 16,
@@ -193,7 +286,15 @@
     "createdAt": "2011-09-06 03:33:20.779701+0000",
     "updatedAt": "2012-04-15 22:22:18.026166+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 10,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/10/halfwidth/19.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/10/thumbnail_crop/19.jpg"
+      }
+    ]
   },
   {
     "id": 17,
@@ -206,7 +307,27 @@
     "createdAt": "2011-09-06 03:34:21.298650+0000",
     "updatedAt": "2012-04-15 22:22:18.427766+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 11,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/11/halfwidth/28.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/11/thumbnail_crop/28.jpg"
+      },
+      {
+        "id": 12,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/12/halfwidth/53.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/12/thumbnail_crop/53.jpg"
+      },
+      {
+        "id": 13,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/13/halfwidth/19.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/13/thumbnail_crop/19.jpg"
+      }
+    ]
   },
   {
     "id": 18,
@@ -219,7 +340,27 @@
     "createdAt": "2011-09-06 03:36:31.096009+0000",
     "updatedAt": "2012-04-15 22:22:18.613129+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 14,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/14/halfwidth/40.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/14/thumbnail_crop/40.jpg"
+      },
+      {
+        "id": 15,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/15/halfwidth/35.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/15/thumbnail_crop/35.jpg"
+      },
+      {
+        "id": 16,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/16/halfwidth/05.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/16/thumbnail_crop/05.jpg"
+      }
+    ]
   },
   {
     "id": 19,
@@ -239,6 +380,20 @@
         "createdAt": "2011-09-06 03:39:46.463869+0000",
         "userId": 1
       }
+    ],
+    "photos": [
+      {
+        "id": 17,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/17/halfwidth/00.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/17/thumbnail_crop/00.jpg"
+      },
+      {
+        "id": 18,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/18/halfwidth/photo.jpeg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/18/thumbnail_crop/photo.jpeg"
+      }
     ]
   },
   {
@@ -252,7 +407,15 @@
     "createdAt": "2011-09-06 03:42:03.870140+0000",
     "updatedAt": "2012-04-15 22:22:19.575300+0000",
     "contributorName": "Anonymouse",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 19,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/19/halfwidth/40.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/19/thumbnail_crop/40.jpg"
+      }
+    ]
   },
   {
     "id": 21,
@@ -265,7 +428,15 @@
     "createdAt": "2012-04-16 17:45:45.194524+0000",
     "updatedAt": "2012-04-16 17:45:45.194524+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 21,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/21/halfwidth/Evernote_20110925_12_18_52.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/21/thumbnail_crop/Evernote_20110925_12_18_52.jpg"
+      }
+    ]
   },
   {
     "id": 22,
@@ -278,7 +449,15 @@
     "createdAt": "2012-04-16 17:49:02.070025+0000",
     "updatedAt": "2012-04-16 17:49:02.070025+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 22,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/22/halfwidth/Evernote_20110911_16_48_53.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/22/thumbnail_crop/Evernote_20110911_16_48_53.jpg"
+      }
+    ]
   },
   {
     "id": 23,
@@ -291,7 +470,15 @@
     "createdAt": "2012-04-16 17:50:52.517507+0000",
     "updatedAt": "2012-04-16 17:50:52.517507+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 23,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/23/halfwidth/Evernote_20110805_20_47_34.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/23/thumbnail_crop/Evernote_20110805_20_47_34.jpg"
+      }
+    ]
   },
   {
     "id": 24,
@@ -304,7 +491,8 @@
     "createdAt": "2012-04-16 17:52:37.376247+0000",
     "updatedAt": "2012-04-16 17:52:37.376247+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 25,
@@ -317,7 +505,8 @@
     "createdAt": "2012-04-16 18:00:27.446508+0000",
     "updatedAt": "2012-04-16 18:00:27.446508+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 26,
@@ -330,7 +519,15 @@
     "createdAt": "2012-04-16 18:05:54.181416+0000",
     "updatedAt": "2012-04-16 18:05:54.181416+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 26,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/26/halfwidth/Evernote_20110906_19_33_45.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/26/thumbnail_crop/Evernote_20110906_19_33_45.jpg"
+      }
+    ]
   },
   {
     "id": 27,
@@ -343,7 +540,8 @@
     "createdAt": "2012-04-16 18:11:00.856583+0000",
     "updatedAt": "2012-04-16 18:11:00.856583+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 28,
@@ -356,7 +554,15 @@
     "createdAt": "2012-04-16 18:11:55.638838+0000",
     "updatedAt": "2012-04-16 18:11:55.638838+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 27,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/27/halfwidth/Evernote_20110925_12_16_39.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/27/thumbnail_crop/Evernote_20110925_12_16_39.jpg"
+      }
+    ]
   },
   {
     "id": 29,
@@ -369,7 +575,21 @@
     "createdAt": "2012-04-21 02:00:28.094015+0000",
     "updatedAt": "2012-04-21 02:00:28.094015+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 33,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/33/halfwidth/Evernote_20120420_18_08_28.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/33/thumbnail_crop/Evernote_20120420_18_08_28.jpg"
+      },
+      {
+        "id": 34,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/34/halfwidth/Evernote_20120420_18_08_42.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/34/thumbnail_crop/Evernote_20120420_18_08_42.jpg"
+      }
+    ]
   },
   {
     "id": 30,
@@ -382,7 +602,21 @@
     "createdAt": "2012-04-21 02:06:12.151963+0000",
     "updatedAt": "2012-04-21 02:06:12.151963+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 35,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/35/halfwidth/Evernote_20120420_18_24_07.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/35/thumbnail_crop/Evernote_20120420_18_24_07.jpg"
+      },
+      {
+        "id": 36,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/36/halfwidth/Evernote_20120420_18_24_18.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/36/thumbnail_crop/Evernote_20120420_18_24_18.jpg"
+      }
+    ]
   },
   {
     "id": 31,
@@ -395,7 +629,21 @@
     "createdAt": "2012-04-21 02:08:21.841718+0000",
     "updatedAt": "2012-04-21 02:08:21.841718+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 37,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/37/halfwidth/Evernote_20120420_18_19_48.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/37/thumbnail_crop/Evernote_20120420_18_19_48.jpg"
+      },
+      {
+        "id": 38,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/38/halfwidth/Evernote_20120420_18_19_59.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/38/thumbnail_crop/Evernote_20120420_18_19_59.jpg"
+      }
+    ]
   },
   {
     "id": 32,
@@ -408,7 +656,15 @@
     "createdAt": "2012-04-21 02:10:49.733485+0000",
     "updatedAt": "2012-04-21 02:10:49.733485+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 39,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/39/halfwidth/Evernote_20120420_18_07_24.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/39/thumbnail_crop/Evernote_20120420_18_07_24.jpg"
+      }
+    ]
   },
   {
     "id": 33,
@@ -421,7 +677,8 @@
     "createdAt": "2012-04-21 19:21:50.345552+0000",
     "updatedAt": "2012-04-21 19:21:50.345552+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 34,
@@ -434,7 +691,8 @@
     "createdAt": "2012-04-21 19:28:07.236871+0000",
     "updatedAt": "2012-04-21 19:28:07.236871+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 35,
@@ -447,7 +705,15 @@
     "createdAt": "2012-04-21 19:29:13.551364+0000",
     "updatedAt": "2012-04-21 19:29:13.551364+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 40,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/40/halfwidth/Evernote_20110908_19_49_31.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/40/thumbnail_crop/Evernote_20110908_19_49_31.jpg"
+      }
+    ]
   },
   {
     "id": 36,
@@ -460,7 +726,8 @@
     "createdAt": "2012-04-21 19:35:40.062192+0000",
     "updatedAt": "2012-04-21 19:35:40.062192+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 37,
@@ -473,7 +740,21 @@
     "createdAt": "2012-04-21 19:37:18.791942+0000",
     "updatedAt": "2012-04-21 19:37:18.791942+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 41,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/41/halfwidth/Evernote_20110910_16_29_38.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/41/thumbnail_crop/Evernote_20110910_16_29_38.jpg"
+      },
+      {
+        "id": 42,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/42/halfwidth/Evernote_20110910_16_30_16.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/42/thumbnail_crop/Evernote_20110910_16_30_16.jpg"
+      }
+    ]
   },
   {
     "id": 38,
@@ -486,7 +767,15 @@
     "createdAt": "2012-04-21 19:42:34.938070+0000",
     "updatedAt": "2012-04-21 19:42:34.938070+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 43,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/43/halfwidth/Evernote_20110910_16_38_14.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/43/thumbnail_crop/Evernote_20110910_16_38_14.jpg"
+      }
+    ]
   },
   {
     "id": 39,
@@ -499,7 +788,15 @@
     "createdAt": "2012-04-21 19:44:50.569190+0000",
     "updatedAt": "2012-04-21 19:44:50.569190+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 44,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/44/halfwidth/Evernote_20110911_16_39_08.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/44/thumbnail_crop/Evernote_20110911_16_39_08.jpg"
+      }
+    ]
   },
   {
     "id": 40,
@@ -512,7 +809,15 @@
     "createdAt": "2012-04-21 20:00:54.978165+0000",
     "updatedAt": "2012-04-21 20:04:35.743116+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 45,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/45/halfwidth/Evernote_20110911_16_46_16.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/45/thumbnail_crop/Evernote_20110911_16_46_16.jpg"
+      }
+    ]
   },
   {
     "id": 41,
@@ -525,7 +830,15 @@
     "createdAt": "2012-04-21 20:02:10.624068+0000",
     "updatedAt": "2012-04-21 20:02:10.624068+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 46,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/46/halfwidth/Evernote_20110911_16_41_00.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/46/thumbnail_crop/Evernote_20110911_16_41_00.jpg"
+      }
+    ]
   },
   {
     "id": 42,
@@ -538,7 +851,8 @@
     "createdAt": "2012-04-21 20:04:57.110908+0000",
     "updatedAt": "2012-04-21 20:04:57.110908+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": []
   },
   {
     "id": 43,
@@ -551,7 +865,15 @@
     "createdAt": "2012-04-21 20:06:33.436090+0000",
     "updatedAt": "2012-04-21 20:06:33.436090+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 47,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/47/halfwidth/Evernote_20110911_17_04_52.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/47/thumbnail_crop/Evernote_20110911_17_04_52.jpg"
+      }
+    ]
   },
   {
     "id": 44,
@@ -571,6 +893,26 @@
         "createdAt": "2012-04-25 01:08:25.035733+0000",
         "userId": 2
       }
+    ],
+    "photos": [
+      {
+        "id": 48,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/48/halfwidth/Evernote_20110911_17_16_15.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/48/thumbnail_crop/Evernote_20110911_17_16_15.jpg"
+      },
+      {
+        "id": 51,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/51/halfwidth/image_2.jpeg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/51/thumbnail_crop/image_2.jpeg"
+      },
+      {
+        "id": 52,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/52/halfwidth/photo_2.JPG",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/52/thumbnail_crop/photo_2.JPG"
+      }
     ]
   },
   {
@@ -584,7 +926,15 @@
     "createdAt": "2012-04-21 20:22:29.455605+0000",
     "updatedAt": "2012-04-21 20:22:29.455605+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 49,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/49/halfwidth/Evernote_20110911_17_23_08.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/49/thumbnail_crop/Evernote_20110911_17_23_08.jpg"
+      }
+    ]
   },
   {
     "id": 46,
@@ -597,7 +947,15 @@
     "createdAt": "2012-04-21 20:23:38.972302+0000",
     "updatedAt": "2012-04-21 20:23:38.972302+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 50,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/50/halfwidth/Evernote_20110911_17_24_05.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/50/thumbnail_crop/Evernote_20110911_17_24_05.jpg"
+      }
+    ]
   },
   {
     "id": 47,
@@ -623,6 +981,20 @@
         "createdAt": "2012-04-26 02:27:56.725124+0000",
         "userId": 2
       }
+    ],
+    "photos": [
+      {
+        "id": 55,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/55/halfwidth/Evernote_20120425_18_29_13.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/55/thumbnail_crop/Evernote_20120425_18_29_13.jpg"
+      },
+      {
+        "id": 56,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/56/halfwidth/Evernote_20120425_18_29_39.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/56/thumbnail_crop/Evernote_20120425_18_29_39.jpg"
+      }
     ]
   },
   {
@@ -636,7 +1008,15 @@
     "createdAt": "2012-04-26 02:31:24.064109+0000",
     "updatedAt": "2012-04-26 02:31:24.064109+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 57,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/57/halfwidth/Evernote_20120425_18_23_36.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/57/thumbnail_crop/Evernote_20120425_18_23_36.jpg"
+      }
+    ]
   },
   {
     "id": 49,
@@ -649,7 +1029,15 @@
     "createdAt": "2012-04-26 02:33:59.977290+0000",
     "updatedAt": "2012-04-26 02:33:59.977290+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 58,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/58/halfwidth/Evernote_20120422_16_59_34.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/58/thumbnail_crop/Evernote_20120422_16_59_34.jpg"
+      }
+    ]
   },
   {
     "id": 50,
@@ -662,7 +1050,15 @@
     "createdAt": "2012-04-26 02:38:40.678006+0000",
     "updatedAt": "2012-04-26 02:38:40.678006+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 59,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/59/halfwidth/Evernote_20120425_18_24_21.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/59/thumbnail_crop/Evernote_20120425_18_24_21.jpg"
+      }
+    ]
   },
   {
     "id": 51,
@@ -675,7 +1071,15 @@
     "createdAt": "2012-04-26 02:40:13.419508+0000",
     "updatedAt": "2012-04-26 02:40:13.419508+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 60,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/60/halfwidth/Evernote_20120425_18_32_47.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/60/thumbnail_crop/Evernote_20120425_18_32_47.jpg"
+      }
+    ]
   },
   {
     "id": 52,
@@ -688,7 +1092,15 @@
     "createdAt": "2012-04-26 02:43:09.155064+0000",
     "updatedAt": "2012-04-26 02:43:09.155064+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 61,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/61/halfwidth/Evernote_20120425_19_41_53.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/61/thumbnail_crop/Evernote_20120425_19_41_53.jpg"
+      }
+    ]
   },
   {
     "id": 53,
@@ -707,6 +1119,14 @@
         "text": "Trail access here: http://maps.google.com/maps?q=43.47941,-79.710461",
         "createdAt": "2012-04-26 02:46:05.411385+0000",
         "userId": 2
+      }
+    ],
+    "photos": [
+      {
+        "id": 62,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/62/halfwidth/Evernote_20120425_20_00_53.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/62/thumbnail_crop/Evernote_20120425_20_00_53.jpg"
       }
     ]
   },
@@ -728,6 +1148,14 @@
         "createdAt": "2012-04-26 02:48:24.742008+0000",
         "userId": 2
       }
+    ],
+    "photos": [
+      {
+        "id": 63,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/63/halfwidth/Evernote_20120425_19_59_43.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/63/thumbnail_crop/Evernote_20120425_19_59_43.jpg"
+      }
     ]
   },
   {
@@ -741,7 +1169,15 @@
     "createdAt": "2012-04-26 02:50:09.968803+0000",
     "updatedAt": "2012-04-26 02:50:09.968803+0000",
     "contributorName": "Vincent Filby",
-    "notes": []
+    "notes": [],
+    "photos": [
+      {
+        "id": 64,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/64/halfwidth/Evernote_20120425_19_55_20.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/64/thumbnail_crop/Evernote_20120425_19_55_20.jpg"
+      }
+    ]
   },
   {
     "id": 56,
@@ -760,6 +1196,14 @@
         "text": "Trail access here: http://maps.google.com/maps?q=43.47941,-79.710461",
         "createdAt": "2012-04-26 02:56:04.363846+0000",
         "userId": 2
+      }
+    ],
+    "photos": [
+      {
+        "id": 65,
+        "caption": null,
+        "url": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/65/halfwidth/Evernote_20120425_20_03_59.jpg",
+        "thumbnailUrl": "https://urbanfruitproject.s3.us-east-1.amazonaws.com/paperclip_assets/photos/65/thumbnail_crop/Evernote_20120425_20_03_59.jpg"
       }
     ]
   }

@@ -101,6 +101,9 @@ export default function MapView({ locations, onSelectLocation, onBoundsChange }:
             <Popup>
               <div className="popup-content">
                 <strong>{loc.name}</strong>
+                {loc.photos.length > 0 && (
+                  <span className="popup-photo-badge">📷 {loc.photos.length}</span>
+                )}
                 <p>{loc.description}</p>
                 <p className="popup-location">{loc.location}</p>
                 <button

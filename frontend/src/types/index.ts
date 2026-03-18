@@ -5,6 +5,13 @@ export interface Note {
   userId: number;
 }
 
+export interface Photo {
+  id: number;
+  caption: string | null;
+  url: string;
+  thumbnailUrl: string;
+}
+
 export interface PlantLocation {
   id: number;
   name: string;
@@ -17,4 +24,5 @@ export interface PlantLocation {
   updatedAt: string;
   contributorName: string;
   notes: Note[];
+  photos: Photo[];
 }
